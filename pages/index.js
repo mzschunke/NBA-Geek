@@ -1,4 +1,3 @@
-import useSWR from "swr";
 import TeamOverview from "../Components/TeamList"; 
 
 export default function HomePage() {
