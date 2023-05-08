@@ -1,7 +1,24 @@
+import Head from "next/head";
+import TeamOverview from "../Components/TeamList";
+import styled from "styled-components"; 
+
+const Headline = styled.h1`
+  font-size: 5rem;
+  font-weight: bold;
+  margin-top: 1rem;  
+  font-family: "roboto", sans-serif;
+  text-align: center;
+  letter-spacing: 3px;
+ 
+`;
+
+
 export default function HomePage() {
   return (
-    <div>
-      <h1>Hello from Next.js</h1>
-    </div>
+    <main>
+      <Headline>TEAMS</Headline>
+      <TeamOverview />
+    </main>
   );
 }
+
