@@ -1,6 +1,16 @@
 import useSWR from "swr";
 import styled from "styled-components";
 
+const Header = styled.h1`
+  font-size: 5rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  color: #000000; // #0d48a0 (Tory Blue) ;
+  font-family: "roboto", sans-serif;
+  text-align: center;
+  letter-spacing: 3px;
+`;
+
 const StyledList = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -26,26 +36,18 @@ const StyledListItem = styled.li`
   }
 `;
 
-const Header = styled.h1`
-  font-size: 3rem;
-  font-weight: bold;
-  margin-top: 1rem;
-  color: #0d48a0;
-  font-family: "roboto", sans-serif;
-`;
-
 const TeamName = styled.h2`
   font-size: 1.3rem;
   font-weight: bold;
   margin-top: 1rem;
   color: #0d48a0;
+  text-align: center;
 `;
-
 
 const TeamLogo = styled.img`
   width: 80%;
   height: 80%;
-  object-fit: cover;
+  object-fit: contain;
   margin-bottom: 0.5rem;
 `;
 
@@ -61,7 +63,7 @@ export default function TeamOverview() {
 
   return (
     <div>
-      <Header>All Teams:</Header>
+      <Header>TEAMS</Header>
       <StyledList>
       {teams.map((team) => (
         <StyledListItem key={team.id}>
