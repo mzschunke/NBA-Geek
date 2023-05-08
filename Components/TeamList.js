@@ -2,7 +2,7 @@ import useSWR from "swr";
 import styled from "styled-components";
 import Image from "next/image";
 
-const Header = styled.h1`
+const Headline = styled.h1`
   font-size: 5rem;
   font-weight: bold;
   margin-top: 1rem;  
@@ -53,16 +53,13 @@ export default function TeamOverview() {
  if (isLoading) return <div>Loading...</div>;
 
   return (
-    <div>
-      <Header>TEAMS</Header>
-      <StyledList>
-      {teams.map((team) => (
+        <StyledList role="list">
+        {teams.map((team) => (
         <StyledListItem key={team.id}>
           <Image src={`/images/team-logos/${team.id}.png`} width={200} height={200} style={{objectFit: "contain"}} alt={team.name}/>
           <TeamName>{team.city} {team.name}</TeamName>
         </StyledListItem>
       ))} 
       </StyledList>
-    </div>
   );
 }
