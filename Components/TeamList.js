@@ -5,7 +5,7 @@ const Header = styled.h1`
   font-size: 5rem;
   font-weight: bold;
   margin-top: 1rem;
-  color: #000000; // #0d48a0 (Tory Blue)
+  color: #000000; // #0d48a0 (Tory Blue / h2)
   font-family: "roboto", sans-serif;
   text-align: center;
   letter-spacing: 3px;
