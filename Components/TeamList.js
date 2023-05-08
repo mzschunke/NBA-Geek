@@ -1,14 +1,15 @@
 import useSWR from "swr";
 import styled from "styled-components";
+import Image from "next/image";
 
 const Header = styled.h1`
   font-size: 5rem;
   font-weight: bold;
-  margin-top: 1rem;
-  color: #000000; // #0d48a0 (Tory Blue / h2)
+  margin-top: 1rem;  
   font-family: "roboto", sans-serif;
   text-align: center;
   letter-spacing: 3px;
+ 
 `;
 
 const StyledList = styled.ul`
@@ -24,7 +25,6 @@ const StyledListItem = styled.li`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease-in-out;
@@ -44,19 +44,10 @@ const TeamName = styled.h2`
   text-align: center;
 `;
 
-const TeamLogo = styled.img`
-  width: 80%;
-  height: 80%;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
-`;
-
-
 const URL = "https://www.balldontlie.io/api/v1/teams?page=1";
 export default function TeamOverview() {
   const { data, error, isLoading } = useSWR(URL);
   const teams = data?.data;
-  console.log(teams);
 
  if (error) return <div>Failed to load</div>;
  if (isLoading) return <div>Loading...</div>;
@@ -67,7 +58,7 @@ export default function TeamOverview() {
       <StyledList>
       {teams.map((team) => (
         <StyledListItem key={team.id}>
-          <TeamLogo src={`../images/team-logos/${team.id}.png`} alt="Team logo - not found" />
+          <Image src={`/images/team-logos/${team.id}.png`} width={200} height={200} style={{objectFit: "contain"}} alt={team.name}/>
           <TeamName>{team.city} {team.name}</TeamName>
         </StyledListItem>
       ))} 
@@ -75,4 +66,3 @@ export default function TeamOverview() {
     </div>
   );
 }
-
