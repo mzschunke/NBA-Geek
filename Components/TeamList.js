@@ -67,7 +67,7 @@ export default function TeamOverview() {
       <StyledList>
       {teams.map((team) => (
         <StyledListItem key={team.id}>
-          <TeamLogo src={`../images/team-logos/${team.name}.png`} alt="Team logo - not found" />
+          <TeamLogo src={`../images/team-logos/${team.id}.png`} alt="Team logo - not found" />
           <TeamName>{team.city} {team.name}</TeamName>
         </StyledListItem>
       ))} 
