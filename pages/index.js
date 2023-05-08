@@ -1,10 +1,9 @@
 import useSWR from "swr";
-import TeamOverview from "../Components/Teams"; 
+import TeamOverview from "../Components/TeamList"; 
 
 export default function HomePage() {
   return (
     <div>
-      <h1>NBA Geek</h1>
       <TeamOverview />
     </div>
   );
