@@ -1,16 +1,7 @@
 import useSWR from "swr";
 import styled from "styled-components";
 import Image from "next/image";
-
-const Headline = styled.h1`
-  font-size: 5rem;
-  font-weight: bold;
-  margin-top: 1rem;  
-  font-family: "roboto", sans-serif;
-  text-align: center;
-  letter-spacing: 3px;
- 
-`;
+import Link from "next/link";
 
 const StyledList = styled.ul`
   display: grid;
@@ -29,7 +20,6 @@ const StyledListItem = styled.li`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease-in-out;
   cursor: pointer;
-
   &:hover {
     transform: translateY(-6px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -55,10 +45,12 @@ export default function TeamOverview() {
   return (
         <StyledList role="list">
         {teams.map((team) => (
+        <Link href={`/teams/${team.id}`} key={team.id}>
         <StyledListItem key={team.id}>
           <Image src={`/images/team-logos/${team.id}.png`} width={200} height={200} style={{objectFit: "contain"}} alt={team.name}/>
           <TeamName>{team.city} {team.name}</TeamName>
         </StyledListItem>
+        </Link>
       ))} 
       </StyledList>
   );
