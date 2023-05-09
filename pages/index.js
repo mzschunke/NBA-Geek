@@ -9,16 +9,19 @@ const Headline = styled.h1`
   font-family: "roboto", sans-serif;
   text-align: center;
   letter-spacing: 3px;
- 
 `;
-
 
 export default function HomePage() {
   return (
+    <>
+    <Head>
+    <title>NBA GEEK</title>
+    </Head>
     <main>
       <Headline>TEAMS</Headline>
       <TeamOverview />
     </main>
+    </>
   );
 }
 
