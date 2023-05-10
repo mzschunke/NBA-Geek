@@ -1,5 +1,6 @@
 import Head from "next/head";
 import TeamOverview from "../Components/TeamList";
+import PlayerOverview from "@/Components/PlayerList";
 import styled from "styled-components"; 
 
 const Headline = styled.h1`
@@ -17,6 +18,7 @@ export default function HomePage() {
     <Head>
     <title>NBA GEEK</title>
     </Head>
+    <PlayerOverview />
     <main>
       <Headline>TEAMS</Headline>
       <TeamOverview />
