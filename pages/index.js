@@ -18,7 +18,6 @@ export default function HomePage() {
     <Head>
     <title>NBA GEEK</title>
     </Head>
-    <PlayerOverview />
     <main>
       <Headline>TEAMS</Headline>
       <TeamOverview />
