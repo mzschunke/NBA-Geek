@@ -27,7 +27,7 @@ text-align: center;
 color: #0d48a0;
 `
 
-const URL = "https://www.balldontlie.io/api/v1/teams";
+const URL = "/api/players";
 
 export default function TeamPage() {
     const router = useRouter();
@@ -35,21 +35,15 @@ export default function TeamPage() {
     const { data, error, isLoading } = useSWR(URL + "/" + id);
     if (error) return <div>Failed to load</div>;
     if (isLoading) return <div>Loading...</div>;
-    const team = data;
+    const player = data;
     
 return (
     <TeamContainer>
-         <Image src={`/images/team-logos/${team.id}.png`} width={350} height={350} style={{objectFit: "contain"}} alt={team.name}/>
-        <TeamName>{team.city} {team.name}</TeamName>
+        <TeamName>{player.first_name}</TeamName>
         <StyledTeamDetails> 
-         <h3>Conference: {team.conference}</h3>
-         <h3>Division: {team.division}</h3>
+         <h3>Conference:</h3>
+         <h3>Division:</h3>
          </StyledTeamDetails>
             <StyledLink href="/">🔙 All teams</StyledLink>
     </TeamContainer>
 )}
-
- 
-
-
-
