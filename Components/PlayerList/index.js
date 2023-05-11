@@ -47,11 +47,7 @@ export default function PlayerOverview() {
     const filteredPlayers = data.filter((player) => 
          player.last_name.toLowerCase().startsWith(letter));
     if (error) {return <div>failed to load</div>, console.log(error)}
-    if (isLoading) {return <div>loading...</div>}
-    console.log(filteredPlayers.length);
-    if (filteredPlayers.length === 0) {
-        return <div>"No Players match your criteria"</div>
-    };
+    if (isLoading) {return <div>loading...</div>};
     
     return ( 
         <>
