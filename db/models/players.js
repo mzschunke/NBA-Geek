@@ -11,7 +11,7 @@ const playersSchema = new Schema({
   weight_pounds: { type: Number, required: false },
 });
 
-const Players = mongoose.models.Player || mongoose.model("Players", playersSchema);
+const Players = mongoose.models.Players || mongoose.model("Players", playersSchema);
 
 export default Players;
 
