@@ -41,9 +41,8 @@ const Headline = styled.h1`
   margin-bottom: 0;
 `
 export default function PlayerOverview() {
-    const {data, error, isLoading} = useSWR("/api/players");
+    const {data, error, isLoading} = useSWR("/api/players", { fallbackData: [] });
     const [letter, setLetter] = useState("a");
-
     const filteredPlayers = data.filter((player) => 
          player.last_name.toLowerCase().startsWith(letter));
     if (error) {return <div>failed to load</div>, console.log(error)}
