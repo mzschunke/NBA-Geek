@@ -9,6 +9,7 @@ const TeamContainer = styled.div`
     justify-content: center;
     align-items: center;
     padding-top: 2.5rem;
+    margin: 0 10px 0 10px;
 `;
 
 const TeamName = styled.h1`
@@ -16,7 +17,7 @@ const TeamName = styled.h1`
   color: #0d48a0;
   text-align: center;`
 
-const StyledLink = styled.a`
+export const StyledLink = styled.a`
   text-decoration: none;
   height: 30%;
 `;
@@ -44,7 +45,7 @@ return (
          <h3>Conference: {team.conference}</h3>
          <h3>Division: {team.division}</h3>
          </StyledTeamDetails>
-            <StyledLink href="/">🔙 All teams</StyledLink>
+            <StyledLink href="/teams">🔙 All teams</StyledLink>
     </TeamContainer>
 )}
 
