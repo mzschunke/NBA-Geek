@@ -34,6 +34,19 @@ const TeamName = styled.h2`
   text-align: center;
 `;
 
+const Headline = styled.h1`
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 0.5rem;  
+  font-family: "roboto", sans-serif;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #0d48a0;
+  text-shadow: 1px 1px 1px #000000;
+  margin-top: 2rem;
+  margin-bottom: 0;
+`
+
 const URL = "https://www.balldontlie.io/api/v1/teams?page=1";
 export default function TeamOverview() {
   const { data, error, isLoading } = useSWR(URL);
@@ -43,6 +56,8 @@ export default function TeamOverview() {
  if (isLoading) return <div>Loading...</div>;
 
   return (
+    <>
+        <Headline>TEAMS</Headline>
         <StyledList role="list">
         {teams.map((team) => (
         <Link href={`/teams/${team.id}`} key={team.id}>
@@ -53,6 +68,7 @@ export default function TeamOverview() {
         </Link>
       ))} 
       </StyledList>
+      </>
   );
 }
 

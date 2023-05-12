@@ -45,7 +45,7 @@ return (
          <h3>Conference: {team.conference}</h3>
          <h3>Division: {team.division}</h3>
          </StyledTeamDetails>
-            <StyledLink href="/">🔙 All teams</StyledLink>
+            <StyledLink href="/teams">🔙 All teams</StyledLink>
     </TeamContainer>
 )}
 
