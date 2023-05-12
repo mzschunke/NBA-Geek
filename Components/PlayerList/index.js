@@ -2,7 +2,7 @@ import useSWR from "swr";
 import styled from "styled-components";
 import { useState } from "react";
 
-const StyledLetterList = styled.ul`
+const StyledLetterList = styled.div`
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -32,13 +32,11 @@ const Headline = styled.h1`
   font-size: 2.5rem;
   font-weight: bold;
   margin-top: 0.5rem;  
-  font-family: "roboto", sans-serif;
   text-align: center;
   letter-spacing: 3px;
   color: #0d48a0;
   text-shadow: 1px 1px 1px #000000;
-  margin-top: 2rem;
-  margin-bottom: 0;
+  margin-top: 2rem;  margin-bottom: 0;
 `
 export default function PlayerOverview() {
     const {data, error, isLoading} = useSWR("/api/players", { fallbackData: [] });
