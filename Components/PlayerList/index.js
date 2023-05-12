@@ -41,7 +41,7 @@ const Headline = styled.h1`
   margin-bottom: 0;
 `
 export default function PlayerOverview() {
-    const {data, error, isLoading} = useSWR('/api/players', { fallbackData: [] });
+    const {data, error, isLoading} = useSWR("/api/players");
     const [letter, setLetter] = useState("a");
 
     const filteredPlayers = data.filter((player) => 
