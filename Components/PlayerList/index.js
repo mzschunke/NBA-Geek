@@ -8,7 +8,7 @@ const StyledLetterList = styled.div`
     flex-wrap: wrap;
     margin-left: 0;
     padding-right: 20px;
-    background-color: rgb(0, 0 , 0, 0.15)
+    background-color: rgb(0, 0 , 0, 0.15);
 `
 
 const StyledButton = styled.button`
@@ -38,14 +38,14 @@ const Headline = styled.h1`
   text-shadow: 1px 1px 1px #000000;
   margin-top: 2rem;  margin-bottom: 0;
 `
+
 export default function PlayerOverview() {
     const {data, error, isLoading} = useSWR("/api/players", { fallbackData: [] });
     const [letter, setLetter] = useState("a");
     const filteredPlayers = data.filter((player) => 
-         player.last_name.toLowerCase().startsWith(letter));
-    if (error) {return <div>failed to load</div>, console.log(error)}
+    player.last_name.toLowerCase().startsWith(letter));
+    if (error) {return <div>failed to load</div>, console.log(error)};
     if (isLoading) {return <div>loading...</div>};
-    
     return ( 
         <>
                 <Headline>All Players</Headline>
