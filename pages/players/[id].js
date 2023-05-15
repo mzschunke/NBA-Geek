@@ -2,7 +2,8 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import styled from "styled-components";
 import { StyledLink } from "@/styles";
-
+import Image from "next/image"; 
+ 
 const PlayerContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -31,16 +32,17 @@ export default function PlayerPage() {
     if (error) return <div>Failed to load</div>;
     if (isLoading) return <div>Loading...</div>;
     const player = data;
-    console.log(player);
 
 return (
     <PlayerContainer>
     <PlayerName>{player.last_name}, {player.first_name}</PlayerName>  
-    <PlayerDetails>  <p>Position: {player.position}</p>
-    <p>Height: {player.height_feet}"{player.height_inches}</p>
-    <p>Weight: {player.weight_pounds} lbs.</p>
-    <p>Team: {player.team.full_name}</p>
-     </PlayerDetails>
-     <StyledLink href="/players">🔙 All players</StyledLink>
+    <PlayerDetails>
+    <p>Position: {player?.position ? player.position : "unknown"}</p>
+    <p>Height: {player?.height_feet ? `${player.height_feet}'${player.height_inches}"` : "unknown"}</p>
+    <p>Weight: {player?.weight_pounds ? `${player.weight_pounds} lbs.` : "unknown"}</p>
+    <p>Team:  {player?.team?.full_name ? player.team.full_name : "unknown"} <Image src={`/images/team-logos/${player.team.id}.png`} width={30} height={30} style={{objectFit: "contain"}} alt={player.team.name}/></p>
+    </PlayerDetails>
+    <StyledLink href="/players">🔙 All players</StyledLink>
     </PlayerContainer>
 )}
+
