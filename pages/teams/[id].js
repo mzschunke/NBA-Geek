@@ -3,6 +3,7 @@ import useSWR from "swr";
 import styled from "styled-components";
 import Image from "next/image";
 import { StyledLink } from "@/styles";
+import NavBar from "@/Components/NavBar";
 
 const TeamContainer = styled.div`
     display: flex;
@@ -34,6 +35,7 @@ export default function TeamPage() {
     const team = data;
     
 return (
+  <>
     <TeamContainer>
          <Image src={`/images/team-logos/${team.id}.png`} width={350} height={350} style={{objectFit: "contain"}} alt={team.name}/>
         <TeamName>{team.city} {team.name}</TeamName>
@@ -43,6 +45,8 @@ return (
          </StyledTeamDetails>
             <StyledLink href="/teams">🔙 All teams</StyledLink>
     </TeamContainer>
+    <NavBar />
+    </>
 )}
 
  

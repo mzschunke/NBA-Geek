@@ -3,6 +3,7 @@ import useSWR from "swr";
 import styled from "styled-components";
 import { StyledLink } from "@/styles";
 import Image from "next/image"; 
+import NavBar from "@/Components/NavBar";
  
 const PlayerContainer = styled.div`
     display: flex;
@@ -34,6 +35,7 @@ export default function PlayerPage() {
     const player = data;
 
 return (
+    <>
     <PlayerContainer>
     <PlayerName>{player.last_name}, {player.first_name}</PlayerName>  
     <PlayerDetails>
@@ -44,5 +46,7 @@ return (
     </PlayerDetails>
     <StyledLink href="/players">🔙 All players</StyledLink>
     </PlayerContainer>
+    <NavBar/>
+    </>
 )}
 
