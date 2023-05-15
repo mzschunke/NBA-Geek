@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import styled from "styled-components";
 import { useState } from "react";
+import Link from "next/link";
 
 const StyledLetterList = styled.div`
     list-style: none;
@@ -77,9 +78,11 @@ export default function PlayerOverview() {
                 <StyledPlayerList role="list">
                 {letter.toUpperCase()}
             {filteredPlayers.map((player) => (
+                <Link href={`/players/${player.id}`} key={player.id}>
                 <StyledListItem key={player.id}>
                     {player.last_name}{", "} {player.first_name}
                 </StyledListItem>
+                </Link>
             ))}
             </StyledPlayerList>
             </>
