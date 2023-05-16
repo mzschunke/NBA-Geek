@@ -91,10 +91,10 @@ export default function PlayerOverview() {
         <>
         <Headline>All Players</Headline>
         <Input value={searchQuery} onChange={handleInputChange} type="search" id="player-search" placeholder="Search..."/>
-        <StyledButton type="button" onClick={() => {setLetter(letter);}}>Reset</StyledButton>
+        <StyledButton type="button" onClick={() => setLetter(letter)}>Reset</StyledButton>
         <StyledLetterList role="list">
          {alphabet.map((letter) => (
-                <StyledButton key={letter} onClick={() => {setLetter(letter);}}>
+                <StyledButton key={letter} onClick={() => setLetter(letter)}>
                 {letter.toUpperCase()}
                 </StyledButton>
                ))}
