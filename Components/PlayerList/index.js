@@ -124,7 +124,7 @@ export default function PlayerOverview() {
                 </StyledButton>
                ))}
         </StyledLetterList>
-        {filteredPlayers.length > 0 ? (
+        {filteredPlayers.length ? (
         <>
         {searchQuery && (<StyledParagraph>{filteredPlayers.length} players found</StyledParagraph>)}
         {filteredPlayers.map((player) => (
