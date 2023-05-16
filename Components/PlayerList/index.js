@@ -2,14 +2,15 @@ import useSWR from "swr";
 import styled from "styled-components";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const StyledLetterList = styled.div`
-    list-style: none;
     display: flex;
     flex-wrap: wrap;
     margin-left: 0;
-    padding-right: 20px;
+    margin-right: 0;
     background-color: rgb(0, 0 , 0, 0.15);
+    gap: 2%;
 `
 
 const StyledButton = styled.button`
@@ -37,15 +38,30 @@ const Headline = styled.h1`
   letter-spacing: 3px;
   color: #0d48a0;
   text-shadow: 1px 1px 1px #000000;
-  margin-top: 2rem;  margin-bottom: 0;
+  margin-top: 2rem;  
+  margin-bottom: 0;
 `
+const Input = styled.input`
+  margin: 1rem;
+  border-radius: 2px;
+  border-style: double;
+`
+
+const StyledParagraph = styled.p`
+  font-size: 1.5rem;
+  color: #0d48a0;
+  margin-bottom: 0;
+  padding-left: 5%;
+`
+
+const alphabet = [...'abcdefghijklmnopqrstuvwxyz'];
 
 export default function PlayerOverview() {
     const {data, error, isLoading} = useSWR("/api/players", { fallbackData: [] });
     const [letter, setLetter] = useState("a");
-    let filteredPlayers = [];
+    let sortedPlayers = [];
     if (data) {
-      filteredPlayers = data
+      sortedPlayers = data
         .filter((player) => player.last_name.toLowerCase().startsWith(letter))
         .sort((a, b) => {
             const lastComparison = a.last_name.localeCompare(b.last_name);
@@ -55,51 +71,79 @@ export default function PlayerOverview() {
             return a.first_name.localeCompare(b.first_name);
           });
       }
-
+    // SearchBox Function: 
+    const [searchQuery, setSearchQuery] = useState("");
+    const handleInputChange = (event) => {
+        setSearchQuery(event.target.value);
+    }; 
+    const filteredPlayers = data.filter(
+      (player) =>
+        player.last_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        player.first_name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+ 
     if (error) {return <div>failed to load</div>, console.log(error)};
     if (isLoading) {return <div>loading...</div>};
-
+    
+    // Render normal player overview if no search term is entered yet
+    if (searchQuery === "")
     return ( 
         <>
-                <Headline>All Players</Headline>
-                <StyledLetterList role="list">
-                <StyledButton onClick={() => {setLetter("a")}}>A</StyledButton>
-                <StyledButton onClick={() => {setLetter("b")}}>B</StyledButton>
-                <StyledButton onClick={() => {setLetter("c")}}>C</StyledButton>
-                <StyledButton onClick={() => {setLetter("d")}}>D</StyledButton>
-                <StyledButton onClick={() => {setLetter("e")}}>E</StyledButton>
-                <StyledButton onClick={() => {setLetter("f")}}>F</StyledButton>
-                <StyledButton onClick={() => {setLetter("g")}}>G</StyledButton>
-                <StyledButton onClick={() => {setLetter("h")}}>H</StyledButton>
-                <StyledButton onClick={() => {setLetter("i")}}>I</StyledButton>
-                <StyledButton onClick={() => {setLetter("j")}}>J</StyledButton>
-                <StyledButton onClick={() => {setLetter("k")}}>K</StyledButton>
-                <StyledButton onClick={() => {setLetter("l")}}>L</StyledButton>
-                <StyledButton onClick={() => {setLetter("m")}}>M</StyledButton>
-                <StyledButton onClick={() => {setLetter("n")}}>N</StyledButton>
-                <StyledButton onClick={() => {setLetter("o")}}>O</StyledButton>
-                <StyledButton onClick={() => {setLetter("p")}}>P</StyledButton>
-                <StyledButton onClick={() => {setLetter("q")}}>Q</StyledButton>
-                <StyledButton onClick={() => {setLetter("r")}}>R</StyledButton>
-                <StyledButton onClick={() => {setLetter("s")}}>S</StyledButton>
-                <StyledButton onClick={() => {setLetter("t")}}>T</StyledButton>
-                <StyledButton onClick={() => {setLetter("u")}}>U</StyledButton>
-                <StyledButton onClick={() => {setLetter("v")}}>V</StyledButton>
-                <StyledButton onClick={() => {setLetter("w")}}>W</StyledButton>
-                <StyledButton onClick={() => {setLetter("x")}}>X</StyledButton>
-                <StyledButton onClick={() => {setLetter("y")}}>Y</StyledButton>
-                <StyledButton onClick={() => {setLetter("z")}}>Z</StyledButton>
-                </StyledLetterList>
+        <Headline>All Players</Headline>
+        <Input value={searchQuery} onChange={handleInputChange} type="search" id="player-search" placeholder="Search..."/>
+        <StyledButton type="button" onClick={() => setLetter(letter)}>Reset</StyledButton>
+        <StyledLetterList role="list">
+         {alphabet.map((letter) => (
+                <StyledButton key={letter} onClick={() => setLetter(letter)}>
+                {letter.toUpperCase()}
+                </StyledButton>
+               ))}
+        </StyledLetterList>
                 <StyledPlayerList role="list">
                 {letter.toUpperCase()}
-            {filteredPlayers.map((player) => (
+            {sortedPlayers.map((player) => (
                 <Link href={`/players/${player.id}`} key={player.id}>
                 <StyledListItem key={player.id}>
                     {player.last_name}{", "} {player.first_name}
                 </StyledListItem>
                 </Link>
             ))}
-            </StyledPlayerList>
-            </>
+          </StyledPlayerList>
+        </>
     );
+    // render search results according to user input 
+    else return (
+      <>
+        <Headline>Player Search</Headline>
+        <Input value={searchQuery} onChange={handleInputChange} type="search" id="player-search" placeholder="Search..."/>
+        <StyledButton type="button" onClick={() => {setSearchQuery("")}}>Reset</StyledButton>
+        <StyledLetterList role="list">
+         {alphabet.map((letter) => (
+                <StyledButton key={letter} onClick={() => {setLetter(letter); setSearchQuery("")}}>
+                {letter.toUpperCase()}
+                </StyledButton>
+               ))}
+        </StyledLetterList>
+        {filteredPlayers.length ? (
+        <>
+        {searchQuery && (<StyledParagraph>{filteredPlayers.length} players found</StyledParagraph>)}
+        {filteredPlayers.map((player) => (
+            <StyledPlayerList>
+            <Link href={`/players/${player.id}`} key={player.id}>
+            <StyledListItem key={player.id}>
+            {player.last_name}, {player.first_name}
+            </StyledListItem>  
+            </Link>
+        </StyledPlayerList>
+        ))}
+        </>
+        ) : (
+        <>
+        <StyledParagraph>No players match your search criteria</StyledParagraph>
+        <Image src="/images/court.png" width={400} height={400} style={{objectFit: "contain"}} alt="empty court..."/>
+        </>)}           
+        </>
+    )
 }
+
+
