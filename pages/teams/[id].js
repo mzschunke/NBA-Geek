@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import styled from "styled-components";
 import Image from "next/image";
+import { StyledLink } from "@/styles";
+import NavBar from "@/Components/NavBar";
 
 const TeamContainer = styled.div`
     display: flex;
@@ -16,11 +18,6 @@ const TeamName = styled.h1`
   font-size: 3rem;
   color: #0d48a0;
   text-align: center;`
-
-export const StyledLink = styled.a`
-  text-decoration: none;
-  height: 30%;
-`;
 
 const StyledTeamDetails = styled.div`
 text-align: center;
@@ -38,6 +35,7 @@ export default function TeamPage() {
     const team = data;
     
 return (
+  <>
     <TeamContainer>
          <Image src={`/images/team-logos/${team.id}.png`} width={350} height={350} style={{objectFit: "contain"}} alt={team.name}/>
         <TeamName>{team.city} {team.name}</TeamName>
@@ -47,9 +45,8 @@ return (
          </StyledTeamDetails>
             <StyledLink href="/teams">🔙 All teams</StyledLink>
     </TeamContainer>
+    <NavBar />
+    </>
 )}
 
  
-
-
-

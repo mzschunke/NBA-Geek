@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import styled from "styled-components";
 import { useState } from "react";
+import Link from "next/link";
 
 const StyledLetterList = styled.div`
     list-style: none;
@@ -42,17 +43,32 @@ const Headline = styled.h1`
 export default function PlayerOverview() {
     const {data, error, isLoading} = useSWR("/api/players", { fallbackData: [] });
     const [letter, setLetter] = useState("a");
-    const filteredPlayers = data.filter((player) => 
-    player.last_name.toLowerCase().startsWith(letter));
+    let filteredPlayers = [];
+    if (data) {
+      filteredPlayers = data
+        .filter((player) => player.last_name.toLowerCase().startsWith(letter))
+        .sort((a, b) => {
+            const lastComparison = a.last_name.localeCompare(b.last_name);
+            if (lastComparison !== 0) {
+              return lastComparison;
+            }
+            return a.first_name.localeCompare(b.first_name);
+          });
+      }
+
     if (error) {return <div>failed to load</div>, console.log(error)};
     if (isLoading) {return <div>loading...</div>};
+
     return ( 
         <>
                 <Headline>All Players</Headline>
                 <StyledLetterList role="list">
                 <StyledButton onClick={() => {setLetter("a")}}>A</StyledButton>
-                <StyledButton onClick={() => {setLetter("c")}}>C</StyledButton>
                 <StyledButton onClick={() => {setLetter("b")}}>B</StyledButton>
+                <StyledButton onClick={() => {setLetter("c")}}>C</StyledButton>
+                <StyledButton onClick={() => {setLetter("d")}}>D</StyledButton>
+                <StyledButton onClick={() => {setLetter("e")}}>E</StyledButton>
+                <StyledButton onClick={() => {setLetter("f")}}>F</StyledButton>
                 <StyledButton onClick={() => {setLetter("g")}}>G</StyledButton>
                 <StyledButton onClick={() => {setLetter("h")}}>H</StyledButton>
                 <StyledButton onClick={() => {setLetter("i")}}>I</StyledButton>
@@ -77,9 +93,11 @@ export default function PlayerOverview() {
                 <StyledPlayerList role="list">
                 {letter.toUpperCase()}
             {filteredPlayers.map((player) => (
+                <Link href={`/players/${player.id}`} key={player.id}>
                 <StyledListItem key={player.id}>
                     {player.last_name}{", "} {player.first_name}
                 </StyledListItem>
+                </Link>
             ))}
             </StyledPlayerList>
             </>
