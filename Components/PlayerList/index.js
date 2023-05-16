@@ -39,6 +39,7 @@ const Headline = styled.h1`
   text-shadow: 1px 1px 1px #000000;
   margin-top: 2rem;  margin-bottom: 0;
 `
+const alphabet = [...'abcdefghijklmnopqrstuvwxyz'];
 
 export default function PlayerOverview() {
     const {data, error, isLoading} = useSWR("/api/players", { fallbackData: [] });
@@ -55,41 +56,18 @@ export default function PlayerOverview() {
             return a.first_name.localeCompare(b.first_name);
           });
       }
-
     if (error) {return <div>failed to load</div>, console.log(error)};
     if (isLoading) {return <div>loading...</div>};
-
     return ( 
         <>
-                <Headline>All Players</Headline>
-                <StyledLetterList role="list">
-                <StyledButton onClick={() => {setLetter("a")}}>A</StyledButton>
-                <StyledButton onClick={() => {setLetter("b")}}>B</StyledButton>
-                <StyledButton onClick={() => {setLetter("c")}}>C</StyledButton>
-                <StyledButton onClick={() => {setLetter("d")}}>D</StyledButton>
-                <StyledButton onClick={() => {setLetter("e")}}>E</StyledButton>
-                <StyledButton onClick={() => {setLetter("f")}}>F</StyledButton>
-                <StyledButton onClick={() => {setLetter("g")}}>G</StyledButton>
-                <StyledButton onClick={() => {setLetter("h")}}>H</StyledButton>
-                <StyledButton onClick={() => {setLetter("i")}}>I</StyledButton>
-                <StyledButton onClick={() => {setLetter("j")}}>J</StyledButton>
-                <StyledButton onClick={() => {setLetter("k")}}>K</StyledButton>
-                <StyledButton onClick={() => {setLetter("l")}}>L</StyledButton>
-                <StyledButton onClick={() => {setLetter("m")}}>M</StyledButton>
-                <StyledButton onClick={() => {setLetter("n")}}>N</StyledButton>
-                <StyledButton onClick={() => {setLetter("o")}}>O</StyledButton>
-                <StyledButton onClick={() => {setLetter("p")}}>P</StyledButton>
-                <StyledButton onClick={() => {setLetter("q")}}>Q</StyledButton>
-                <StyledButton onClick={() => {setLetter("r")}}>R</StyledButton>
-                <StyledButton onClick={() => {setLetter("s")}}>S</StyledButton>
-                <StyledButton onClick={() => {setLetter("t")}}>T</StyledButton>
-                <StyledButton onClick={() => {setLetter("u")}}>U</StyledButton>
-                <StyledButton onClick={() => {setLetter("v")}}>V</StyledButton>
-                <StyledButton onClick={() => {setLetter("w")}}>W</StyledButton>
-                <StyledButton onClick={() => {setLetter("x")}}>X</StyledButton>
-                <StyledButton onClick={() => {setLetter("y")}}>Y</StyledButton>
-                <StyledButton onClick={() => {setLetter("z")}}>Z</StyledButton>
-                </StyledLetterList>
+        <Headline>All Players</Headline>
+        <StyledLetterList role="list">
+         {alphabet.map((letter) => (
+                <StyledButton key={letter} onClick={() => {setLetter(letter);}}>
+                {letter.toUpperCase()}
+                </StyledButton>
+               ))}
+        </StyledLetterList>
                 <StyledPlayerList role="list">
                 {letter.toUpperCase()}
             {filteredPlayers.map((player) => (
@@ -99,7 +77,7 @@ export default function PlayerOverview() {
                 </StyledListItem>
                 </Link>
             ))}
-            </StyledPlayerList>
-            </>
+          </StyledPlayerList>
+        </>
     );
 }
