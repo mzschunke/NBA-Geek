@@ -24,6 +24,7 @@ export default function NavBar(){
          <li><Link href="/">Home</Link></li>
          <li><Link href="/teams">Teams</Link></li>
          <li><Link href="/players">Players</Link></li>
+         <li><Link href="/stats">Stats</Link></li>
         </NavList>
       </NavContainer>
    )
