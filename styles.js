@@ -32,5 +32,11 @@ export const StyledLink = styled.a`
   height: 30%;
 `;
 
+export const StyledButton = styled.button`
+    color: #0d48a0;
+    font-weight: 700;
+    border-radius: 20%;
+    background-color: #5bc0de;
+`
 
 

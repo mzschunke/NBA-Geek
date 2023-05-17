@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Headline } from "@/styles";
+import { Headline, StyledButton } from "@/styles";
 
 const StyledLetterList = styled.div`
     display: flex;
@@ -12,13 +12,6 @@ const StyledLetterList = styled.div`
     margin-right: 0;
     background-color: rgb(0, 0 , 0, 0.15);
     gap: 2%;
-`
-
-const StyledButton = styled.button`
-    color: #0d48a0;
-    font-weight: 700;
-    border-radius: 20%;
-    background-color: #5bc0de;
 `
 
 const StyledPlayerList = styled.ul`
