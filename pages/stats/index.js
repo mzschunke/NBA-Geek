@@ -51,7 +51,6 @@ export default function Stats() {
         <>
         <Headline>Stats</Headline>
         <StatsPage selectedPlayer={selectedPlayer} onSelectPlayer={handlePlayerChange} selectedSeason={selectedSeason} onSelectSeason={handleSeasonChange}/>
-        <p>Player ID: {selectedPlayer}</p>
         <h3>Player: {player.last_name}, {player.first_name} </h3>
         <h3>Season: {selectedSeason}</h3>
         {playerStats && (
