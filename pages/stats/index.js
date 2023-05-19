@@ -75,7 +75,7 @@ export default function Stats() {
             <TH>FG%</TH>  
             <TH>3P%</TH> 
             </thead>
-                <tbody>
+            <tbody>
                 <TR>
                 <TD>{player.last_name}, {player.first_name}</TD>
                 <TD>{playerStats.pts}</TD>
@@ -102,6 +102,7 @@ else {
         <Headline>Stats</Headline>
         <StatsSelector selectedPlayer={selectedPlayer} onSelectPlayer={handlePlayerChange} selectedSeason={selectedSeason} onSelectSeason={handleSeasonChange}/>
         <p>Nothing selected</p>
+        <NavBar />
         </>
     )
 }

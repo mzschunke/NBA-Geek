@@ -12,7 +12,7 @@ const SelectionBox = styled.div`
     border: 1px solid black;
 `
 
-export default function StatsSelector({selectedPlayer, onSelectPlayer, selectedSeason, onSelectSeason}) {
+export default function StatsSelector({selectedPlayer, onSelectPlayer, selectedPlayer2, onSelectPlayer2, selectedSeason, onSelectSeason}) {
     const {data} = useSWR("/api/players", { fallbackData: [] });    
     let sortedPlayers = [];
     if (data) {
@@ -27,8 +27,9 @@ export default function StatsSelector({selectedPlayer, onSelectPlayer, selectedS
               return a.first_name.localeCompare(b.first_name);
             });
         }
-
+        
     return (
+        <>
         <SelectionBox>
         <label for="player-select">Choose a player:</label>
         <select value={selectedPlayer} onChange={onSelectPlayer} name="player" id="player-select">
@@ -45,6 +46,7 @@ export default function StatsSelector({selectedPlayer, onSelectPlayer, selectedS
         ))}
         </select>     
         </SelectionBox>
+        </>
     )
 }
 

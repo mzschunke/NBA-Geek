@@ -13,6 +13,13 @@ const HeaderContainer = styled.header`
   border: 1px solid black;
 `
 
+const ImageContainer = styled.header`
+  margin-top: 2.5rem;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+`
+
 export default function HomePage() {
 
   return (
@@ -24,8 +31,11 @@ export default function HomePage() {
     <Image src="/images/nba-geek.png" width={80} height={80} style={{objectFit: "contain"}} alt="NBA Geek"/>
     <Image src="/images/sports-team.png" width={80} height={80} style={{objectFit: "contain"}} alt="NBA Geek"/>
     </HeaderContainer>
-    <Headline>Welcome to NBA GEEK!</Headline>
+    <Headline>NBA GEEK</Headline>
     <main>
+    <ImageContainer>
+    <Image src="/images/nba-comic.png" width={300} height={300} style={{objectFit: "contain"}} alt="NBA Comic"/>
+    </ImageContainer>
     </main>
      <NavBar /> 
     </>

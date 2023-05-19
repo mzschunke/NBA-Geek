@@ -34,6 +34,8 @@ const StyledParagraph = styled.p`
   font-size: 1.5rem;
   color: #0d48a0;
   margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
   padding-left: 5%;
 `
 
@@ -123,7 +125,7 @@ export default function PlayerOverview() {
         ) : (
         <>
         <StyledParagraph>No players match your search criteria</StyledParagraph>
-        <Image src="/images/court.png" width={400} height={400} style={{objectFit: "contain"}} alt="empty court..."/>
+        <Image src="/images/court.png" width={375} height={375} style={{objectFit: "contain"}} alt="empty court..."/>
         </>)}           
         </>
     )
