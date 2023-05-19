@@ -6,11 +6,14 @@ export default createGlobalStyle`
   *::before,
   *::after {
     box-sizing: border-box;
+    //border: 1px solid black;
   }
 
   body {
     margin: 0;
     font-family: "roboto", sans-serif; 
+    background: rgb(182,211,214);
+   background: linear-gradient(90deg, rgba(182,211,214,1) 0%, rgba(39,100,176,1) 100%, rgba(29,162,178,1) 100%, rgba(39,100,176,1) 100%);
   }
 `;
 
@@ -39,4 +42,34 @@ export const StyledButton = styled.button`
     background-color: #5bc0de;
 `
 
+// Table Styles: 
 
+export const StyledTable = styled.table`
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #b6d3d6;
+  font-size: 0.8rem;
+`;
+
+export const TR = styled.tr`
+  border: 1px solid black;
+`;
+
+export const TH = styled.th`
+`;
+
+export const TD = styled.td`
+`;
+
+export const THead = styled.thead`
+ // custom css goes here
+`;
+
+export const TFoot = styled.tfoot`
+  // custom css goes here
+`;
+
+export const TBody = styled.tbody`
+ // custom css goes here
+`;

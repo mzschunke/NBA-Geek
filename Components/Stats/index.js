@@ -7,13 +7,12 @@ const SelectionBox = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    background: rgb(182,211,214);
-    background: linear-gradient(90deg, rgba(182,211,214,1) 0%, rgba(39,100,176,1) 100%, rgba(29,162,178,1) 100%, rgba(39,100,176,1) 100%);
-    gap: 10%;
+    background-color: #b6d3d6;
+    gap: 5%;
+    border: 1px solid black;
 `
 
-export default function StatsPage({selectedPlayer, onSelectPlayer, selectedSeason, onSelectSeason}) {
+export default function StatsSelector({selectedPlayer, onSelectPlayer, selectedSeason, onSelectSeason}) {
     const {data} = useSWR("/api/players", { fallbackData: [] });    
     let sortedPlayers = [];
     if (data) {
