@@ -24,7 +24,7 @@ export const Headline = styled.h1`
   text-align: center;
   letter-spacing: 1px;
   color: #cee0ed;
-  text-shadow: 1px 1px 1px #000000;
+  text-shadow: 3px 3px 3px #000000;
   margin-top: 2rem;
   margin-bottom: 0;
 `
@@ -52,23 +52,16 @@ export const StyledTable = styled.table`
 `;
 
 export const TR = styled.tr`
-  border: 1px solid black;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
 `;
 
 export const TH = styled.th`
+   border-left: 1px solid black;
+   border-bottom: 1px solid black;
 `;
 
 export const TD = styled.td`
-`;
-
-export const THead = styled.thead`
- // custom css goes here
-`;
-
-export const TFoot = styled.tfoot`
-  // custom css goes here
-`;
-
-export const TBody = styled.tbody`
- // custom css goes here
+   border-left: 1px solid black;
 `;

@@ -53,8 +53,32 @@ export default function Stats() {
             <p>Loading...</p>
         )
     }
-    
-    else if (selectedPlayer != "") {
+
+    else if (selectedPlayer === "") {
+      return (
+          <>
+          <Headline>Stats</Headline>
+          <StatsSelector selectedPlayer={selectedPlayer} onSelectPlayer={handlePlayerChange} selectedSeason={selectedSeason} onSelectSeason={handleSeasonChange}/>
+          <p>Nothing selected</p>
+          <NavBar />
+          </>
+      )
+  }
+
+  else if (playerStats === undefined) {
+    return (
+        <>
+        <Headline>Stats</Headline>
+        <StatsSelector selectedPlayer={selectedPlayer} onSelectPlayer={handlePlayerChange} selectedSeason={selectedSeason} onSelectSeason={handleSeasonChange}/>
+        <h3>Player: {player.last_name}, {player.first_name} </h3>
+        <h3>Season: {selectedSeason} - Season Average:</h3>
+        <p>No data available</p>
+        <NavBar />
+        </>
+    )
+}
+
+    else {
         return (
         <>
         <Headline>Stats</Headline>
@@ -76,32 +100,19 @@ export default function Stats() {
             <TH>3P%</TH> 
             </thead>
             <tbody>
-                <TR>
-                <TD>{player.last_name}, {player.first_name}</TD>
-                <TD>{playerStats.pts}</TD>
-                <TD>{playerStats.ast}</TD>
-                <TD>{playerStats.reb}</TD>
-                <TD>{playerStats.stl}</TD>
-                <TD>{playerStats.blk}</TD>
-                <TD>{playerStats.turnover}</TD>
-                <TD>{playerStats.fg_pct}</TD>
-                <TD>{playerStats.fg3_pct}</TD>
-                </TR>
-                </tbody>
+            <TD>{player.last_name}, {player.first_name}</TD>
+            <TD>{playerStats.pts}</TD>
+            <TD>{playerStats.ast}</TD>
+            <TD>{playerStats.reb}</TD>
+            <TD>{playerStats.stl}</TD>
+            <TD>{playerStats.blk}</TD>
+            <TD>{playerStats.turnover}</TD>
+            <TD>{playerStats.fg_pct}</TD>
+            <TD>{playerStats.fg3_pct}</TD>
+            </tbody>
           </StyledTable>
           </StatsContainer>
         )}
-        <NavBar />
-        </>
-    )
-}
-
-else {
-    return (
-        <>
-        <Headline>Stats</Headline>
-        <StatsSelector selectedPlayer={selectedPlayer} onSelectPlayer={handlePlayerChange} selectedSeason={selectedSeason} onSelectSeason={handleSeasonChange}/>
-        <p>Nothing selected</p>
         <NavBar />
         </>
     )
