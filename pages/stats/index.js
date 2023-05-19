@@ -2,7 +2,7 @@ import NavBar from "@/Components/NavBar";
 import StatsSelector from "@/Components/Stats";
 import { useState, useEffect } from "react";
 import useSWR from "swr";
-import { Headline, StyledTable, TH, TR, TD } from "@/styles";
+import { Headline, StyledTable, TH, TR, TD, TDNAME} from "@/styles";
 import styled from "styled-components";
 
 const URL = "https://www.balldontlie.io/api/v1/players/"
@@ -12,6 +12,15 @@ const StatsContainer = styled.div`
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+`
+
+const SelectionContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
 `
 
 export default function Stats() {
@@ -70,8 +79,10 @@ export default function Stats() {
         <>
         <Headline>Stats</Headline>
         <StatsSelector selectedPlayer={selectedPlayer} onSelectPlayer={handlePlayerChange} selectedSeason={selectedSeason} onSelectSeason={handleSeasonChange}/>
+        <SelectionContainer>
         <h3>Player: {player.last_name}, {player.first_name} </h3>
         <h3>Season: {selectedSeason} - Season Average:</h3>
+        </SelectionContainer>
         <p>No data available</p>
         <NavBar />
         </>
@@ -83,13 +94,14 @@ export default function Stats() {
         <>
         <Headline>Stats</Headline>
         <StatsSelector selectedPlayer={selectedPlayer} onSelectPlayer={handlePlayerChange} selectedSeason={selectedSeason} onSelectSeason={handleSeasonChange}/>
+        <SelectionContainer>
         <h3>Player: {player.last_name}, {player.first_name} </h3>
         <h3>Season: {selectedSeason} - Season Average:</h3>
+        </SelectionContainer>
         {playerStats && (
             <StatsContainer>
-          <StyledTable>
+            <StyledTable>
             <thead>
-            <TH>Player Name</TH>
             <TH>PTS</TH>  
             <TH>AST</TH> 
             <TH>REB</TH> 
@@ -100,7 +112,6 @@ export default function Stats() {
             <TH>3P%</TH> 
             </thead>
             <tbody>
-            <TD>{player.last_name}, {player.first_name}</TD>
             <TD>{playerStats.pts}</TD>
             <TD>{playerStats.ast}</TD>
             <TD>{playerStats.reb}</TD>

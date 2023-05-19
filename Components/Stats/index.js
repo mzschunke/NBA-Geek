@@ -6,10 +6,15 @@ const seasons = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 201
 const SelectionBox = styled.div`
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    justify-content: center;
     background-color: #b6d3d6;
     gap: 5%;
     border: 1px solid black;
+    padding: 1rem;
+    margin-top: 1rem;
+`
+const StyledSelect = styled.select`
+    margin-bottom: 0.8rem;
 `
 
 export default function StatsSelector({selectedPlayer, onSelectPlayer, selectedPlayer2, onSelectPlayer2, selectedSeason, onSelectSeason}) {
@@ -32,19 +37,19 @@ export default function StatsSelector({selectedPlayer, onSelectPlayer, selectedP
         <>
         <SelectionBox>
         <label for="player-select">Choose a player:</label>
-        <select value={selectedPlayer} onChange={onSelectPlayer} name="player" id="player-select">
+        <StyledSelect value={selectedPlayer} onChange={onSelectPlayer} name="player" id="player-select">
         <option value="" disabled>--Please choose a player--</option>
         {sortedPlayers.map(player => (
         <option key={player.id} value={player.id}>{player.last_name}, {player.first_name} 
         </option>))}
-        </select>
+        </StyledSelect>
         <label for="season-select">Choose a season:</label>
-        <select value={selectedSeason} onChange={onSelectSeason} name="season" id="season-select">
+        <StyledSelect value={selectedSeason} onChange={onSelectSeason} name="season" id="season-select">
         <option value="" disabled>--Please choose a season--</option>   
         {seasons.map((year) => (
         <option key={year} value={year}>{year}</option>    
         ))}
-        </select>     
+        </StyledSelect>     
         </SelectionBox>
         </>
     )

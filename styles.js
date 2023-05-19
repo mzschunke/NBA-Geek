@@ -49,12 +49,11 @@ export const StyledTable = styled.table`
   border-radius: 5px;
   background-color: #b6d3d6;
   font-size: 0.8rem;
+  margin: 2rem;
 `;
 
 export const TR = styled.tr`
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  border-right: 1px solid #ddd;
+  border: 3px solid black
 `;
 
 export const TH = styled.th`
@@ -64,4 +63,8 @@ export const TH = styled.th`
 
 export const TD = styled.td`
    border-left: 1px solid black;
+   background-color: #cee0ed;
+   border-radius: 5%;
+   border: 1px solid black;
 `;
+
