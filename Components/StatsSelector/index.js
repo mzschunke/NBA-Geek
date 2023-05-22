@@ -36,14 +36,14 @@ export default function StatsSelector({selectedPlayer, onSelectPlayer, selectedP
     return (
         <>
         <SelectionBox>
-        <label for="player-select">Choose a player:</label>
+        <label htmlFor="player-select">Choose a player:</label>
         <StyledSelect value={selectedPlayer} onChange={onSelectPlayer} name="player" id="player-select">
         <option value="" disabled>--Please choose a player--</option>
         {sortedPlayers.map(player => (
         <option key={player.id} value={player.id}>{player.last_name}, {player.first_name} 
         </option>))}
         </StyledSelect>
-        <label for="season-select">Choose a season:</label>
+        <label htmlFor="season-select">Choose a season:</label>
         <StyledSelect value={selectedSeason} onChange={onSelectSeason} name="season" id="season-select">
         <option value="" disabled>--Please choose a season--</option>   
         {seasons.map((year) => (

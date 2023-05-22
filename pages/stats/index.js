@@ -1,18 +1,12 @@
 import NavBar from "@/Components/NavBar";
-import StatsSelector from "@/Components/Stats";
+import StatsSelector from "@/Components/StatsSelector";
 import { useState, useEffect } from "react";
 import useSWR from "swr";
-import { Headline, StyledTable, TH, TR, TD, TDNAME} from "@/styles";
+import { Headline } from "@/styles";
 import styled from "styled-components";
+import StatsDisplay from "@/Components/StatsDisplay";
 
 const URL = "https://www.balldontlie.io/api/v1/players/"
-
-const StatsContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-`
 
 const SelectionContainer = styled.div`
     display: flex;
@@ -99,35 +93,14 @@ export default function Stats() {
         <h3>Season: {selectedSeason} - Season Average:</h3>
         </SelectionContainer>
         {playerStats && (
-            <StatsContainer>
-            <StyledTable>
-            <thead>
-            <TH>PTS</TH>  
-            <TH>AST</TH> 
-            <TH>REB</TH> 
-            <TH>STL</TH>
-            <TH>BLK</TH> 
-            <TH>TO</TH> 
-            <TH>FG%</TH>  
-            <TH>3P%</TH> 
-            </thead>
-            <tbody>
-            <TD>{playerStats.pts}</TD>
-            <TD>{playerStats.ast}</TD>
-            <TD>{playerStats.reb}</TD>
-            <TD>{playerStats.stl}</TD>
-            <TD>{playerStats.blk}</TD>
-            <TD>{playerStats.turnover}</TD>
-            <TD>{playerStats.fg_pct}</TD>
-            <TD>{playerStats.fg3_pct}</TD>
-            </tbody>
-          </StyledTable>
-          </StatsContainer>
+        <StatsDisplay playerStats={playerStats}>
+        </StatsDisplay>
         )}
         <NavBar />
         </>
     )
 }
 }
+
 
 
