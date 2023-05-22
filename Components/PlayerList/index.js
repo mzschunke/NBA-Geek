@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Headline, StyledButton } from "@/styles";
 
 const StyledLetterList = styled.div`
     display: flex;
@@ -11,13 +12,6 @@ const StyledLetterList = styled.div`
     margin-right: 0;
     background-color: rgb(0, 0 , 0, 0.15);
     gap: 2%;
-`
-
-const StyledButton = styled.button`
-    color: #0d48a0;
-    font-weight: 700;
-    border-radius: 20%;
-    background-color: #5bc0de;
 `
 
 const StyledPlayerList = styled.ul`
@@ -30,17 +24,6 @@ font-size: 0.8rem;
 margin-bottom: 0.6rem;
 `;
 
-const Headline = styled.h1`
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-top: 0.5rem;  
-  text-align: center;
-  letter-spacing: 3px;
-  color: #0d48a0;
-  text-shadow: 1px 1px 1px #000000;
-  margin-top: 2rem;  
-  margin-bottom: 0;
-`
 const Input = styled.input`
   margin: 1rem;
   border-radius: 2px;
@@ -51,6 +34,8 @@ const StyledParagraph = styled.p`
   font-size: 1.5rem;
   color: #0d48a0;
   margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
   padding-left: 5%;
 `
 
@@ -140,7 +125,7 @@ export default function PlayerOverview() {
         ) : (
         <>
         <StyledParagraph>No players match your search criteria</StyledParagraph>
-        <Image src="/images/court.png" width={400} height={400} style={{objectFit: "contain"}} alt="empty court..."/>
+        <Image src="/images/court.png" width={375} height={375} style={{objectFit: "contain"}} alt="empty court..."/>
         </>)}           
         </>
     )

@@ -2,6 +2,7 @@ import useSWR from "swr";
 import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
+import { Headline } from "@/styles";
 
 const StyledList = styled.ul`
   display: grid;
@@ -33,19 +34,6 @@ const TeamName = styled.h2`
   color: #0d48a0;
   text-align: center;
 `;
-
-const Headline = styled.h1`
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-top: 0.5rem;  
-  font-family: "roboto", sans-serif;
-  text-align: center;
-  letter-spacing: 3px;
-  color: #0d48a0;
-  text-shadow: 1px 1px 1px #000000;
-  margin-top: 2rem;
-  margin-bottom: 0;
-`
 
 const URL = "https://www.balldontlie.io/api/v1/teams?page=1";
 export default function TeamOverview() {

@@ -2,6 +2,7 @@ import Head from "next/head";
 import styled from "styled-components"; 
 import Image from "next/image";
 import NavBar from "../Components/NavBar";
+import { Headline } from "@/styles";
 
 const HeaderContainer = styled.header`
   margin-bottom: 0;
@@ -11,12 +12,12 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   border: 1px solid black;
 `
-const Header = styled.h2`
-  font-size: 3.5rem;
-  font-weight: bold;
-  margin-top: 3.5rem;  
-  font-family: "roboto", sans-serif;
-  text-align: center;
+
+const ImageContainer = styled.header`
+  margin-top: 2.5rem;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
 `
 
 export default function HomePage() {
@@ -30,8 +31,11 @@ export default function HomePage() {
     <Image src="/images/nba-geek.png" width={80} height={80} style={{objectFit: "contain"}} alt="NBA Geek"/>
     <Image src="/images/sports-team.png" width={80} height={80} style={{objectFit: "contain"}} alt="NBA Geek"/>
     </HeaderContainer>
-    <Header>Welcome to NBA GEEK!</Header>
+    <Headline>NBA GEEK</Headline>
     <main>
+    <ImageContainer>
+    <Image src="/images/nba-comic.png" width={300} height={300} style={{objectFit: "contain"}} alt="NBA Comic"/>
+    </ImageContainer>
     </main>
      <NavBar /> 
     </>
