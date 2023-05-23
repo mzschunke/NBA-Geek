@@ -21,10 +21,16 @@ export default function Stats() {
     const [selectedPlayer, setSelectedPlayer] = useState(""); 
     const [selectedSeason, setSelectedSeason] = useState(2022); 
     const [playerStats, setPlayerStats] = useState(null);
+    const [selectedPlayerTwo, setSelectedPlayerTwo] = useState(""); 
 
     const handlePlayerChange = (event) => {
     setSelectedPlayer(event.target.value)
     };
+
+    // New Handle for player two: 
+    const handlePlayerTwoChange = (event) => {
+        setSelectedPlayerTwo(event.target.value);
+      };
 
     const handleSeasonChange = (event) => {
     setSelectedSeason(event.target.value);
