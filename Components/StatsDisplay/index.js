@@ -13,6 +13,7 @@ export default function StatsDisplay({playerStats}) {
         <StatsContainer>
         <StyledTable>
         <thead>
+        <tr>
         <TH>PTS</TH>  
         <TH>AST</TH> 
         <TH>REB</TH> 
@@ -21,8 +22,10 @@ export default function StatsDisplay({playerStats}) {
         <TH>TO</TH> 
         <TH>FG%</TH>  
         <TH>3P%</TH> 
+        </tr>
         </thead>
         <tbody>
+        <tr>     
         <TD>{playerStats.pts}</TD>
         <TD>{playerStats.ast}</TD>
         <TD>{playerStats.reb}</TD>
@@ -31,6 +34,7 @@ export default function StatsDisplay({playerStats}) {
         <TD>{playerStats.turnover}</TD>
         <TD>{playerStats.fg_pct}</TD>
         <TD>{playerStats.fg3_pct}</TD>
+        </tr>
         </tbody>
         </StyledTable>
         </StatsContainer>
