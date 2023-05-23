@@ -17,7 +17,7 @@ const StyledSelect = styled.select`
     margin-bottom: 0.8rem;
 `
 
-export default function StatsSelector({selectedPlayer, onSelectPlayer, selectedPlayer2, onSelectPlayer2, selectedSeason, onSelectSeason}) {
+export default function StatsSelector({selectedPlayer, onSelectPlayer, selectedPlayerTwo, onSelectPlayerTwo, selectedSeason, onSelectSeason}) {
     const {data} = useSWR("/api/players", { fallbackData: [] });    
     let sortedPlayers = [];
     if (data) {
@@ -54,7 +54,7 @@ export default function StatsSelector({selectedPlayer, onSelectPlayer, selectedP
 
         <SelectionBox>
         <label htmlFor="playertwo-select">Choose a 2nd player:</label>
-        <StyledSelect name="playertwo" id="playertwo-select">
+        <StyledSelect value={selectedPlayerTwo} onChange={onSelectPlayerTwo} name="playertwo" id="playertwo-select">
         <option value="" disabled>--Please choose a player--</option>
         {sortedPlayers.map(player => (
         <option key={player.id} value={player.id}>{player.last_name}, {player.first_name} 

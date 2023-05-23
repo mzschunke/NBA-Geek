@@ -40,6 +40,8 @@ export default function Stats() {
     const { data } = useSWR(URL + selectedPlayer);
     const player = data;
 
+    
+
     useEffect(() => {
         fetchPlayer();
       }, [selectedPlayer, selectedSeason]);
@@ -67,7 +69,13 @@ export default function Stats() {
       return (
           <>
           <Headline>Stats</Headline>
-          <StatsSelector selectedPlayer={selectedPlayer} onSelectPlayer={handlePlayerChange} selectedSeason={selectedSeason} onSelectSeason={handleSeasonChange}/>
+          <StatsSelector 
+          selectedPlayer={selectedPlayer} 
+          onSelectPlayer={handlePlayerChange} 
+          selectedPlayerTwo={selectedPlayerTwo} 
+          onSelectPlayerTwo={handlePlayerTwoChange}
+          selectedSeason={selectedSeason} 
+          onSelectSeason={handleSeasonChange}/>
           <p>Nothing selected</p>
           <NavBar />
           </>
