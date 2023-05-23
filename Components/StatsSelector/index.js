@@ -10,14 +10,14 @@ const SelectionBox = styled.div`
     background-color: #b6d3d6;
     gap: 5%;
     border: 1px solid black;
-    padding: 1rem;
-    margin-top: 1rem;
+    padding: 0.7rem;
+    margin: 0;
 `
 const StyledSelect = styled.select`
     margin-bottom: 0.8rem;
 `
 
-export default function StatsSelector({selectedPlayer, onSelectPlayer, selectedPlayerTwo, onSelectPlayerTwo, selectedSeason, onSelectSeason}) {
+export default function StatsSelector({selectedPlayer, onSelectPlayer, selectedPlayerTwo, onSelectPlayerTwo, selectedSeason, onSelectSeason, selectedSeasonTwo, onSelectSeasonTwo}) {
     const {data} = useSWR("/api/players", { fallbackData: [] });    
     let sortedPlayers = [];
     if (data) {
@@ -53,15 +53,15 @@ export default function StatsSelector({selectedPlayer, onSelectPlayer, selectedP
         </SelectionBox>
 
         <SelectionBox>
-        <label htmlFor="playertwo-select">Choose a 2nd player:</label>
+        <label htmlFor="playertwo-select">Choose a player:</label>
         <StyledSelect value={selectedPlayerTwo} onChange={onSelectPlayerTwo} name="playertwo" id="playertwo-select">
         <option value="" disabled>--Please choose a player--</option>
         {sortedPlayers.map(player => (
         <option key={player.id} value={player.id}>{player.last_name}, {player.first_name} 
         </option>))}
         </StyledSelect>
-        <label htmlFor="season-select">Choose a season:</label>
-        <StyledSelect value={selectedSeason} onChange={onSelectSeason} name="season" id="season-select">
+        <label htmlFor="seasontwo-select">Choose a season:</label>   
+        <StyledSelect value={selectedSeasonTwo} onChange={onSelectSeasonTwo} name="seasontwo" id="seasontwo-select">
         <option value="" disabled>--Please choose a season--</option>   
         {seasons.map((year) => (
         <option key={year} value={year}>{year}</option>    

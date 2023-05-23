@@ -13,7 +13,8 @@ export default createGlobalStyle`
     font-family: "roboto", sans-serif; 
     background: rgb(39,100,176);
     background: linear-gradient(90deg, rgba(39,100,176,1) 0%, rgba(127,168,199,1) 0%, rgba(69,124,184,1) 100%, rgba(60,117,182,1) 100%, rgba(50,109,179,1) 100%, rgba(71,125,184,1) 100%, rgba(182,211,214,1) 100%, rgba(39,100,176,1) 100%, rgba(29,162,178,1) 100%);
-  }
+    /* border: 1px solid red; */
+ }
 `;
 
 export const Headline = styled.h1`
