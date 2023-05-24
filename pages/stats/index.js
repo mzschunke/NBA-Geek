@@ -86,16 +86,14 @@ export default function Stats() {
         onSelectSeasonTwo={handleSeasonTwoChange}
       />
       <SelectionContainer>
-        {(playerStats || playerTwoStats) && (
-          <StatsDisplay
-            playerStats={playerStats}
-            playerTwoStats={playerTwoStats}
-            selectedPlayer={selectedPlayer}
-            selectedPlayerTwo={selectedPlayerTwo}
-            selectedSeason={selectedSeason}
-            selectedSeasonTwo={selectedSeasonTwo}
-          ></StatsDisplay>
-        )}
+        <StatsDisplay
+          playerStats={playerStats}
+          playerTwoStats={playerTwoStats}
+          selectedPlayer={selectedPlayer}
+          selectedPlayerTwo={selectedPlayerTwo}
+          selectedSeason={selectedSeason}
+          selectedSeasonTwo={selectedSeasonTwo}
+        ></StatsDisplay>
       </SelectionContainer>
       <NavBar />
     </>

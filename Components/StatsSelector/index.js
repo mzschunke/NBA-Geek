@@ -13,7 +13,7 @@ const SelectionBox = styled.div`
   background-color: #b6d3d6;
   gap: 2%;
   border: 1px solid black;
-  padding: 0.1rem;
+  padding-top: 0.3rem;
 `;
 
 const StyledSelect = styled.select`

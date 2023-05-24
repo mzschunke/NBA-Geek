@@ -6,7 +6,6 @@ export default createGlobalStyle`
   *::before,
   *::after {
     box-sizing: border-box;
-    /* border: 1px solid red; */
   }
 
   body {
@@ -50,7 +49,8 @@ export const StyledTable = styled.table`
   border-radius: 5px;
   background-color: #b6d3d6;
   font-size: 0.8rem;
-  margin: 2rem;
+  margin: 1rem;
+  box-shadow: 1px 1px 2px;
 `;
 
 export const TR = styled.tr`
@@ -67,4 +67,28 @@ export const TD = styled.td`
   background-color: #cee0ed;
   border-radius: 5%;
   border: 1px solid black;
+  height: 1rem;
+  font-weight: 800;
+`;
+
+export const PlayerName = styled.div`
+  background-color: #cee0ed;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 900;
+  box-shadow: 1px 1px 2px;
+`;
+
+export const NoData = styled.div`
+  width: auto;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0.2rem;
+  background-color: orange;
+  font-size: 0.8rem;
+  margin: 1rem;
+  align-items: center;
+  box-shadow: 1px 1px 2px;
 `;
