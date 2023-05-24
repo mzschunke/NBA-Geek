@@ -1,23 +1,25 @@
 import useSWR from "swr";
 import styled from "styled-components";
 
-const seasons = [
-  2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012,
-  2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
-];
+let seasons = [];
+for (let year = 2022; year >= 1946; year--) {
+  seasons.push(year);
+}
 
 const SelectionBox = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   background-color: #b6d3d6;
-  gap: 5%;
+  gap: 2%;
   border: 1px solid black;
-  padding: 0.7rem;
-  margin: 0;
+  padding: 0.1rem;
 `;
+
 const StyledSelect = styled.select`
   margin-bottom: 0.8rem;
+  width: auto;
+  border-radius: 6px;
 `;
 
 export default function StatsSelector({
