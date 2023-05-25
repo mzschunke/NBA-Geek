@@ -1,14 +1,28 @@
 import styled from "styled-components";
 import useSWR from "swr";
 import { StyledTable, NoData, TH, TD, PlayerName } from "@/styles";
+import BarChart from "../BarChart";
+import { useState } from "react";
 
-const StatsContainer = styled.div`
+const StatsContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   margin: 0;
   padding: 0;
+`;
+
+const BarChartContainer = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid white;
 `;
 
 export default function StatsDisplay({
@@ -22,8 +36,31 @@ export default function StatsDisplay({
   const URL = "https://www.balldontlie.io/api/v1/players/";
 
   const { data: player } = useSWR(URL + selectedPlayer);
-
   const { data: playerTwo } = useSWR(URL + selectedPlayerTwo);
+
+  // Create a Stats Object from first selected player:
+  let statsObjectOne = {};
+  if (playerStats) {
+    statsObjectOne = { ...playerStats };
+    console.log("statsObjectOne:", statsObjectOne);
+  }
+
+  // Create a Stats Object from second selected player:
+  let statsObjectTwo = {};
+  if (playerTwoStats) {
+    statsObjectTwo = { ...playerTwoStats };
+    console.log("statsObjectTwo:", statsObjectTwo);
+  }
+  // Create a State for the description of Bar Chart
+  const [chartData, setChartData] = useState({
+    labels: player.first_name,
+    datasets: [
+      {
+        label: "Season  2023 - PTS per Game",
+        data: [statsObjectTwo.pts],
+      },
+    ],
+  });
 
   return (
     <StatsContainer>
@@ -106,6 +143,9 @@ export default function StatsDisplay({
               </tr>
             </tbody>
           </StyledTable>
+          <BarChartContainer>
+            <BarChart chartData={chartData} />
+          </BarChartContainer>
         </>
       ) : (
         <>
