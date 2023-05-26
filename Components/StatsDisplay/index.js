@@ -3,6 +3,7 @@ import useSWR from "swr";
 import { StyledTable, NoData, TH, TD, PlayerName } from "@/styles";
 import BarChart from "../BarChart";
 import { useState, useEffect } from "react";
+import BarChartSelect from "../BarChart/Menu";
 
 const StatsContainer = styled.section`
   display: flex;
@@ -34,20 +35,19 @@ export default function StatsDisplay({
   selectedSeason,
   selectedSeasonTwo,
 }) {
+  const [barSelection, setBarSelection] = useState("pts");
+  const [label, setLabel] = useState("pts");
+
   const URL = "https://www.balldontlie.io/api/v1/players/";
 
-  // Get Player names by ID (async):
   const { data: player } = useSWR(URL + selectedPlayer);
   const { data: playerTwo } = useSWR(URL + selectedPlayerTwo);
 
-  // Creat a Stats Array to iterate over
   let statsArray = [];
   if (playerStats && playerTwoStats) {
     statsArray = [{ ...playerStats }, { ...playerTwoStats }];
-    console.log("statsArray:", statsArray);
   }
 
-  // Create a State for the description of Bar Chart
   const [chartData, setChartData] = useState({
     labels: [
       `${player?.first_name ?? "Player 1"} ${player?.last_name ?? ""}`,
@@ -55,13 +55,12 @@ export default function StatsDisplay({
     ],
     datasets: [
       {
-        label: "points scored",
-        data: statsArray.map((data) => data.pts),
+        label: label,
+        data: statsArray.map((data) => data[barSelection]),
       },
     ],
   });
 
-  // Update chart data when selected player or selected season changes
   useEffect(() => {
     setChartData((prevChartData) => ({
       ...prevChartData,
@@ -71,8 +70,9 @@ export default function StatsDisplay({
       ],
       datasets: [
         {
-          label: "points scored",
-          data: statsArray.map((data) => data.pts),
+          label: label,
+          data: statsArray.map((data) => data[barSelection]),
+          backgroundColor: ["#6E941B", "#442594"],
         },
       ],
     }));
@@ -85,6 +85,7 @@ export default function StatsDisplay({
     selectedPlayerTwo,
     selectedSeason,
     selectedSeasonTwo,
+    barSelection,
   ]);
   return (
     <StatsContainer>
@@ -167,9 +168,14 @@ export default function StatsDisplay({
               </tr>
             </tbody>
           </StyledTable>
-
+          <BarChartSelect
+            barSelection={barSelection}
+            setBarSelection={setBarSelection}
+            setLabel={setLabel}
+            playerStats={playerStats}
+          />
           <BarChartContainer>
-            <BarChart chartData={chartData} />
+            <BarChart chartData={chartData} barSelection={barSelection} />
           </BarChartContainer>
         </>
       ) : (

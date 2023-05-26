@@ -25,7 +25,7 @@ export const Headline = styled.h1`
   letter-spacing: 1px;
   color: #cee0ed;
   text-shadow: 3px 3px 3px #000000;
-  margin-top: 2rem;
+  margin-top: 0.2rem;
   margin-bottom: 0;
 `;
 
