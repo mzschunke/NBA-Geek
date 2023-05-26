@@ -8,13 +8,12 @@ export default function BarChart({ chartData }) {
       x: {
         title: {
           display: true,
-          text: "Player Name",
         },
       },
       y: {
         title: {
           display: true,
-          text: "Points",
+          text: "points",
         },
       },
     },

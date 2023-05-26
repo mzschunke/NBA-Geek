@@ -2,7 +2,7 @@ import styled from "styled-components";
 import useSWR from "swr";
 import { StyledTable, NoData, TH, TD, PlayerName } from "@/styles";
 import BarChart from "../BarChart";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const StatsContainer = styled.section`
   display: flex;
@@ -20,9 +20,10 @@ const BarChartContainer = styled.section`
   justify-content: center;
   margin: 0;
   padding: 0;
-  background-color: white;
+  background-color: #b6d3d6;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px;
 `;
 
 export default function StatsDisplay({
@@ -35,33 +36,56 @@ export default function StatsDisplay({
 }) {
   const URL = "https://www.balldontlie.io/api/v1/players/";
 
+  // Get Player names by ID (async):
   const { data: player } = useSWR(URL + selectedPlayer);
   const { data: playerTwo } = useSWR(URL + selectedPlayerTwo);
 
-  // Create a Stats Object from first selected player:
-  let statsObjectOne = {};
-  if (playerStats) {
-    statsObjectOne = { ...playerStats };
-    console.log("statsObjectOne:", statsObjectOne);
+  // Creat a Stats Array to iterate over
+  let statsArray = [];
+  if (playerStats && playerTwoStats) {
+    statsArray = [{ ...playerStats }, { ...playerTwoStats }];
+    console.log("statsArray:", statsArray);
   }
 
-  // Create a Stats Object from second selected player:
-  let statsObjectTwo = {};
-  if (playerTwoStats) {
-    statsObjectTwo = { ...playerTwoStats };
-    console.log("statsObjectTwo:", statsObjectTwo);
-  }
   // Create a State for the description of Bar Chart
   const [chartData, setChartData] = useState({
-    labels: player.first_name,
+    labels: [
+      `${player?.first_name ?? "Player 1"} ${player?.last_name ?? ""}`,
+      `${playerTwo?.first_name ?? "Player 2"} ${playerTwo?.last_name ?? ""}`,
+    ],
     datasets: [
       {
-        label: "Season  2023 - PTS per Game",
-        data: [statsObjectTwo.pts],
+        label: "points scored",
+        data: statsArray.map((data) => data.pts),
       },
     ],
   });
 
+  // Update chart data when selected player or selected season changes
+  useEffect(() => {
+    setChartData((prevChartData) => ({
+      ...prevChartData,
+      labels: [
+        `${player?.first_name ?? "Player 1"} ${player?.last_name ?? ""}`,
+        `${playerTwo?.first_name ?? "Player 2"} ${playerTwo?.last_name ?? ""}`,
+      ],
+      datasets: [
+        {
+          label: "points scored",
+          data: statsArray.map((data) => data.pts),
+        },
+      ],
+    }));
+  }, [
+    player,
+    playerTwo,
+    playerStats,
+    playerTwoStats,
+    selectedPlayer,
+    selectedPlayerTwo,
+    selectedSeason,
+    selectedSeasonTwo,
+  ]);
   return (
     <StatsContainer>
       {!selectedPlayer || !player ? (
@@ -114,7 +138,7 @@ export default function StatsDisplay({
       ) : playerTwoStats ? (
         <>
           <PlayerName>
-            Player 2: {playerTwo.first_name} {playerTwo.last_name} | Season:{" "}
+            Player 2: {playerTwo?.first_name} {playerTwo?.last_name} | Season:{" "}
             {selectedSeasonTwo}
           </PlayerName>
           <StyledTable>
@@ -143,6 +167,7 @@ export default function StatsDisplay({
               </tr>
             </tbody>
           </StyledTable>
+
           <BarChartContainer>
             <BarChart chartData={chartData} />
           </BarChartContainer>
@@ -150,7 +175,7 @@ export default function StatsDisplay({
       ) : (
         <>
           <PlayerName>
-            Player 2: {playerTwo.first_name} {playerTwo.last_name} | Season:{" "}
+            Player 2: {playerTwo?.first_name} {playerTwo?.last_name} | Season:{" "}
             {selectedSeasonTwo}
           </PlayerName>
           <NoData>No data available for your selection</NoData>

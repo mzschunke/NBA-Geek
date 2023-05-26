@@ -47,7 +47,6 @@ export default function Stats() {
         const fetchedData = await response.json();
         const playerStats = fetchedData.data[0];
         setPlayerStats(playerStats);
-        console.log("playerStats:", playerStats);
       } catch (error) {
         console.error("Error fetching player data:", error);
       }
