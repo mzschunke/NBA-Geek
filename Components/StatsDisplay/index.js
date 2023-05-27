@@ -2,7 +2,7 @@ import styled from "styled-components";
 import useSWR from "swr";
 import { StyledTable, NoData, TH, TD, PlayerName } from "@/styles";
 import BarChart from "../BarChart";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import BarChartSelect from "../BarChart/Menu";
 
 const StatsContainer = styled.section`
@@ -47,7 +47,7 @@ export default function StatsDisplay({
     statsArray = [{ ...playerStats }, { ...playerTwoStats }];
   }
 
-  const [chartData, setChartData] = useState({
+  const chartData = {
     labels: [
       `${player?.first_name ?? "Player 1"} ${player?.last_name ?? ""}`,
       `${playerTwo?.first_name ?? "Player 2"} ${playerTwo?.last_name ?? ""}`,
@@ -56,36 +56,11 @@ export default function StatsDisplay({
       {
         label: barSelection,
         data: statsArray.map((data) => data[barSelection]),
+        backgroundColor: ["#6E941B", "#442594"],
       },
     ],
-  });
+  };
 
-  useEffect(() => {
-    setChartData((prevChartData) => ({
-      ...prevChartData,
-      labels: [
-        `${player?.first_name ?? "Player 1"} ${player?.last_name ?? ""}`,
-        `${playerTwo?.first_name ?? "Player 2"} ${playerTwo?.last_name ?? ""}`,
-      ],
-      datasets: [
-        {
-          label: barSelection,
-          data: statsArray.map((data) => data[barSelection]),
-          backgroundColor: ["#6E941B", "#442594"],
-        },
-      ],
-    }));
-  }, [
-    player,
-    playerTwo,
-    playerStats,
-    playerTwoStats,
-    selectedPlayer,
-    selectedPlayerTwo,
-    selectedSeason,
-    selectedSeasonTwo,
-    barSelection,
-  ]);
   return (
     <StatsContainer>
       {!selectedPlayer || !player ? (
