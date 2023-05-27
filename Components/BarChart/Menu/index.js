@@ -9,10 +9,9 @@ const StyledSelect = styled.select`
   margin-bottom: 0.5rem;
 `;
 
-export default function BarChartSelect({ setBarSelection, setLabel }) {
+export default function BarChartSelect({ setBarSelection }) {
   const handleSelectChange = (event) => {
     setBarSelection(event.target.value);
-    setLabel(event.target.value);
   };
 
   return (

@@ -36,7 +36,6 @@ export default function StatsDisplay({
   selectedSeasonTwo,
 }) {
   const [barSelection, setBarSelection] = useState("pts");
-  const [label, setLabel] = useState("pts");
 
   const URL = "https://www.balldontlie.io/api/v1/players/";
 
@@ -55,7 +54,7 @@ export default function StatsDisplay({
     ],
     datasets: [
       {
-        label: label,
+        label: barSelection,
         data: statsArray.map((data) => data[barSelection]),
       },
     ],
@@ -70,7 +69,7 @@ export default function StatsDisplay({
       ],
       datasets: [
         {
-          label: label,
+          label: barSelection,
           data: statsArray.map((data) => data[barSelection]),
           backgroundColor: ["#6E941B", "#442594"],
         },
@@ -171,7 +170,6 @@ export default function StatsDisplay({
           <BarChartSelect
             barSelection={barSelection}
             setBarSelection={setBarSelection}
-            setLabel={setLabel}
             playerStats={playerStats}
           />
           <BarChartContainer>
