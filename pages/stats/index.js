@@ -5,7 +5,7 @@ import { Headline } from "@/styles";
 import styled from "styled-components";
 import StatsDisplay from "@/Components/StatsDisplay";
 
-const SelectionContainer = styled.div`
+const DisplayContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   font-size: 0.6rem;
@@ -22,20 +22,20 @@ export default function Stats() {
   const [selectedSeasonTwo, setSelectedSeasonTwo] = useState(2022);
   const [playerTwoStats, setPlayerTwoStats] = useState(null);
 
-  const handlePlayerChange = (event) => {
-    setSelectedPlayer(event.target.value);
+  const handlePlayerChange = (selectedOption) => {
+    setSelectedPlayer(selectedOption.value);
   };
 
-  const handlePlayerTwoChange = (event) => {
-    setSelectedPlayerTwo(event.target.value);
+  const handlePlayerTwoChange = (selectedOption) => {
+    setSelectedPlayerTwo(selectedOption.value);
   };
 
-  const handleSeasonChange = (event) => {
-    setSelectedSeason(event.target.value);
+  const handleSeasonChange = (selectedOption) => {
+    setSelectedSeason(selectedOption.value);
   };
 
-  const handleSeasonTwoChange = (event) => {
-    setSelectedSeasonTwo(event.target.value);
+  const handleSeasonTwoChange = (selectedOption) => {
+    setSelectedSeasonTwo(selectedOption.value);
   };
 
   useEffect(() => {
@@ -85,7 +85,7 @@ export default function Stats() {
         selectedSeasonTwo={selectedSeasonTwo}
         onSelectSeasonTwo={handleSeasonTwoChange}
       />
-      <SelectionContainer>
+      <DisplayContainer>
         <StatsDisplay
           playerStats={playerStats}
           playerTwoStats={playerTwoStats}
@@ -94,7 +94,7 @@ export default function Stats() {
           selectedSeason={selectedSeason}
           selectedSeasonTwo={selectedSeasonTwo}
         ></StatsDisplay>
-      </SelectionContainer>
+      </DisplayContainer>
       <NavBar />
     </>
   );

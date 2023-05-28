@@ -41,8 +41,6 @@ export const StyledButton = styled.button`
   background-color: #5bc0de;
 `;
 
-// Table Styles:
-
 export const StyledTable = styled.table`
   width: 100%;
   border: 1px solid black;

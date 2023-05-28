@@ -1,5 +1,6 @@
 import useSWR from "swr";
 import styled from "styled-components";
+import Select from "react-select";
 
 let seasons = [];
 for (let year = 2022; year >= 1946; year--) {
@@ -9,17 +10,9 @@ for (let year = 2022; year >= 1946; year--) {
 const SelectionBox = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   background-color: #b6d3d6;
-  gap: 2%;
-  border: 1px solid black;
-  padding-top: 0.3rem;
-`;
-
-const StyledSelect = styled.select`
-  margin-bottom: 0.8rem;
-  width: auto;
-  border-radius: 6px;
+  padding: 0.5rem;
 `;
 
 export default function StatsSelector({
@@ -47,76 +40,55 @@ export default function StatsSelector({
       });
   }
 
+  const selectOptions = sortedPlayers.map((player) => ({
+    value: player.id,
+    label: `${player.first_name} ${player.last_name}`,
+  }));
+
+  const selectYears = seasons.map((season) => ({
+    value: season,
+    label: season.toString(),
+  }));
+
   return (
     <>
       <SelectionBox>
-        <label htmlFor="player-select">Choose a player:</label>
-        <StyledSelect
-          value={selectedPlayer}
+        <Select
+          options={selectOptions}
+          value={selectOptions.find(
+            (option) => option.value === selectedPlayer
+          )}
           onChange={onSelectPlayer}
-          name="player"
           id="player-select"
-        >
-          <option value="" disabled>
-            --Please choose a player--
-          </option>
-          {sortedPlayers.map((player) => (
-            <option key={player.id} value={player.id}>
-              {player.last_name}, {player.first_name}
-            </option>
-          ))}
-        </StyledSelect>
-        <label htmlFor="season-select">Choose a season:</label>
-        <StyledSelect
-          value={selectedSeason}
+          placeholder="Choose 1st player"
+        />
+        <Select
+          value={selectYears.find((option) => option.value === selectedSeason)}
           onChange={onSelectSeason}
-          name="season"
+          options={selectYears}
+          placeholder="Select a Season"
           id="season-select"
-        >
-          <option value="" disabled>
-            --Please choose a season--
-          </option>
-          {seasons.map((year) => (
-            <option key={year} value={year}>
-              {year}
-            </option>
-          ))}
-        </StyledSelect>
+        />
       </SelectionBox>
-
       <SelectionBox>
-        <label htmlFor="playertwo-select">Choose a player:</label>
-        <StyledSelect
-          value={selectedPlayerTwo}
+        <Select
+          options={selectOptions}
+          value={selectOptions.find(
+            (option) => option.value === selectedPlayerTwo
+          )}
           onChange={onSelectPlayerTwo}
-          name="playertwo"
           id="playertwo-select"
-        >
-          <option value="" disabled>
-            --Please choose a player--
-          </option>
-          {sortedPlayers.map((player) => (
-            <option key={player.id} value={player.id}>
-              {player.last_name}, {player.first_name}
-            </option>
-          ))}
-        </StyledSelect>
-        <label htmlFor="seasontwo-select">Choose a season:</label>
-        <StyledSelect
-          value={selectedSeasonTwo}
+          placeholder="Choose 2nd player"
+        />
+        <Select
+          value={selectYears.find(
+            (option) => option.value === selectedSeasonTwo
+          )}
           onChange={onSelectSeasonTwo}
-          name="seasontwo"
+          options={selectYears}
+          placeholder="Select a Season"
           id="seasontwo-select"
-        >
-          <option value="" disabled>
-            --Please choose a season--
-          </option>
-          {seasons.map((year) => (
-            <option key={year} value={year}>
-              {year}
-            </option>
-          ))}
-        </StyledSelect>
+        />
       </SelectionBox>
     </>
   );
