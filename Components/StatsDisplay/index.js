@@ -1,14 +1,30 @@
 import styled from "styled-components";
 import useSWR from "swr";
 import { StyledTable, NoData, TH, TD, PlayerName } from "@/styles";
+import BarChart from "../BarChart";
+import { useState } from "react";
+import BarChartSelect from "../BarChart/Menu";
 
-const StatsContainer = styled.div`
+const StatsContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   margin: 0;
   padding: 0;
+`;
+
+const BarChartContainer = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background-color: #b6d3d6;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px;
 `;
 
 export default function StatsDisplay({
@@ -19,11 +35,31 @@ export default function StatsDisplay({
   selectedSeason,
   selectedSeasonTwo,
 }) {
+  const [barSelection, setBarSelection] = useState("pts");
+
   const URL = "https://www.balldontlie.io/api/v1/players/";
 
   const { data: player } = useSWR(URL + selectedPlayer);
-
   const { data: playerTwo } = useSWR(URL + selectedPlayerTwo);
+
+  let statsArray = [];
+  if (playerStats && playerTwoStats) {
+    statsArray = [{ ...playerStats }, { ...playerTwoStats }];
+  }
+
+  const chartData = {
+    labels: [
+      `${player?.first_name ?? "Player 1"} ${player?.last_name ?? ""}`,
+      `${playerTwo?.first_name ?? "Player 2"} ${playerTwo?.last_name ?? ""}`,
+    ],
+    datasets: [
+      {
+        label: barSelection,
+        data: statsArray.map((data) => data[barSelection]),
+        backgroundColor: ["#6E941B", "#442594"],
+      },
+    ],
+  };
 
   return (
     <StatsContainer>
@@ -77,7 +113,7 @@ export default function StatsDisplay({
       ) : playerTwoStats ? (
         <>
           <PlayerName>
-            Player 2: {playerTwo.first_name} {playerTwo.last_name} | Season:{" "}
+            Player 2: {playerTwo?.first_name} {playerTwo?.last_name} | Season:{" "}
             {selectedSeasonTwo}
           </PlayerName>
           <StyledTable>
@@ -106,11 +142,19 @@ export default function StatsDisplay({
               </tr>
             </tbody>
           </StyledTable>
+          <BarChartSelect
+            barSelection={barSelection}
+            setBarSelection={setBarSelection}
+            playerStats={playerStats}
+          />
+          <BarChartContainer>
+            <BarChart chartData={chartData} barSelection={barSelection} />
+          </BarChartContainer>
         </>
       ) : (
         <>
           <PlayerName>
-            Player 2: {playerTwo.first_name} {playerTwo.last_name} | Season:{" "}
+            Player 2: {playerTwo?.first_name} {playerTwo?.last_name} | Season:{" "}
             {selectedSeasonTwo}
           </PlayerName>
           <NoData>No data available for your selection</NoData>
