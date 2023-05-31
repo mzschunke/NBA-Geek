@@ -92,8 +92,31 @@ export const NoData = styled.div`
   box-shadow: 1px 1px 2px;
 `;
 
+export const GamesContainer = styled.section`
+  background-color: rgb(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1.5rem;
+`;
+
 export const StyledSelect = styled(Select)`
   width: 100px;
   height: 40px;
   font-size: 16px;
+  align-self: center;
+`;
+
+export const GamesList = styled.ul`
+  list-style: none;
+  background-color: rgb(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 0.5rem;
+  display: grid;
+  justify-content: center;
+`;
+
+export const SingleGame = styled.li`
+  font-size: 0.8rem;
+  margin-bottom: 0.6rem;
+  margin-top: 0.6rem;
+  font-size: 1rem;
 `;

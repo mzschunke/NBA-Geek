@@ -1,8 +1,13 @@
 import useSWR from "swr";
 import { useState } from "react";
-import { Headline } from "@/styles";
-import Select from "react-select";
-import { StyledSelect } from "@/styles";
+import {
+  GamesList,
+  Headline,
+  SingleGame,
+  GamesContainer,
+  StyledSelect,
+  NoData,
+} from "@/styles";
 
 export default function GamesDisplay({ id }) {
   const { data, error, isLoading } = useSWR("/api/games", {
@@ -41,22 +46,38 @@ export default function GamesDisplay({ id }) {
   return (
     <>
       <Headline>Games</Headline>
-      <div>
-        <StyledSelect
-          value={selectYears.find((option) => option.value === season)}
-          options={selectYears}
-          onChange={handleSeasonChange}
-          placeholder="pick a season"
-        />
-        {filteredGames.map((game) => (
-          <ul key={game.id}>
-            <li key={game.id}>
-              {game.season} {game.home_team.full_name} {game.home_team_score} -{" "}
-              {game.visitor_team_score} {game.visitor_team.full_name}
-            </li>
-          </ul>
-        ))}
-      </div>
+      {filteredGames.length > 0 ? (
+        <GamesContainer>
+          <StyledSelect
+            value={selectYears.find((option) => option.value === season)}
+            options={selectYears}
+            onChange={handleSeasonChange}
+            placeholder="pick a season"
+          />
+          {filteredGames.map((game) => (
+            <GamesList key={game.id}>
+              <SingleGame key={game.id}>
+                {game.date.split("T")[0]}
+                {": "}
+                <br />
+                <br />
+                {game.home_team.full_name} {game.home_team_score} -{" "}
+                {game.visitor_team_score} {game.visitor_team.full_name}
+              </SingleGame>
+            </GamesList>
+          ))}
+        </GamesContainer>
+      ) : (
+        <GamesContainer>
+          <StyledSelect
+            value={selectYears.find((option) => option.value === season)}
+            options={selectYears}
+            onChange={handleSeasonChange}
+            placeholder="pick a season"
+          />
+          <NoData>No data available for selected season</NoData>
+        </GamesContainer>
+      )}
     </>
   );
 }
