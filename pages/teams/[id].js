@@ -28,7 +28,7 @@ const StyledTeamDetails = styled.div`
 
 const URL = "https://www.balldontlie.io/api/v1/teams";
 
-export default function TeamPage() {
+export default function TeamPage({ CURRENT_SEASON }) {
   const router = useRouter();
   const { id } = router.query;
   const { data, error, isLoading } = useSWR(URL + "/" + id);
@@ -54,7 +54,7 @@ export default function TeamPage() {
           <p>Division: {team.division}</p>
         </StyledTeamDetails>
       </TeamContainer>
-      <GamesDisplay id={id} />
+      <GamesDisplay id={id} CURRENT_SEASON={CURRENT_SEASON} />
       <NavBar />
     </>
   );

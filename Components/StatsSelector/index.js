@@ -2,11 +2,6 @@ import useSWR from "swr";
 import styled from "styled-components";
 import Select from "react-select";
 
-let seasons = [];
-for (let year = 2022; year >= 1946; year--) {
-  seasons.push(year);
-}
-
 const SelectionBox = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -24,7 +19,12 @@ export default function StatsSelector({
   onSelectSeason,
   selectedSeasonTwo,
   onSelectSeasonTwo,
+  CURRENT_SEASON,
 }) {
+  let seasons = [];
+  for (let year = CURRENT_SEASON; year >= 1946; year--) {
+    seasons.push(year);
+  }
   const { data } = useSWR("/api/players", { fallbackData: [] });
 
   let sortedPlayers = [];

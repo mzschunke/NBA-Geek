@@ -14,7 +14,7 @@ const DisplayContainer = styled.div`
   padding-bottom: 0;
 `;
 
-export default function Stats() {
+export default function Stats({ CURRENT_SEASON }) {
   const [selectedPlayer, setSelectedPlayer] = useState("");
   const [selectedSeason, setSelectedSeason] = useState(2022);
   const [playerStats, setPlayerStats] = useState(null);
@@ -84,6 +84,7 @@ export default function Stats() {
         onSelectSeason={handleSeasonChange}
         selectedSeasonTwo={selectedSeasonTwo}
         onSelectSeasonTwo={handleSeasonTwoChange}
+        CURRENT_SEASON={CURRENT_SEASON}
       />
       <DisplayContainer>
         <StatsDisplay

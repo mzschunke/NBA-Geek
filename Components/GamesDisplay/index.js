@@ -10,8 +10,8 @@ import {
   SelectionContainer,
 } from "@/styles";
 
-export default function GamesDisplay({ id }) {
-  const [season, setSeason] = useState(2022);
+export default function GamesDisplay({ id, CURRENT_SEASON }) {
+  const [season, setSeason] = useState(CURRENT_SEASON);
   const [showPostseason, setShowPostseason] = useState(false);
   const { data, error, isLoading } = useSWR(
     `/api/games?teamId=${id}&season=${season}`,
@@ -74,7 +74,7 @@ export default function GamesDisplay({ id }) {
       );
 
   let seasons = [];
-  for (let year = 2022; year >= 1946; year--) {
+  for (let year = CURRENT_SEASON; year >= 1946; year--) {
     seasons.push(year);
   }
   const selectYears = seasons.map((season) => ({
