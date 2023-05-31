@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
+import Select from "react-select";
 
 export default createGlobalStyle`
   *,
@@ -89,4 +90,10 @@ export const NoData = styled.div`
   margin: 1rem;
   align-items: center;
   box-shadow: 1px 1px 2px;
+`;
+
+export const StyledSelect = styled(Select)`
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
 `;
