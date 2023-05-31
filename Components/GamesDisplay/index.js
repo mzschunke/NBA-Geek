@@ -10,11 +10,14 @@ import {
 } from "@/styles";
 
 export default function GamesDisplay({ id }) {
-  const { data, error, isLoading } = useSWR("/api/games", {
-    fallbackData: [],
-  });
-
   const [season, setSeason] = useState(2022);
+  const { data, error, isLoading } = useSWR(
+    `/api/games?teamId=${id}&season=${season}`,
+    {
+      fallbackData: [],
+    }
+  );
+  console.log(data);
 
   if (error) {
     return (<div>failed to load</div>), console.log(error);
@@ -29,6 +32,10 @@ export default function GamesDisplay({ id }) {
         game.visitor_team.id === parseInt(id)) &&
       game.season === season
   );
+  filteredGames.sort((a, b) => {
+    return new Date(a.date) - new Date(b.date);
+  });
+  console.log(filteredGames);
 
   let seasons = [];
   for (let year = 2022; year >= 1946; year--) {

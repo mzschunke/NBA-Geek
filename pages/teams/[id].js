@@ -39,6 +39,7 @@ export default function TeamPage() {
   return (
     <>
       <TeamContainer>
+        <StyledLink href="/teams">🔙 All teams</StyledLink>
         <Image
           src={`/images/team-logos/${team.id}.png`}
           width={100}
@@ -53,7 +54,6 @@ export default function TeamPage() {
           <h3>Conference: {team.conference}</h3>
           <h3>Division: {team.division}</h3>
         </StyledTeamDetails>
-        <StyledLink href="/teams">🔙 All teams</StyledLink>
       </TeamContainer>
       <GamesDisplay id={id} />
       <NavBar />

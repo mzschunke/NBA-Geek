@@ -33,6 +33,7 @@ export const Headline = styled.h1`
 export const StyledLink = styled.a`
   text-decoration: none;
   height: 30%;
+  align-self: flex-start;
 `;
 
 export const StyledButton = styled.button`
