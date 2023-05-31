@@ -2,28 +2,28 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import styled from "styled-components";
 import Image from "next/image";
-import { StyledLink } from "@/styles";
 import NavBar from "@/Components/NavBar";
 import GamesDisplay from "@/Components/GamesDisplay";
 
 const TeamContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
+  gap: 1%;
   align-items: center;
   padding-top: 2.5rem;
   margin: 0 10px 0 10px;
 `;
 
-const TeamName = styled.h1`
-  font-size: 3rem;
+const TeamName = styled.p`
+  font-size: 1.8rem;
   color: #0d48a0;
   text-align: center;
 `;
 
 const StyledTeamDetails = styled.div`
   text-align: center;
-  color: #0d48a0;
+  font-size: 0.7rem;
 `;
 
 const URL = "https://www.balldontlie.io/api/v1/teams";
@@ -39,7 +39,6 @@ export default function TeamPage() {
   return (
     <>
       <TeamContainer>
-        <StyledLink href="/teams">🔙 All teams</StyledLink>
         <Image
           src={`/images/team-logos/${team.id}.png`}
           width={100}
@@ -51,8 +50,8 @@ export default function TeamPage() {
           {team.city} {team.name}
         </TeamName>
         <StyledTeamDetails>
-          <h3>Conference: {team.conference}</h3>
-          <h3>Division: {team.division}</h3>
+          <p>Conference: {team.conference}</p>
+          <p>Division: {team.division}</p>
         </StyledTeamDetails>
       </TeamContainer>
       <GamesDisplay id={id} />

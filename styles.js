@@ -32,7 +32,7 @@ export const Headline = styled.h1`
 
 export const StyledLink = styled.a`
   text-decoration: none;
-  height: 30%;
+  height: 10%;
   align-self: flex-start;
 `;
 
@@ -102,7 +102,7 @@ export const SelectionContainer = styled.section`
 export const GamesContainer = styled.section`
   border-radius: 10px;
   padding: 1.5rem;
-  margin: 0.5rem;
+  margin: 0.2rem;
 `;
 
 export const StyledSelect = styled(Select)`

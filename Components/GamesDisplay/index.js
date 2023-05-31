@@ -12,6 +12,7 @@ import {
 
 export default function GamesDisplay({ id }) {
   const [season, setSeason] = useState(2022);
+  const [showPostseason, setShowPostseason] = useState(false);
   const { data, error, isLoading } = useSWR(
     `/api/games?teamId=${id}&season=${season}`,
     {
@@ -37,25 +38,40 @@ export default function GamesDisplay({ id }) {
   });
 
   const regularseasonGames = filteredGames.filter((game) => !game.postseason);
-  console.log("regularseasonGames:", regularseasonGames);
 
-  const gamesWon = regularseasonGames.filter(
-    (game) =>
-      (game.home_team.id === parseInt(id) &&
-        game.home_team_score > game.visitor_team_score) ||
-      (game.visitor_team.id === parseInt(id) &&
-        game.visitor_team_score > game.home_team_score)
-  );
-  console.log("Regular season games won:", gamesWon.length);
+  const postseasonGames = filteredGames.filter((game) => game.postseason);
 
-  const gamesLost = regularseasonGames.filter(
-    (game) =>
-      (game.home_team.id === parseInt(id) &&
-        game.home_team_score < game.visitor_team_score) ||
-      (game.visitor_team.id === parseInt(id) &&
-        game.visitor_team_score < game.home_team_score)
-  );
-  console.log("Regular season games lost:", gamesLost.length);
+  const gamesWon = showPostseason
+    ? postseasonGames.filter(
+        (game) =>
+          (game.home_team.id === parseInt(id) &&
+            game.home_team_score > game.visitor_team_score) ||
+          (game.visitor_team.id === parseInt(id) &&
+            game.visitor_team_score > game.home_team_score)
+      )
+    : regularseasonGames.filter(
+        (game) =>
+          (game.home_team.id === parseInt(id) &&
+            game.home_team_score > game.visitor_team_score) ||
+          (game.visitor_team.id === parseInt(id) &&
+            game.visitor_team_score > game.home_team_score)
+      );
+
+  const gamesLost = showPostseason
+    ? postseasonGames.filter(
+        (game) =>
+          (game.home_team.id === parseInt(id) &&
+            game.home_team_score < game.visitor_team_score) ||
+          (game.visitor_team.id === parseInt(id) &&
+            game.visitor_team_score < game.home_team_score)
+      )
+    : regularseasonGames.filter(
+        (game) =>
+          (game.home_team.id === parseInt(id) &&
+            game.home_team_score < game.visitor_team_score) ||
+          (game.visitor_team.id === parseInt(id) &&
+            game.visitor_team_score < game.home_team_score)
+      );
 
   let seasons = [];
   for (let year = 2022; year >= 1946; year--) {
@@ -68,6 +84,10 @@ export default function GamesDisplay({ id }) {
 
   function handleSeasonChange(selectedOption) {
     setSeason(selectedOption.value);
+  }
+
+  function toggleView() {
+    setShowPostseason((prevState) => !prevState);
   }
 
   return (
@@ -84,22 +104,46 @@ export default function GamesDisplay({ id }) {
               placeholder="pick a season"
               id="season-select"
             />
-            <h3>Regular Season</h3>
+            <h3>{showPostseason ? "Postseason" : "Regular Season"}</h3>
             <h4>Wins: {gamesWon.length}</h4>
-            <h4>Wins: {gamesLost.length}</h4>
+            <h4>Losses: {gamesLost.length}</h4>
+            <button type="button" onClick={toggleView}>
+              {showPostseason ? "Show Regular Season" : "Show Postseason"}
+            </button>
           </SelectionContainer>
-          {filteredGames.map((game) => (
-            <GamesList key={game.id}>
-              <SingleGame key={game.id}>
-                {game.date.split("T")[0]}
-                {": "}
-                <br />
-                <br />
-                {game.home_team.full_name} {game.home_team_score} -{" "}
-                {game.visitor_team_score} {game.visitor_team.full_name}
-              </SingleGame>
-            </GamesList>
-          ))}
+          {showPostseason ? (
+            postseasonGames.length > 0 ? (
+              postseasonGames.map((game) => (
+                <GamesList key={game.id}>
+                  <SingleGame key={game.id}>
+                    {game.date.split("T")[0]}
+                    {": "}
+                    <br />
+                    <br />
+                    {game.home_team.full_name} {game.home_team_score} -{" "}
+                    {game.visitor_team_score} {game.visitor_team.full_name}
+                  </SingleGame>
+                </GamesList>
+              ))
+            ) : (
+              <NoData>No Playoff Games for selected season</NoData>
+            )
+          ) : regularseasonGames.length > 0 ? (
+            regularseasonGames.map((game) => (
+              <GamesList key={game.id}>
+                <SingleGame key={game.id}>
+                  {game.date.split("T")[0]}
+                  {": "}
+                  <br />
+                  <br />
+                  {game.home_team.full_name} {game.home_team_score} -{" "}
+                  {game.visitor_team_score} {game.visitor_team.full_name}
+                </SingleGame>
+              </GamesList>
+            ))
+          ) : (
+            <NoData>No data available for selected season</NoData>
+          )}
         </GamesContainer>
       ) : (
         <GamesContainer>
