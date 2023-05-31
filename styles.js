@@ -93,10 +93,16 @@ export const NoData = styled.div`
   box-shadow: 1px 1px 2px;
 `;
 
-export const GamesContainer = styled.section`
+export const SelectionContainer = styled.section`
   background-color: rgb(255, 255, 255, 0.1);
   border-radius: 10px;
+  padding: 1rem;
+`;
+
+export const GamesContainer = styled.section`
+  border-radius: 10px;
   padding: 1.5rem;
+  margin: 0.5rem;
 `;
 
 export const StyledSelect = styled(Select)`

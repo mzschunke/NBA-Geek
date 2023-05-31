@@ -7,6 +7,7 @@ import {
   GamesContainer,
   StyledSelect,
   NoData,
+  SelectionContainer,
 } from "@/styles";
 
 export default function GamesDisplay({ id }) {
@@ -17,7 +18,6 @@ export default function GamesDisplay({ id }) {
       fallbackData: [],
     }
   );
-  console.log(data);
 
   if (error) {
     return (<div>failed to load</div>), console.log(error);
@@ -35,7 +35,27 @@ export default function GamesDisplay({ id }) {
   filteredGames.sort((a, b) => {
     return new Date(a.date) - new Date(b.date);
   });
-  console.log(filteredGames);
+
+  const regularseasonGames = filteredGames.filter((game) => !game.postseason);
+  console.log("regularseasonGames:", regularseasonGames);
+
+  const gamesWon = regularseasonGames.filter(
+    (game) =>
+      (game.home_team.id === parseInt(id) &&
+        game.home_team_score > game.visitor_team_score) ||
+      (game.visitor_team.id === parseInt(id) &&
+        game.visitor_team_score > game.home_team_score)
+  );
+  console.log("Regular season games won:", gamesWon.length);
+
+  const gamesLost = regularseasonGames.filter(
+    (game) =>
+      (game.home_team.id === parseInt(id) &&
+        game.home_team_score < game.visitor_team_score) ||
+      (game.visitor_team.id === parseInt(id) &&
+        game.visitor_team_score < game.home_team_score)
+  );
+  console.log("Regular season games lost:", gamesLost.length);
 
   let seasons = [];
   for (let year = 2022; year >= 1946; year--) {
@@ -52,15 +72,22 @@ export default function GamesDisplay({ id }) {
 
   return (
     <>
-      <Headline>Games</Headline>
       {filteredGames.length > 0 ? (
         <GamesContainer>
-          <StyledSelect
-            value={selectYears.find((option) => option.value === season)}
-            options={selectYears}
-            onChange={handleSeasonChange}
-            placeholder="pick a season"
-          />
+          <SelectionContainer>
+            <Headline>Games</Headline>
+            <label htmlFor="season-select">Season:</label>
+            <StyledSelect
+              value={selectYears.find((option) => option.value === season)}
+              options={selectYears}
+              onChange={handleSeasonChange}
+              placeholder="pick a season"
+              id="season-select"
+            />
+            <h3>Regular Season</h3>
+            <h4>Wins: {gamesWon.length}</h4>
+            <h4>Wins: {gamesLost.length}</h4>
+          </SelectionContainer>
           {filteredGames.map((game) => (
             <GamesList key={game.id}>
               <SingleGame key={game.id}>
