@@ -23,8 +23,10 @@ export default function GamesDisplay({ id, CURRENT_SEASON }) {
   );
 
   if (error) {
-    return (<div>failed to load</div>), console.log(error);
+    console.error(error);
+    return <div>failed to load</div>;
   }
+
   if (isLoading) {
     return <div>loading...</div>;
   }

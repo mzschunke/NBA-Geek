@@ -44,7 +44,7 @@ export const StyledButton = styled.button`
 `;
 
 export const StyledTable = styled.table`
-  width: 100%;
+  width: 90%;
   border: 1px solid black;
   border-radius: 5px;
   background-color: #b6d3d6;
@@ -96,7 +96,7 @@ export const NoData = styled.div`
 export const SelectionContainer = styled.section`
   background-color: rgb(255, 255, 255, 0.1);
   border-radius: 10px;
-  padding: 1rem;
+  padding-left: 1rem;
 `;
 
 export const GamesContainer = styled.section`
@@ -109,6 +109,7 @@ export const StyledSelect = styled(Select)`
   width: 100px;
   height: 40px;
   align-self: center;
+  margin-bottom: 1rem;
 `;
 
 export const GamesList = styled.ul`
@@ -132,4 +133,20 @@ export const StyledDate = styled.p`
   font-size: 1rem;
   font-weight: 700;
   text-decoration: underline;
+`;
+
+export const StatsList = styled.ul`
+  list-style: none;
+  background-color: rgb(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 0.5rem;
+  display: grid;
+  justify-content: center;
+`;
+
+export const StyledParagraph = styled.p`
+  margin-bottom: 0.8rem;
+  margin-top: 0.2rem;
+  font-size: 1rem;
+  font-weight: 700;
 `;
