@@ -89,7 +89,7 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
           <StatsList key={stat._id}>
             <StyledDate>
               {stat.game.date.split("T")[0]}
-              {": "}
+              {":  "}
               {teamNames[stat.game.home_team_id]} {stat.game.home_team_score}
               {" - "}
               {stat.game.visitor_team_score}{" "}
@@ -99,6 +99,7 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
               <StyledTable>
                 <thead>
                   <tr>
+                    <TH>MIN</TH>
                     <TH>PTS</TH>
                     <TH>AST</TH>
                     <TH>REB</TH>
@@ -109,6 +110,7 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
                 </thead>
                 <tbody>
                   <tr>
+                    <TD>{stat.min}</TD>
                     <TD>{stat.pts}</TD>
                     <TD>{stat.ast}</TD>
                     <TD>{stat.reb}</TD>

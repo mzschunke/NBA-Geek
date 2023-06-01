@@ -130,7 +130,8 @@ export const StyledDate = styled.p`
   margin-bottom: 0.8rem;
   margin-top: 0.2rem;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 00;
+  text-align: left;
 `;
 
 export const StatsList = styled.ul`
