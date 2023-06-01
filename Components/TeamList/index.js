@@ -40,24 +40,30 @@ export default function TeamOverview() {
   const { data, error, isLoading } = useSWR(URL);
   const teams = data?.data;
 
- if (error) return <div>Failed to load</div>;
- if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Failed to load</div>;
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <>
-        <Headline>TEAMS</Headline>
-        <StyledList role="list">
+      <Headline>TEAMS</Headline>
+      <StyledList role="list">
         {teams.map((team) => (
-        <Link href={`/teams/${team.id}`} key={team.id}>
-        <StyledListItem key={team.id}>
-          <Image src={`/images/team-logos/${team.id}.png`} width={200} height={200} style={{objectFit: "contain"}} alt={team.name}/>
-          <TeamName>{team.city} {team.name}</TeamName>
-        </StyledListItem>
-        </Link>
-      ))} 
+          <Link href={`/teams/${team.id}`} key={team.id}>
+            <StyledListItem key={team.id}>
+              <Image
+                src={`/images/team-logos/${team.id}.png`}
+                width={200}
+                height={200}
+                style={{ objectFit: "contain" }}
+                alt={team.name}
+              />
+              <TeamName>
+                {team.city} {team.name}
+              </TeamName>
+            </StyledListItem>
+          </Link>
+        ))}
       </StyledList>
-      </>
+    </>
   );
 }
-
-
