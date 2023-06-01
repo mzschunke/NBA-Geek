@@ -9,12 +9,15 @@ import {
   TD,
   StyledParagraph,
 } from "@/styles";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function PlayerStats({ id, CURRENT_SEASON }) {
   const [season, setSeason] = useState(CURRENT_SEASON);
   const [playerStats, setPlayerStats] = useState([]);
-  const URL = "https://www.balldontlie.io/api/v1/stats";
+  const [teamNames, setTeamNames] = useState({});
+  const statsURL = "https://www.balldontlie.io/api/v1/stats";
+  const teamNamesURL =
+    "https://www.balldontlie.io/api/v1/teams?page=1&per_page=100";
 
   let seasons = [];
   for (let year = CURRENT_SEASON; year >= 1946; year--) {
@@ -31,12 +34,28 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
 
   async function fetchStats() {
     const response = await fetch(
-      `${URL}?seasons[]=${season}}&player_ids[]=${id}&per_page=100`
+      `${statsURL}?seasons[]=${season}}&player_ids[]=${id}&per_page=100`
     );
     const data = await response.json();
     setPlayerStats(data.data);
     console.log("Received data:", playerStats);
   }
+  async function fetchTeamNames() {
+    const response = await fetch(teamNamesURL);
+    const data = await response.json();
+    const names = data.data.reduce(
+      (acc, team) => ({
+        ...acc,
+        [team.id]: team.full_name,
+      }),
+      {}
+    );
+    setTeamNames(names);
+  }
+
+  useEffect(() => {
+    fetchTeamNames();
+  }, []);
 
   return (
     <>
@@ -58,10 +77,10 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
             <StyledDate>
               {stat.game.date.split("T")[0]}
               {" | "}
-              {stat.team.full_name} {stat.game.home_team_score}
+              {teamNames[stat.game.home_team_id]} {stat.game.home_team_score}
               {" vs. "}
-              {stat.game.visitor_team_score}
-              {"  Harlem Globetrotters"}
+              {stat.game.visitor_team_score}{" "}
+              {teamNames[stat.game.visitor_team_id]}
             </StyledDate>
             <SingleGame>
               {" "}
@@ -73,6 +92,7 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
                     <TH>REB</TH>
                     <TH>STL</TH>
                     <TH>BLK</TH>
+                    <TH>TO</TH>
                   </tr>
                 </thead>
                 <tbody>
@@ -82,6 +102,7 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
                     <TD>{stat.reb}</TD>
                     <TD>{stat.stl}</TD>
                     <TD>{stat.blk}</TD>
+                    <TD>{stat.turnover}</TD>
                   </tr>
                 </tbody>
               </StyledTable>
