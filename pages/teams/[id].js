@@ -7,7 +7,6 @@ import GamesDisplay from "@/Components/GamesDisplay";
 
 const TeamContainer = styled.div`
   display: flex;
-  flex-direction: row;
   justify-content: center;
   gap: 1%;
   align-items: center;

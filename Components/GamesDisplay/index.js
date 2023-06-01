@@ -8,6 +8,7 @@ import {
   StyledSelect,
   NoData,
   SelectionContainer,
+  StyledDate,
 } from "@/styles";
 
 export default function GamesDisplay({ id, CURRENT_SEASON }) {
@@ -116,10 +117,10 @@ export default function GamesDisplay({ id, CURRENT_SEASON }) {
               postseasonGames.map((game) => (
                 <GamesList key={game.id}>
                   <SingleGame key={game.id}>
-                    {game.date.split("T")[0]}
-                    {": "}
-                    <br />
-                    <br />
+                    <StyledDate>
+                      {game.date.split("T")[0]}
+                      {": "}
+                    </StyledDate>
                     {game.home_team.full_name} {game.home_team_score} -{" "}
                     {game.visitor_team_score} {game.visitor_team.full_name}
                   </SingleGame>
@@ -132,10 +133,10 @@ export default function GamesDisplay({ id, CURRENT_SEASON }) {
             regularseasonGames.map((game) => (
               <GamesList key={game.id}>
                 <SingleGame key={game.id}>
-                  {game.date.split("T")[0]}
-                  {": "}
-                  <br />
-                  <br />
+                  <StyledDate>
+                    {game.date.split("T")[0]}
+                    {": "}
+                  </StyledDate>
                   {game.home_team.full_name} {game.home_team_score} -{" "}
                   {game.visitor_team_score} {game.visitor_team.full_name}
                 </SingleGame>

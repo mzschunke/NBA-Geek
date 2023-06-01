@@ -108,7 +108,6 @@ export const GamesContainer = styled.section`
 export const StyledSelect = styled(Select)`
   width: 100px;
   height: 40px;
-  font-size: 16px;
   align-self: center;
 `;
 
@@ -118,12 +117,19 @@ export const GamesList = styled.ul`
   border-radius: 10px;
   padding: 0.5rem;
   display: grid;
-  justify-content: center;
+  justify-content: start;
 `;
 
 export const SingleGame = styled.li`
-  font-size: 0.8rem;
   margin-bottom: 0.6rem;
   margin-top: 0.6rem;
   font-size: 1rem;
+`;
+
+export const StyledDate = styled.p`
+  margin-bottom: 0.8rem;
+  margin-top: 0.2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: underline;
 `;

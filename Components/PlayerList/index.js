@@ -58,7 +58,6 @@ export default function PlayerOverview() {
         return a.first_name.localeCompare(b.first_name);
       });
   }
-  // SearchBox Function:
   const [searchQuery, setSearchQuery] = useState("");
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
@@ -76,7 +75,6 @@ export default function PlayerOverview() {
     return <div>loading...</div>;
   }
 
-  // Render normal player overview if no search term is entered yet
   if (searchQuery === "")
     return (
       <>
@@ -111,7 +109,6 @@ export default function PlayerOverview() {
         </StyledPlayerList>
       </>
     );
-  // render search results according to user input
   else
     return (
       <>
