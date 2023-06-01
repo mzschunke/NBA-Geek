@@ -1,5 +1,4 @@
 import {
-  SelectionContainer,
   StyledSelect,
   StatsList,
   StyledDate,
@@ -7,14 +6,25 @@ import {
   StyledTable,
   TH,
   TD,
-  StyledParagraph,
+  NoData,
 } from "@/styles";
+import styled from "styled-components";
 import { useState, useEffect } from "react";
+
+const SelectionContainer = styled.section`
+  border-radius: 10px;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6%;
+`;
 
 export default function PlayerStats({ id, CURRENT_SEASON }) {
   const [season, setSeason] = useState(CURRENT_SEASON);
   const [playerStats, setPlayerStats] = useState([]);
   const [teamNames, setTeamNames] = useState({});
+  const [showNoData, setShowNoData] = useState(false);
   const statsURL = "https://www.balldontlie.io/api/v1/stats";
   const teamNamesURL =
     "https://www.balldontlie.io/api/v1/teams?page=1&per_page=100";
@@ -34,11 +44,11 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
 
   async function fetchStats() {
     const response = await fetch(
-      `${statsURL}?seasons[]=${season}}&player_ids[]=${id}&per_page=100`
+      `${statsURL}?seasons[]=${season}&player_ids[]=${id}&per_page=100`
     );
     const data = await response.json();
     setPlayerStats(data.data);
-    console.log("Received data:", playerStats);
+    setShowNoData(data.data.length === 0);
   }
   async function fetchTeamNames() {
     const response = await fetch(teamNamesURL);
@@ -67,23 +77,25 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
           placeholder="pick a season"
           id="season-select"
         />
+
         <button type="button" onClick={fetchStats}>
           Show Stats
         </button>
       </SelectionContainer>
-      {playerStats.length > 0 ? (
+      {showNoData ? (
+        <NoData>No Data available for selected season</NoData>
+      ) : (
         playerStats.map((stat) => (
           <StatsList key={stat._id}>
             <StyledDate>
               {stat.game.date.split("T")[0]}
-              {" | "}
+              {": "}
               {teamNames[stat.game.home_team_id]} {stat.game.home_team_score}
-              {" vs. "}
+              {" - "}
               {stat.game.visitor_team_score}{" "}
               {teamNames[stat.game.visitor_team_id]}
             </StyledDate>
-            <SingleGame>
-              {" "}
+            <SingleGame key={stat._id}>
               <StyledTable>
                 <thead>
                   <tr>
@@ -109,8 +121,6 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
             </SingleGame>
           </StatsList>
         ))
-      ) : (
-        <StyledParagraph>choose a season to display scores</StyledParagraph>
       )}
     </>
   );

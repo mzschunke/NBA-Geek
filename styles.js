@@ -109,7 +109,6 @@ export const StyledSelect = styled(Select)`
   width: 100px;
   height: 40px;
   align-self: center;
-  margin-bottom: 1rem;
 `;
 
 export const GamesList = styled.ul`
@@ -132,14 +131,14 @@ export const StyledDate = styled.p`
   margin-top: 0.2rem;
   font-size: 1rem;
   font-weight: 700;
-  text-decoration: underline;
 `;
 
 export const StatsList = styled.ul`
   list-style: none;
   background-color: rgb(255, 255, 255, 0.2);
   border-radius: 10px;
-  padding: 0.5rem;
+  padding: 0.4rem;
+  margin: 24px;
   display: grid;
   justify-content: center;
 `;
