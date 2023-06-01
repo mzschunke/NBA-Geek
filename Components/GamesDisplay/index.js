@@ -11,6 +11,7 @@ import {
 } from "@/styles";
 
 export default function GamesDisplay({ id, CURRENT_SEASON }) {
+  const parseID = Number.parseInt(id, 10);
   const [season, setSeason] = useState(CURRENT_SEASON);
   const [showPostseason, setShowPostseason] = useState(false);
   const { data, error, isLoading } = useSWR(
@@ -29,8 +30,7 @@ export default function GamesDisplay({ id, CURRENT_SEASON }) {
 
   const filteredGames = data.filter(
     (game) =>
-      (game.home_team.id === parseInt(id) ||
-        game.visitor_team.id === parseInt(id)) &&
+      (game.home_team.id === parseID || game.visitor_team.id === parseID) &&
       game.season === season
   );
   filteredGames.sort((a, b) => {
@@ -44,32 +44,32 @@ export default function GamesDisplay({ id, CURRENT_SEASON }) {
   const gamesWon = showPostseason
     ? postseasonGames.filter(
         (game) =>
-          (game.home_team.id === parseInt(id) &&
+          (game.home_team.id === parseID &&
             game.home_team_score > game.visitor_team_score) ||
-          (game.visitor_team.id === parseInt(id) &&
+          (game.visitor_team.id === parseID &&
             game.visitor_team_score > game.home_team_score)
       )
     : regularseasonGames.filter(
         (game) =>
-          (game.home_team.id === parseInt(id) &&
+          (game.home_team.id === parseID &&
             game.home_team_score > game.visitor_team_score) ||
-          (game.visitor_team.id === parseInt(id) &&
+          (game.visitor_team.id === parseID &&
             game.visitor_team_score > game.home_team_score)
       );
 
   const gamesLost = showPostseason
     ? postseasonGames.filter(
         (game) =>
-          (game.home_team.id === parseInt(id) &&
+          (game.home_team.id === parseID &&
             game.home_team_score < game.visitor_team_score) ||
-          (game.visitor_team.id === parseInt(id) &&
+          (game.visitor_team.id === parseID &&
             game.visitor_team_score < game.home_team_score)
       )
     : regularseasonGames.filter(
         (game) =>
-          (game.home_team.id === parseInt(id) &&
+          (game.home_team.id === parseID &&
             game.home_team_score < game.visitor_team_score) ||
-          (game.visitor_team.id === parseInt(id) &&
+          (game.visitor_team.id === parseID &&
             game.visitor_team_score < game.home_team_score)
       );
 
