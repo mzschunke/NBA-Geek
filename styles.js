@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
+import Select from "react-select";
 
 export default createGlobalStyle`
   *,
@@ -31,7 +32,8 @@ export const Headline = styled.h1`
 
 export const StyledLink = styled.a`
   text-decoration: none;
-  height: 30%;
+  height: 10%;
+  align-self: flex-start;
 `;
 
 export const StyledButton = styled.button`
@@ -89,4 +91,45 @@ export const NoData = styled.div`
   margin: 1rem;
   align-items: center;
   box-shadow: 1px 1px 2px;
+`;
+
+export const SelectionContainer = styled.section`
+  background-color: rgb(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
+`;
+
+export const GamesContainer = styled.section`
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 0.2rem;
+`;
+
+export const StyledSelect = styled(Select)`
+  width: 100px;
+  height: 40px;
+  align-self: center;
+`;
+
+export const GamesList = styled.ul`
+  list-style: none;
+  background-color: rgb(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 0.5rem;
+  display: grid;
+  justify-content: start;
+`;
+
+export const SingleGame = styled.li`
+  margin-bottom: 0.6rem;
+  margin-top: 0.6rem;
+  font-size: 1rem;
+`;
+
+export const StyledDate = styled.p`
+  margin-bottom: 0.8rem;
+  margin-top: 0.2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: underline;
 `;

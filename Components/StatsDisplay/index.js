@@ -34,6 +34,7 @@ export default function StatsDisplay({
   selectedPlayerTwo,
   selectedSeason,
   selectedSeasonTwo,
+  CURRENT_SEASON,
 }) {
   const [barSelection, setBarSelection] = useState("pts");
 
