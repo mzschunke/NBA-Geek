@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import styled from "styled-components";
 import Link from "next/link";
+import Image from "next/image";
 import { Headline } from "@/styles";
 
 const StyledList = styled.ul`
@@ -26,6 +27,10 @@ const StyledListItem = styled.li`
   }
 `;
 
+const StyledImage = styled(Image)`
+  width: 100px;
+`;
+
 const TeamName = styled.h2`
   font-size: 1.3rem;
   font-weight: bold;
@@ -49,7 +54,7 @@ export default function TeamOverview() {
         {teams.map((team) => (
           <Link href={`/teams/${team.id}`} key={team.id}>
             <StyledListItem key={team.id}>
-              <img
+              <StyledImage
                 src={`/images/team-logos/${team.id}.png`}
                 width={200}
                 height={200}
