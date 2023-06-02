@@ -40,6 +40,7 @@ export default function HomePage() {
           style={{ objectFit: "contain" }}
           alt="NBA Geek"
         />
+        <Headline>NBA GEEK</Headline>
         <Image
           src="/images/sports-team.png"
           width={80}
@@ -48,13 +49,13 @@ export default function HomePage() {
           alt="NBA Geek"
         />
       </HeaderContainer>
-      <Headline>NBA GEEK</Headline>
+
       <main>
         <ImageContainer>
           <Image
             src="/images/nba-comic.png"
-            width={300}
-            height={300}
+            width={375}
+            height={375}
             style={{ objectFit: "contain" }}
             alt="NBA Comic"
           />
