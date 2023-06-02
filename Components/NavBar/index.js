@@ -1,5 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { AiFillDribbbleCircle, AiFillHome } from "react-icons/ai";
+import { RiTeamFill, RiRhythmFill } from "react-icons/ri";
 
 const NavContainer = styled.nav`
   position: fixed;
@@ -28,16 +30,24 @@ export default function NavBar() {
     <NavContainer>
       <NavList>
         <li>
-          <Link href="/">Home</Link>
+          <Link href="/">
+            <AiFillHome size="35px" />
+          </Link>
         </li>
         <li>
-          <Link href="/teams">Teams</Link>
+          <Link href="/teams">
+            <AiFillDribbbleCircle size="40px" />
+          </Link>
         </li>
         <li>
-          <Link href="/players">Players</Link>
+          <Link href="/players">
+            <RiTeamFill size="35px" />
+          </Link>
         </li>
         <li>
-          <Link href="/stats">Stats</Link>
+          <Link href="/stats">
+            <RiRhythmFill size="35px" />
+          </Link>
         </li>
       </NavList>
     </NavContainer>

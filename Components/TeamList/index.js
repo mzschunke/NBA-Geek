@@ -54,7 +54,7 @@ export default function TeamOverview() {
         {teams.map((team) => (
           <Link href={`/teams/${team.id}`} key={team.id}>
             <StyledListItem key={team.id}>
-              <StyledImage
+              <Image
                 src={`/images/team-logos/${team.id}.png`}
                 width={200}
                 height={200}
