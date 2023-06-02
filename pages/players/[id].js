@@ -8,8 +8,8 @@ import PlayerStats from "@/Components/PlayerStats";
 const PlayerContainer = styled.div`
   display: flex;
   padding-top: 1.5rem;
-  margin-left: 10px;
-  gap: 7%;
+  margin-left: 0.7rem;
+  gap: 2rem;
 `;
 
 const PlayerName = styled.h1`
@@ -21,9 +21,10 @@ const PlayerDetails = styled.div`
   font-size: 0.8rem;
   display: flex;
   justify-content: space-between;
-  margin: 5px 10px 0 10px;
+  margin: 1rem 1.6rem 0 0.8rem;
+  padding-right: 0.8rem;
   text-align: center;
-  gap: 3%;
+  gap: 0.9rem;
 `;
 
 const URL = "https://www.balldontlie.io/api/v1/players";

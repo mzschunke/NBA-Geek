@@ -13,12 +13,10 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 
 const SelectionContainer = styled.section`
-  border-radius: 10px;
-  padding-left: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6%;
+  gap: 3rem;
 `;
 
 export default function PlayerStats({ id, CURRENT_SEASON }) {
@@ -47,15 +45,15 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
     const response = await fetch(
       `${statsURL}?seasons[]=${season}&player_ids[]=${id}&per_page=100`
     );
-    const data = await response.json();
-    setPlayerStats(data.data);
-    setShowNoData(data.data.length === 0);
+    const { data } = await response.json();
+    setPlayerStats(data);
+    setShowNoData(data.length === 0);
   }
 
   async function fetchTeamNames() {
     const response = await fetch(teamNamesURL);
-    const data = await response.json();
-    const names = data.data.reduce(
+    const { data } = await response.json();
+    const names = data.reduce(
       (acc, team) => ({
         ...acc,
         [team.id]: team.full_name,
