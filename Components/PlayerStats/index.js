@@ -3,10 +3,11 @@ import {
   StatsList,
   StyledDate,
   SingleGame,
-  StyledTable,
+  StatsBox,
   TH,
   TD,
   NoData,
+  StyledParagraph,
 } from "@/styles";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
@@ -50,6 +51,7 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
     setPlayerStats(data.data);
     setShowNoData(data.data.length === 0);
   }
+
   async function fetchTeamNames() {
     const response = await fetch(teamNamesURL);
     const data = await response.json();
@@ -79,7 +81,7 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
         />
 
         <button type="button" onClick={fetchStats}>
-          Show Stats
+          Show Games
         </button>
       </SelectionContainer>
       {showNoData ? (
@@ -90,22 +92,26 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
             <StyledDate>
               {stat.game.date.split("T")[0]}
               {":  "}
+            </StyledDate>
+            <StyledParagraph>
               {teamNames[stat.game.home_team_id]} {stat.game.home_team_score}
               {" - "}
               {stat.game.visitor_team_score}{" "}
               {teamNames[stat.game.visitor_team_id]}
-            </StyledDate>
+            </StyledParagraph>
             <SingleGame key={stat._id}>
-              <StyledTable>
+              <StatsBox>
                 <thead>
                   <tr>
                     <TH>MIN</TH>
                     <TH>PTS</TH>
                     <TH>AST</TH>
                     <TH>REB</TH>
+                    <TH>OREB</TH>
                     <TH>STL</TH>
                     <TH>BLK</TH>
                     <TH>TO</TH>
+                    <TH>PF</TH>
                   </tr>
                 </thead>
                 <tbody>
@@ -114,12 +120,34 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
                     <TD>{stat.pts}</TD>
                     <TD>{stat.ast}</TD>
                     <TD>{stat.reb}</TD>
+                    <TD>{stat.oreb}</TD>
                     <TD>{stat.stl}</TD>
                     <TD>{stat.blk}</TD>
                     <TD>{stat.turnover}</TD>
+                    <TD>{stat.pf}</TD>
                   </tr>
+                  <tr>
+                    <TH>FTM</TH>
+                    <TH>FGA</TH>
+                    <TH>3PA</TH>
+                    <TH>FG%</TH>
+                    <TH>3P%</TH>
+                    <TH>3PM</TH>
+                    <TH>FTM</TH>
+                    <TH>FTA</TH>
+                    <TH>FT%</TH>
+                  </tr>
+                  <TD>{stat.fgm}</TD>
+                  <TD>{stat.fga}</TD>
+                  <TD>{stat.fg3a}</TD>
+                  <TD>{stat.fg_pct}</TD>
+                  <TD>{stat.fg3_pct}</TD>
+                  <TD>{stat.fg3m}</TD>
+                  <TD>{stat.ftm}</TD>
+                  <TD>{stat.fta}</TD>
+                  <TD>{stat.ft_pct}</TD>
                 </tbody>
-              </StyledTable>
+              </StatsBox>
             </SingleGame>
           </StatsList>
         ))

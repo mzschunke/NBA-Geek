@@ -46,7 +46,6 @@ export const StyledButton = styled.button`
 export const StyledTable = styled.table`
   width: 90%;
   border: 1px solid black;
-  border-radius: 5px;
   background-color: #b6d3d6;
   font-size: 0.8rem;
   margin: 1rem;
@@ -68,7 +67,8 @@ export const TD = styled.td`
   border-radius: 5%;
   border: 1px solid black;
   height: 1rem;
-  font-weight: 800;
+  font-weight: 500;
+  text-align: center;
 `;
 
 export const PlayerName = styled.div`
@@ -120,6 +120,13 @@ export const GamesList = styled.ul`
   justify-content: start;
 `;
 
+export const StatsBox = styled.table`
+  border: 1px solid black;
+  background-color: #b6d3d6;
+  font-size: 0.8rem;
+  box-shadow: 1px 1px 2px;
+`;
+
 export const SingleGame = styled.li`
   margin-bottom: 0.6rem;
   margin-top: 0.6rem;
@@ -129,7 +136,7 @@ export const SingleGame = styled.li`
 export const StyledDate = styled.p`
   margin-bottom: 0.8rem;
   margin-top: 0.2rem;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 00;
   text-align: left;
 `;

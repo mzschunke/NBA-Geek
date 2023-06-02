@@ -7,7 +7,7 @@ import PlayerStats from "@/Components/PlayerStats";
 
 const PlayerContainer = styled.div`
   display: flex;
-  padding-top: 2.5rem;
+  padding-top: 1.5rem;
   margin-left: 10px;
   gap: 7%;
 `;
