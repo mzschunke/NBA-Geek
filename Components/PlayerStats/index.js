@@ -127,25 +127,27 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
                     <TD>{stat.pf}</TD>
                   </tr>
                   <tr>
-                    <TH>FTM</TH>
+                    <TH>FGM</TH>
                     <TH>FGA</TH>
-                    <TH>3PA</TH>
                     <TH>FG%</TH>
-                    <TH>3P%</TH>
                     <TH>3PM</TH>
+                    <TH>3PA</TH>
+                    <TH>3P%</TH>
                     <TH>FTM</TH>
                     <TH>FTA</TH>
                     <TH>FT%</TH>
                   </tr>
-                  <TD>{stat.fgm}</TD>
-                  <TD>{stat.fga}</TD>
-                  <TD>{stat.fg3a}</TD>
-                  <TD>{stat.fg_pct}</TD>
-                  <TD>{stat.fg3_pct}</TD>
-                  <TD>{stat.fg3m}</TD>
-                  <TD>{stat.ftm}</TD>
-                  <TD>{stat.fta}</TD>
-                  <TD>{stat.ft_pct}</TD>
+                  <tr>
+                    <TD>{stat.fgm}</TD>
+                    <TD>{stat.fga}</TD>
+                    <TD>{stat.fg_pct}</TD>
+                    <TD>{stat.fg3m}</TD>
+                    <TD>{stat.fg3a}</TD>
+                    <TD>{stat.fg3_pct}</TD>
+                    <TD>{stat.ftm}</TD>
+                    <TD>{stat.fta}</TD>
+                    <TD>{stat.ft_pct}</TD>
+                  </tr>
                 </tbody>
               </StatsBox>
             </SingleGame>
