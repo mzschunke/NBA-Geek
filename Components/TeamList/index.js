@@ -1,6 +1,5 @@
 import useSWR from "swr";
 import styled from "styled-components";
-import Image from "next/image";
 import Link from "next/link";
 import { Headline } from "@/styles";
 
@@ -50,7 +49,7 @@ export default function TeamOverview() {
         {teams.map((team) => (
           <Link href={`/teams/${team.id}`} key={team.id}>
             <StyledListItem key={team.id}>
-              <Image
+              <img
                 src={`/images/team-logos/${team.id}.png`}
                 width={200}
                 height={200}
