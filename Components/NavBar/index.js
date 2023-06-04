@@ -7,17 +7,9 @@ const NavContainer = styled.nav`
   position: fixed;
   border-top: 0.2px solid #cee0ed;
   bottom: 0%;
-  height: 80px;
+  height: 85px;
   width: 100%;
-
-  background: rgb(182, 211, 214);
-  background: linear-gradient(
-    90deg,
-    rgba(182, 211, 214, 1) 0%,
-    rgba(39, 100, 176, 1) 100%,
-    rgba(29, 162, 178, 1) 100%,
-    rgba(39, 100, 176, 1) 100%
-  );
+  background: rgb(39, 100, 176);
 `;
 
 const NavList = styled.ul`
@@ -35,10 +27,11 @@ const IconContainer = styled.div`
 
 const IconDescription = styled.p`
   font-size: 0.6rem;
-  color: black;
+  color: white;
   font-weight: 700;
 `;
-export const StyledLink = styled(Link)`
+
+const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
