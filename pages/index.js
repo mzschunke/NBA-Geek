@@ -12,7 +12,7 @@ const HeaderContainer = styled.header`
   height: 85px;
 `;
 
-const Headline = styled.h1`
+const MainHeadline = styled.h1`
   font-size: 2.8rem;
   text-align: center;
   letter-spacing: 2.5px;
@@ -42,7 +42,7 @@ export default function HomePage() {
           style={{ objectFit: "contain" }}
           alt="NBA Geek"
         />
-        <Headline>NBA GEEK</Headline>
+        <MainHeadline>NBA GEEK</MainHeadline>
       </HeaderContainer>
 
       <main>

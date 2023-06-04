@@ -1,43 +1,17 @@
 import useSWR from "swr";
-import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Headline, StyledButton } from "@/styles";
-
-const StyledLetterList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 0;
-  margin-right: 0;
-  background-color: rgb(0, 0, 0, 0.15);
-  gap: 2%;
-`;
-
-const StyledPlayerList = styled.ul`
-  list-style: none;
-`;
-
-const StyledListItem = styled.li`
-  align-items: center;
-  font-size: 0.8rem;
-  margin-bottom: 0.6rem;
-`;
-
-const Input = styled.input`
-  margin: 1rem;
-  border-radius: 2px;
-  border-style: double;
-`;
-
-const StyledParagraph = styled.p`
-  font-size: 1.5rem;
-  color: #0d48a0;
-  margin-bottom: 0;
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 5%;
-`;
+import {
+  Headline,
+  StyledButton,
+  StyledLetterList,
+  StyledPlayerList,
+  StyledListItem,
+  Input,
+  StyledResult,
+} from "@/styles";
+import { Button } from "@mui/material";
 
 const alphabet = [..."abcdefghijklmnopqrstuvwxyz"];
 export default function PlayerOverview() {
@@ -77,7 +51,7 @@ export default function PlayerOverview() {
   if (searchQuery === "")
     return (
       <>
-        <Headline>All Players</Headline>
+        <Headline>ALL PLAYERS</Headline>
         <Input
           value={searchQuery}
           onChange={handleInputChange}
@@ -85,9 +59,9 @@ export default function PlayerOverview() {
           id="player-search"
           placeholder="Search..."
         />
-        <StyledButton type="button" onClick={() => setLetter(letter)}>
+        <Button variant="contained" onClick={() => setLetter(letter)}>
           Reset
-        </StyledButton>
+        </Button>
         <StyledLetterList role="list">
           {alphabet.map((letter) => (
             <StyledButton key={letter} onClick={() => setLetter(letter)}>
@@ -96,7 +70,6 @@ export default function PlayerOverview() {
           ))}
         </StyledLetterList>
         <StyledPlayerList role="list">
-          {letter.toUpperCase()}
           {sortedPlayers.map((player) => (
             <Link href={`/players/${player.id}`} key={player.id}>
               <StyledListItem key={player.id}>
@@ -111,7 +84,7 @@ export default function PlayerOverview() {
   else
     return (
       <>
-        <Headline>Player Search</Headline>
+        <Headline>SEARCH</Headline>
         <Input
           value={searchQuery}
           onChange={handleInputChange}
@@ -119,23 +92,12 @@ export default function PlayerOverview() {
           id="player-search"
           placeholder="Search..."
         />
-        <StyledButton
-          type="button"
-          onClick={() => {
-            setSearchQuery("");
-          }}
-        >
+        <Button variant="contained" onClick={() => setSearchQuery("")}>
           Reset
-        </StyledButton>
+        </Button>
         <StyledLetterList role="list">
           {alphabet.map((letter) => (
-            <StyledButton
-              key={letter}
-              onClick={() => {
-                setLetter(letter);
-                setSearchQuery("");
-              }}
-            >
+            <StyledButton key={letter} onClick={() => setLetter(letter)}>
               {letter.toUpperCase()}
             </StyledButton>
           ))}
@@ -143,9 +105,9 @@ export default function PlayerOverview() {
         {filteredPlayers.length ? (
           <>
             {searchQuery && (
-              <StyledParagraph>
+              <StyledResult>
                 {filteredPlayers.length} players found
-              </StyledParagraph>
+              </StyledResult>
             )}
             {filteredPlayers.map((player) => (
               <StyledPlayerList>
@@ -159,9 +121,7 @@ export default function PlayerOverview() {
           </>
         ) : (
           <>
-            <StyledParagraph>
-              No players match your search criteria
-            </StyledParagraph>
+            <StyledResult>No players match your search criteria</StyledResult>
             <Image
               src="/images/court.png"
               width={375}

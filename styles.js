@@ -18,15 +18,16 @@ export default createGlobalStyle`
  }
 `;
 
-export const Headline = styled.h1`
+export const Headline = styled.h2`
   font-size: 2.5rem;
   font-weight: bold;
   margin-top: 0.5rem;
+  padding: 1rem;
   text-align: center;
-  letter-spacing: 5px;
+  letter-spacing: 2px;
   color: #cee0ed;
   text-shadow: 3px 3px 3px #000000;
-  margin-top: 0.2rem;
+  margin-top: 1rem;
   margin-bottom: 0;
 `;
 
@@ -36,17 +37,9 @@ export const StyledLink = styled.a`
   align-self: flex-start;
 `;
 
-export const StyledButton = styled.button`
-  color: #0d48a0;
-  font-weight: 700;
-  border-radius: 20%;
-  background-color: #5bc0de;
-`;
-
 export const StyledTable = styled.table`
   width: 90%;
   border: 1px solid black;
-  background-color: #b6d3d6;
   font-size: 0.8rem;
   margin: 1rem;
   box-shadow: 1px 1px 2px;
@@ -59,11 +52,12 @@ export const TR = styled.tr`
 export const TH = styled.th`
   border-left: 1px solid black;
   border-bottom: 1px solid black;
+  background-color: rgb(39, 100, 176, 0.3);
 `;
 
 export const TD = styled.td`
   border-left: 1px solid black;
-  background-color: #cee0ed;
+  background-color: white;
   border-radius: 5%;
   border: 1px solid black;
   height: 1rem;
@@ -156,4 +150,49 @@ export const StyledParagraph = styled.p`
   margin-top: 0.2rem;
   font-size: 1rem;
   font-weight: 700;
+`;
+
+// Player List stylings:
+
+export const StyledLetterList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(0, 0, 0, 0.15);
+  gap: 0.8%;
+`;
+
+export const StyledPlayerList = styled.ul`
+  list-style: none;
+  columns: 150px;
+`;
+
+export const StyledListItem = styled.li`
+  align-items: center;
+  font-size: 0.8rem;
+  margin-bottom: 0.6rem;
+  color: #0d48a0;
+  font-weight: 600;
+  padding: 0.4rem;
+  gap: 50%;
+`;
+
+export const Input = styled.input`
+  margin: 1rem;
+  border-radius: 5px;
+  border-style: double;
+`;
+
+export const StyledResult = styled.p`
+  font-size: 1.5rem;
+  color: #0d48a0;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 5%;
+`;
+
+export const StyledButton = styled.button`
+  color: #cee0ed;
+  font-weight: 700;
+  background-color: rgb(39, 100, 176);
 `;

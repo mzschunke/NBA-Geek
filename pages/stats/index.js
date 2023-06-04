@@ -74,7 +74,7 @@ export default function Stats({ CURRENT_SEASON }) {
 
   return (
     <>
-      <Headline>Stats</Headline>
+      <Headline>STATS</Headline>
       <StatsSelector
         selectedPlayer={selectedPlayer}
         onSelectPlayer={handlePlayerChange}
