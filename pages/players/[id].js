@@ -1,31 +1,16 @@
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import styled from "styled-components";
 import Image from "next/image";
 import NavBar from "@/Components/NavBar";
 import PlayerStats from "@/Components/PlayerStats";
-
-const PlayerContainer = styled.div`
-  display: flex;
-  padding-top: 1.5rem;
-  margin-left: 0.7rem;
-  gap: 2rem;
-`;
-
-const PlayerName = styled.h1`
-  font-size: 1.8rem;
-  color: #0d48a0;
-`;
-
-const PlayerDetails = styled.div`
-  font-size: 0.8rem;
-  display: flex;
-  justify-content: space-between;
-  margin: 1rem 1.6rem 0 0.8rem;
-  padding-right: 0.8rem;
-  text-align: center;
-  gap: 0.9rem;
-`;
+import {
+  PlayerContainer,
+  PlayerNameBio,
+  PlayerDetails,
+  StyledDescriptionList,
+  StyledTerm,
+  StyledDefinition,
+} from "@/styles";
 
 const URL = "https://www.balldontlie.io/api/v1/players";
 
@@ -47,32 +32,33 @@ export default function PlayerPage({ CURRENT_SEASON }) {
           style={{ objectFit: "contain" }}
           alt="No Image provided"
         />
-        <PlayerName>
+        <PlayerNameBio>
           {player.last_name}, {player.first_name}
-        </PlayerName>
+        </PlayerNameBio>
       </PlayerContainer>
       <PlayerDetails>
-        <p>Position: {player?.position ? player.position : "unknown"}</p>
-        <p>
-          Height:{" "}
-          {player?.height_feet
-            ? `${player.height_feet}'${player.height_inches}"`
-            : "unknown"}
-        </p>
-        <p>
-          Weight:{" "}
-          {player?.weight_pounds ? `${player.weight_pounds} lbs.` : "unknown"}
-        </p>
-        <p>
-          Team: {player?.team?.full_name ? player.team.full_name : "unknown"}{" "}
-          <Image
-            src={`/images/team-logos/${player.team.id}.png`}
-            width={25}
-            height={25}
-            style={{ objectFit: "contain" }}
-            alt={player.team.name}
-          />
-        </p>
+        <StyledDescriptionList>
+          <StyledTerm>Position: </StyledTerm>
+          <StyledDefinition>
+            {player?.position ? player.position : "unknown"}
+          </StyledDefinition>
+          <StyledTerm> Height: </StyledTerm>
+          <StyledDefinition>
+            {" "}
+            {player?.height_feet
+              ? `${player.height_feet}'${player.height_inches}"`
+              : "unknown"}
+          </StyledDefinition>
+          <StyledTerm> Weight: </StyledTerm>
+          <StyledDefinition>
+            {" "}
+            {player?.weight_pounds ? `${player.weight_pounds} lbs.` : "unknown"}
+          </StyledDefinition>
+          <StyledTerm> Team: </StyledTerm>
+          <StyledDefinition>
+            {player?.team?.full_name ? player.team.full_name : "unknown"}{" "}
+          </StyledDefinition>
+        </StyledDescriptionList>
       </PlayerDetails>
       <PlayerStats id={id} CURRENT_SEASON={CURRENT_SEASON} />
       <NavBar />

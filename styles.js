@@ -196,3 +196,44 @@ export const StyledButton = styled.button`
   font-weight: 700;
   background-color: rgb(39, 100, 176);
 `;
+
+// Player [id] stylings:
+
+export const PlayerContainer = styled.div`
+  display: flex;
+  padding-top: 1.5rem;
+  margin-left: 0.7rem;
+  gap: 2rem;
+`;
+
+export const PlayerNameBio = styled.h1`
+  font-size: 2rem;
+  color: #0d48a0;
+  text-shadow: 1px 1px 0;
+`;
+
+export const PlayerDetails = styled.div`
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 1.6rem 0 0.8rem;
+  padding-right: 0.8rem;
+  text-align: center;
+  gap: 0.9rem;
+`;
+
+export const StyledDescriptionList = styled.dl`
+  font-size: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 8px;
+  background-color: rgb(39, 100, 176);
+  padding: 10px;
+  border-radius: 10px;
+`;
+
+export const StyledTerm = styled.dt`
+  font-weight: 700;
+`;
+
+export const StyledDefinition = styled.dd``;
