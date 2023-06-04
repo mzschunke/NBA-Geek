@@ -16,7 +16,7 @@ const HeaderContainer = styled.header`
   );
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
+  border-bottom: 0.2px solid #cee0ed;
 `;
 
 const ImageContainer = styled.header`

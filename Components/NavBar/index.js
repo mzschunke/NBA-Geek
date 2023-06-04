@@ -5,9 +5,11 @@ import { RiTeamFill, RiRhythmFill } from "react-icons/ri";
 
 const NavContainer = styled.nav`
   position: fixed;
-  border: 1px solid black;
+  border-top: 0.2px solid #cee0ed;
   bottom: 0%;
+  height: 80px;
   width: 100%;
+
   background: rgb(182, 211, 214);
   background: linear-gradient(
     90deg,
@@ -21,8 +23,23 @@ const NavContainer = styled.nav`
 const NavList = styled.ul`
   list-style: none;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  padding: 0;
+`;
+
+const IconContainer = styled.div`
+  display: flex;
   align-items: center;
+  flex-direction: column;
+`;
+
+const IconDescription = styled.p`
+  font-size: 0.6rem;
+  color: black;
+  font-weight: 700;
+`;
+export const StyledLink = styled(Link)`
+  text-decoration: none;
 `;
 
 export default function NavBar() {
@@ -30,24 +47,60 @@ export default function NavBar() {
     <NavContainer>
       <NavList>
         <li>
-          <Link href="/">
-            <AiFillHome size="35px" />
-          </Link>
+          <StyledLink href="/">
+            <IconContainer>
+              <AiFillHome
+                size="40px"
+                color="#cee0ed"
+                style={{
+                  boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)",
+                }}
+              />
+              <IconDescription>Home</IconDescription>
+            </IconContainer>
+          </StyledLink>
         </li>
         <li>
-          <Link href="/teams">
-            <AiFillDribbbleCircle size="40px" />
-          </Link>
+          <StyledLink href="/teams">
+            <IconContainer>
+              <AiFillDribbbleCircle
+                size="40px"
+                color="#cee0ed"
+                style={{
+                  boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)",
+                }}
+              />
+              <IconDescription>Teams</IconDescription>
+            </IconContainer>
+          </StyledLink>
         </li>
         <li>
-          <Link href="/players">
-            <RiTeamFill size="35px" />
-          </Link>
+          <StyledLink href="/players">
+            <IconContainer>
+              <RiTeamFill
+                size="40px"
+                color="#cee0ed"
+                style={{
+                  boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)",
+                }}
+              />
+            </IconContainer>
+            <IconDescription>Players</IconDescription>
+          </StyledLink>
         </li>
         <li>
-          <Link href="/stats">
-            <RiRhythmFill size="35px" />
-          </Link>
+          <StyledLink href="/stats">
+            <IconContainer>
+              <RiRhythmFill
+                size="40px"
+                color="#cee0ed"
+                style={{
+                  boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)",
+                }}
+              />
+            </IconContainer>
+            <IconDescription>Compare</IconDescription>
+          </StyledLink>
         </li>
       </NavList>
     </NavContainer>
