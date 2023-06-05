@@ -5,7 +5,7 @@ With NBA Geek, users can dive into a treasure trove of NBA data, spanning all th
 
 ## Deployment
 
-[NBA Geek on Vercel](https://nba-geek-mzschunke-s-team.vercel.app/stats)
+[NBA Geek on Vercel](https://nba-geek-mzschunke-s-team.vercel.app)
 
 ### Local development
 
