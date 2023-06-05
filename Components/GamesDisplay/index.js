@@ -2,7 +2,7 @@ import useSWR from "swr";
 import { useState } from "react";
 import {
   GamesList,
-  Headline,
+  SubHeadline,
   SingleGame,
   GamesContainer,
   StyledSelect,
@@ -10,6 +10,7 @@ import {
   SelectionContainer,
   StyledDate,
 } from "@/styles";
+import { Button } from "@mui/material";
 
 export default function GamesDisplay({ id, CURRENT_SEASON }) {
   const parseID = Number.parseInt(id, 10);
@@ -28,7 +29,7 @@ export default function GamesDisplay({ id, CURRENT_SEASON }) {
   }
 
   if (isLoading) {
-    return <div>loading...</div>;
+    return <div>loading</div>;
   }
 
   const filteredGames = data.filter(
@@ -98,7 +99,7 @@ export default function GamesDisplay({ id, CURRENT_SEASON }) {
       {filteredGames.length > 0 ? (
         <GamesContainer>
           <SelectionContainer>
-            <Headline>Games</Headline>
+            <SubHeadline>All Games</SubHeadline>
             <label htmlFor="season-select">Season:</label>
             <StyledSelect
               value={selectYears.find((option) => option.value === season)}
@@ -107,12 +108,12 @@ export default function GamesDisplay({ id, CURRENT_SEASON }) {
               placeholder="pick a season"
               id="season-select"
             />
+            <Button variant="contained" onClick={toggleView}>
+              {showPostseason ? "Show Regular Season" : "Show Postseason"}
+            </Button>
             <h3>{showPostseason ? "Postseason" : "Regular Season"}</h3>
             <h4>Wins: {gamesWon.length}</h4>
             <h4>Losses: {gamesLost.length}</h4>
-            <button type="button" onClick={toggleView}>
-              {showPostseason ? "Show Regular Season" : "Show Postseason"}
-            </button>
           </SelectionContainer>
           {showPostseason ? (
             postseasonGames.length > 0 ? (

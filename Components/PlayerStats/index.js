@@ -17,7 +17,7 @@ const SelectionContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 2rem;
 `;
 
 export default function PlayerStats({ id, CURRENT_SEASON }) {

@@ -21,8 +21,9 @@ const MainHeadline = styled.h1`
   margin-bottom: 10px;
 `;
 
-const ImageContainer = styled.header`
+const ImageContainer = styled.div`
   margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
   margin-bottom: 0;
   display: flex;
   justify-content: center;
@@ -44,13 +45,12 @@ export default function HomePage() {
         />
         <MainHeadline>NBA GEEK</MainHeadline>
       </HeaderContainer>
-
       <main>
         <ImageContainer>
           <Image
             src="/images/nba-comic.png"
             width={375}
-            height={375}
+            height={410}
             style={{ objectFit: "contain" }}
             alt="NBA Comic"
           />
