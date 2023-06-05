@@ -14,15 +14,17 @@ const TeamContainer = styled.div`
   margin: 0 10px 0 10px;
 `;
 
-const TeamName = styled.p`
-  font-size: 1.8rem;
+const TeamName = styled.h2`
+  font-size: 2.2rem;
   color: #0d48a0;
   text-align: center;
+  text-shadow: 1px 1px 0;
 `;
 
 const StyledTeamDetails = styled.div`
   text-align: center;
   font-size: 0.7rem;
+  font-weight: 550;
 `;
 
 const URL = "https://www.balldontlie.io/api/v1/teams";

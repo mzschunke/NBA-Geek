@@ -7,6 +7,7 @@ const StyledSelect = styled.select`
   border-radius: 3px;
   border: 1px soild black;
   margin-bottom: 0.5rem;
+  box-shadow: 1px 1px 1px;
 `;
 
 export default function BarChartSelect({ setBarSelection }) {

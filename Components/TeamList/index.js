@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import styled from "styled-components";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import { Headline } from "@/styles";
 
 const StyledList = styled.ul`
@@ -45,7 +45,7 @@ export default function TeamOverview() {
 
   return (
     <>
-      <Headline>TEAMS</Headline>
+      <Headline>ALL TEAMS</Headline>
       <StyledList role="list">
         {teams.map((team) => (
           <Link href={`/teams/${team.id}`} key={team.id}>

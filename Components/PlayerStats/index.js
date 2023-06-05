@@ -11,12 +11,13 @@ import {
 } from "@/styles";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
+import { Button } from "@mui/material";
 
 const SelectionContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 2rem;
 `;
 
 export default function PlayerStats({ id, CURRENT_SEASON }) {
@@ -78,9 +79,9 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
           id="season-select"
         />
 
-        <button type="button" onClick={fetchStats}>
+        <Button variant="contained" onClick={fetchStats}>
           Show Games
-        </button>
+        </Button>
       </SelectionContainer>
       {showNoData ? (
         <NoData>No Data available for selected season</NoData>
