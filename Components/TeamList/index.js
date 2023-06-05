@@ -27,10 +27,6 @@ const StyledListItem = styled.li`
   }
 `;
 
-const StyledImage = styled(Image)`
-  width: 100px;
-`;
-
 const TeamName = styled.h2`
   font-size: 1.3rem;
   font-weight: bold;
@@ -49,7 +45,7 @@ export default function TeamOverview() {
 
   return (
     <>
-      <Headline>TEAMS</Headline>
+      <Headline>ALL TEAMS</Headline>
       <StyledList role="list">
         {teams.map((team) => (
           <Link href={`/teams/${team.id}`} key={team.id}>

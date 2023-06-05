@@ -12,6 +12,9 @@ const StatsContainer = styled.section`
   justify-content: center;
   margin: 0;
   padding: 0;
+  overflow: auto;
+  overflow-y: scroll;
+  margin-bottom: 100px;
 `;
 
 const BarChartContainer = styled.section`
@@ -57,7 +60,7 @@ export default function StatsDisplay({
       {
         label: barSelection,
         data: statsArray.map((data) => data[barSelection]),
-        backgroundColor: ["#6E941B", "#442594"],
+        backgroundColor: ["#48cb39", "#ee3434"],
       },
     ],
   };

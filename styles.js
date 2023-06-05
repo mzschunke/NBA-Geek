@@ -14,7 +14,6 @@ export default createGlobalStyle`
     margin: 0;
     font-family: "roboto", sans-serif; 
     background: #5d8ebe;
-
  }
 `;
 
@@ -52,7 +51,7 @@ export const TR = styled.tr`
 export const TH = styled.th`
   border-left: 1px solid black;
   border-bottom: 1px solid black;
-  background-color: rgb(39, 100, 176, 0.65);
+  background-color: #cee0ed;
 `;
 
 export const TD = styled.td`
@@ -67,12 +66,14 @@ export const TD = styled.td`
 
 export const PlayerName = styled.div`
   background-color: #cee0ed;
-  border: 1px solid black;
-  border-radius: 3px;
+  border: 0.5px solid white;
+  border-radius: 4px;
   padding: 0.5rem;
   font-size: 0.8rem;
   font-weight: 900;
   box-shadow: 1px 1px 2px;
+  margin-left: 1rem;
+  margin-bottom: 0;
 `;
 
 export const NoData = styled.div`
@@ -178,6 +179,7 @@ export const StyledLetterList = styled.div`
   flex-wrap: wrap;
   background-color: rgb(0, 0, 0, 0.15);
   gap: 0.8%;
+  margin-top: 0.3rem;
 `;
 
 export const StyledPlayerList = styled.ul`
@@ -255,7 +257,6 @@ export const StyledDescriptionList = styled.dl`
 
 export const StyledTerm = styled.dt`
   font-weight: 700;
-  font-style: oblique;
 `;
 
 export const StyledDefinition = styled.dd`
