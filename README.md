@@ -10,8 +10,6 @@ With NBA Geek, users can dive into a treasure trove of NBA data, spanning all th
 
 ## Functionality 
 
-This version contains the following features: 
-
 * Find and filter all teams and games 
 * Search for specific players and performances
 * Compare player stats 
