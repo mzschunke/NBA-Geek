@@ -11,7 +11,7 @@ import {
   StyledTerm,
   StyledDefinition,
 } from "@/styles";
-import PulseLoader from "react-spinners/PulseLoader";
+import Loader from "@/Components/Loader";
 
 const URL = "https://www.balldontlie.io/api/v1/players";
 
@@ -20,26 +20,7 @@ export default function PlayerPage({ CURRENT_SEASON }) {
   const { id } = router.query;
   const { data: player, error, isLoading } = useSWR(URL + "/" + id);
   if (error) return <div>Failed to load</div>;
-  if (isLoading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
-        <PulseLoader
-          color={"rgb(39, 100, 176)"}
-          loading={isLoading}
-          size={25}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
-      </div>
-    );
-  }
+  if (isLoading) return <Loader />;
 
   return (
     <>

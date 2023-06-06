@@ -12,7 +12,7 @@ import {
   StyledResult,
 } from "@/styles";
 import { Button } from "@mui/material";
-import PulseLoader from "react-spinners/PulseLoader";
+import Loader from "../Loader";
 
 const alphabet = [..."abcdefghijklmnopqrstuvwxyz"];
 export default function PlayerOverview() {
@@ -45,26 +45,7 @@ export default function PlayerOverview() {
   if (error) {
     return (<div>failed to load</div>), console.log(error);
   }
-  if (isLoading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
-        <PulseLoader
-          color={"rgb(39, 100, 176)"}
-          loading={isLoading}
-          size={25}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
-      </div>
-    );
-  }
+  if (isLoading) return <Loader />;
 
   if (searchQuery === "")
     return (

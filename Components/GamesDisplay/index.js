@@ -11,7 +11,8 @@ import {
   StyledDate,
 } from "@/styles";
 import { Button } from "@mui/material";
-import PulseLoader from "react-spinners/PulseLoader";
+
+import Loader from "../Loader";
 
 export default function GamesDisplay({ id, CURRENT_SEASON }) {
   const parseID = Number.parseInt(id, 10);
@@ -29,26 +30,7 @@ export default function GamesDisplay({ id, CURRENT_SEASON }) {
     return <div>failed to load</div>;
   }
 
-  if (isLoading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
-        <PulseLoader
-          color={"rgb(39, 100, 176)"}
-          loading={isLoading}
-          size={25}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
-      </div>
-    );
-  }
+  if (isLoading) return <Loader />;
 
   const filteredGames = data.filter(
     (game) =>

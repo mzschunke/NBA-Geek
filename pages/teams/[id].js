@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import NavBar from "@/Components/NavBar";
 import GamesDisplay from "@/Components/GamesDisplay";
-import PulseLoader from "react-spinners/PulseLoader";
+import Loader from "@/Components/Loader";
 
 const TeamContainer = styled.div`
   display: flex;
@@ -35,26 +35,7 @@ export default function TeamPage({ CURRENT_SEASON }) {
   const { id } = router.query;
   const { data: team, error, isLoading } = useSWR(URL + "/" + id);
   if (error) return <div>Failed to load</div>;
-  if (isLoading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
-        <PulseLoader
-          color={"rgb(39, 100, 176)"}
-          loading={isLoading}
-          size={25}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
-      </div>
-    );
-  }
+  if (isLoading) return <Loader />;
 
   return (
     <>
