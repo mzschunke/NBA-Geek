@@ -7,7 +7,6 @@ export default createGlobalStyle`
   *::before,
   *::after {
     box-sizing: border-box;
-    /* border: 1px solid black; */
   }
 
   body {
@@ -21,7 +20,7 @@ export const Headline = styled.h2`
   font-size: 2.5rem;
   font-weight: bold;
   margin-top: 0.5rem;
-  padding: 1rem;
+  padding: 0.5rem;
   text-align: center;
   letter-spacing: 2px;
   color: #cee0ed;

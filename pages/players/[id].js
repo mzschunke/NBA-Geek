@@ -11,16 +11,16 @@ import {
   StyledTerm,
   StyledDefinition,
 } from "@/styles";
+import Loader from "@/Components/Loader";
 
 const URL = "https://www.balldontlie.io/api/v1/players";
 
 export default function PlayerPage({ CURRENT_SEASON }) {
   const router = useRouter();
   const { id } = router.query;
-  const { data, error, isLoading } = useSWR(URL + "/" + id);
+  const { data: player, error, isLoading } = useSWR(URL + "/" + id);
   if (error) return <div>Failed to load</div>;
-  if (isLoading) return <div>Loading...</div>;
-  const player = data;
+  if (isLoading) return <Loader />;
 
   return (
     <>

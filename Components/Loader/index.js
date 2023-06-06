@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { RotateLoader } from "react-spinners";
+import PulseLoader from "react-spinners/PulseLoader";
 
 const Overlay = styled.div`
   width: 100%;
@@ -9,10 +9,15 @@ const Overlay = styled.div`
   align-items: center;
 `;
 
-export default function Loading() {
+export default function Loader() {
   return (
     <Overlay>
-      <RotateLoader color={"var(--blue)"} loading={true} size={60} />
+      <PulseLoader
+        color={"rgb(39, 100, 176)"}
+        loading={true}
+        size={25}
+        aria-label="Loading Spinner"
+      />
     </Overlay>
   );
 }

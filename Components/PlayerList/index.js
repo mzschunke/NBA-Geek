@@ -12,6 +12,7 @@ import {
   StyledResult,
 } from "@/styles";
 import { Button } from "@mui/material";
+import Loader from "../Loader";
 
 const alphabet = [..."abcdefghijklmnopqrstuvwxyz"];
 export default function PlayerOverview() {
@@ -44,9 +45,7 @@ export default function PlayerOverview() {
   if (error) {
     return (<div>failed to load</div>), console.log(error);
   }
-  if (isLoading) {
-    return <div>loading...</div>;
-  }
+  if (isLoading) return <Loader />;
 
   if (searchQuery === "")
     return (

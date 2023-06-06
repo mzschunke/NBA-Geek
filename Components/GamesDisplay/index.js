@@ -12,6 +12,8 @@ import {
 } from "@/styles";
 import { Button } from "@mui/material";
 
+import Loader from "../Loader";
+
 export default function GamesDisplay({ id, CURRENT_SEASON }) {
   const parseID = Number.parseInt(id, 10);
   const [season, setSeason] = useState(CURRENT_SEASON);
@@ -28,9 +30,7 @@ export default function GamesDisplay({ id, CURRENT_SEASON }) {
     return <div>failed to load</div>;
   }
 
-  if (isLoading) {
-    return <div>loading</div>;
-  }
+  if (isLoading) return <Loader />;
 
   const filteredGames = data.filter(
     (game) =>
