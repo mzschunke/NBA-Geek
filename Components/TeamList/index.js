@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
 import { Headline } from "@/styles";
+import PulseLoader from "react-spinners/PulseLoader";
 
 const StyledList = styled.ul`
   display: grid;
@@ -41,7 +42,26 @@ export default function TeamOverview() {
   const teams = data?.data;
 
   if (error) return <div>Failed to load</div>;
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <PulseLoader
+          color={"rgb(39, 100, 176)"}
+          loading={isLoading}
+          size={25}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
+    );
+  }
 
   return (
     <>

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import NavBar from "@/Components/NavBar";
 import GamesDisplay from "@/Components/GamesDisplay";
+import PulseLoader from "react-spinners/PulseLoader";
 
 const TeamContainer = styled.div`
   display: flex;
@@ -32,10 +33,28 @@ const URL = "https://www.balldontlie.io/api/v1/teams";
 export default function TeamPage({ CURRENT_SEASON }) {
   const router = useRouter();
   const { id } = router.query;
-  const { data, error, isLoading } = useSWR(URL + "/" + id);
+  const { data: team, error, isLoading } = useSWR(URL + "/" + id);
   if (error) return <div>Failed to load</div>;
-  if (isLoading) return <div>Loading...</div>;
-  const team = data;
+  if (isLoading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <PulseLoader
+          color={"rgb(39, 100, 176)"}
+          loading={isLoading}
+          size={25}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
+    );
+  }
 
   return (
     <>
