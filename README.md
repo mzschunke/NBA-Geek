@@ -8,6 +8,15 @@ With NBA Geek, users can dive into a treasure trove of NBA data, spanning all th
 ![Bildschirmfoto 2023-06-05 um 14 38 19](https://github.com/mzschunke/capstone-project/assets/126678296/fa210c2e-3b29-4cce-86ea-b20f52d3d045)
 ![Bildschirmfoto 2023-06-05 um 14 40 11](https://github.com/mzschunke/capstone-project/assets/126678296/fa3a2499-f79b-4175-ab62-caf9f23d5a6b)
 
+## Functionality 
+
+This version cotains the following features: 
+
+* Find and filter all teams and games 
+* Search for specific players and performances
+* Compare player stats 
+
+More features will be coming soon...
 
 ## Deployment
 
