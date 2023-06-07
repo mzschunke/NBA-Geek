@@ -20,6 +20,12 @@ const SelectionContainer = styled.section`
   gap: 2rem;
 `;
 
+const StatsContainer = styled.section`
+  display: grid;
+  align-items: center;
+  justify-content: center;
+`;
+
 export default function PlayerStats({ id, CURRENT_SEASON }) {
   const [season, setSeason] = useState(CURRENT_SEASON);
   const [playerStats, setPlayerStats] = useState([]);
@@ -69,7 +75,7 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
   }, []);
 
   return (
-    <>
+    <StatsContainer>
       <SelectionContainer>
         <StyledSelect
           value={selectYears.find((option) => option.value === season)}
@@ -153,6 +159,6 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
           </StatsList>
         ))
       )}
-    </>
+    </StatsContainer>
   );
 }

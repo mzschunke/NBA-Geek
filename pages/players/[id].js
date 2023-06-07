@@ -12,8 +12,14 @@ import {
   StyledDefinition,
 } from "@/styles";
 import Loader from "@/Components/Loader";
+import styled from "styled-components";
 
 const URL = "https://www.balldontlie.io/api/v1/players";
+
+const PlayerBox = styled.div`
+  justify-content: center;
+  min-width: 420px;
+`;
 
 export default function PlayerPage({ CURRENT_SEASON }) {
   const router = useRouter();
@@ -23,7 +29,7 @@ export default function PlayerPage({ CURRENT_SEASON }) {
   if (isLoading) return <Loader />;
 
   return (
-    <>
+    <PlayerBox>
       <PlayerContainer>
         <Image
           src={`/images/avatar.png`}
@@ -62,6 +68,6 @@ export default function PlayerPage({ CURRENT_SEASON }) {
       </PlayerDetails>
       <PlayerStats id={id} CURRENT_SEASON={CURRENT_SEASON} />
       <NavBar />
-    </>
+    </PlayerBox>
   );
 }

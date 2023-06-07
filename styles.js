@@ -141,6 +141,18 @@ export const StatsBox = styled.table`
   border-radius: 5px;
 `;
 
+export const StatsList = styled.ul`
+  list-style: none;
+  background-color: rgb(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 0.6rem;
+  margin: 24px;
+  display: grid;
+  justify-content: center;
+  border: 0.1px solid white;
+  width: 375px;
+`;
+
 export const SingleGame = styled.li`
   margin-bottom: 0.6rem;
   margin-top: 0.6rem;
@@ -153,17 +165,6 @@ export const StyledDate = styled.p`
   font-size: 0.8rem;
   font-weight: 00;
   text-align: left;
-`;
-
-export const StatsList = styled.ul`
-  list-style: none;
-  background-color: rgb(255, 255, 255, 0.2);
-  border-radius: 10px;
-  padding: 0.6rem;
-  margin: 24px;
-  display: grid;
-  justify-content: center;
-  border: 0.1px solid white;
 `;
 
 export const StyledParagraph = styled.p`
@@ -227,7 +228,7 @@ export const PlayerContainer = styled.div`
   padding: 1.5rem;
   margin-left: 0.7rem;
   margin-right: 1 rem;
-  gap: 0.7rem;
+  gap: 1.2rem;
   justify-content: center;
 `;
 
@@ -241,12 +242,12 @@ export const PlayerNameBio = styled.h1`
 export const PlayerDetails = styled.div`
   font-size: 0.8rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0.5;
 `;
 
 export const StyledDescriptionList = styled.dl`
-  font-size: 1rem;
+  font-size: 0.8rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 8px;
@@ -254,7 +255,7 @@ export const StyledDescriptionList = styled.dl`
   padding: 8px;
   border-radius: 10px;
   border: 0.1px solid white;
-  margin: 5px;
+  margin: 10px;
 `;
 
 export const StyledTerm = styled.dt`

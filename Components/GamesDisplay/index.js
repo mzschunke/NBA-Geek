@@ -11,7 +11,6 @@ import {
   StyledDate,
 } from "@/styles";
 import { Button } from "@mui/material";
-
 import Loader from "../Loader";
 
 export default function GamesDisplay({ id, CURRENT_SEASON }) {
