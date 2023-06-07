@@ -3,14 +3,14 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Headline,
   StyledButton,
   StyledLetterList,
   StyledPlayerList,
   StyledListItem,
   Input,
   StyledResult,
-} from "@/styles";
+} from "./Styling";
+import { Headline } from "@/styles";
 import { Button } from "@mui/material";
 import Loader from "../Loader";
 

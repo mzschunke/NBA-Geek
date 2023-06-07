@@ -5,11 +5,10 @@ import {
   SubHeadline,
   SingleGame,
   GamesContainer,
-  StyledSelect,
-  NoData,
   SelectionContainer,
   StyledDate,
-} from "@/styles";
+} from "./Styling";
+import { NoData, StyledSelect } from "@/styles";
 import { Button } from "@mui/material";
 import Loader from "../Loader";
 

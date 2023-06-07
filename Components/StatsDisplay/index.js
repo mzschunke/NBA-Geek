@@ -1,33 +1,9 @@
-import styled from "styled-components";
 import useSWR from "swr";
-import { StyledTable, NoData, TH, TD, PlayerName } from "@/styles";
+import { StyledTable, NoData, TH, TD } from "@/styles";
+import { StatsContainer, BarChartContainer, PlayerName } from "./Styling";
 import BarChart from "../BarChart";
 import { useState } from "react";
 import BarChartSelect from "../BarChart/Menu";
-
-const StatsContainer = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-  margin-bottom: 100px;
-  gap: 2%;
-`;
-
-const BarChartContainer = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-  background-color: #cee0ed;
-  border-radius: 5px;
-  border: 1px solid black;
-  box-shadow: 1px 1px 1px;
-`;
 
 export default function StatsDisplay({
   playerStats,
