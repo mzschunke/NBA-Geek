@@ -13,6 +13,7 @@ const StatsContainer = styled.section`
   margin: 0;
   padding: 0;
   margin-bottom: 100px;
+  gap: 2%;
 `;
 
 const BarChartContainer = styled.section`

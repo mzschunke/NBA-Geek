@@ -11,7 +11,7 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
-   min-height: 100vh;
+    min-height: 100vh;
     font-family: "roboto", sans-serif; 
     background: #5d8ebe;
  }
@@ -37,11 +37,13 @@ export const StyledLink = styled.a`
 `;
 
 export const StyledTable = styled.table`
-  width: 90%;
   border: 1px solid black;
   font-size: 0.8rem;
   margin: 1rem;
   box-shadow: 1px 1px 2px;
+  width: 90%;
+  max-width: 375px;
+  min-width: 310px;
 `;
 
 export const TR = styled.tr`
