@@ -11,6 +11,7 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
+   min-height: 100vh;
     font-family: "roboto", sans-serif; 
     background: #5d8ebe;
  }

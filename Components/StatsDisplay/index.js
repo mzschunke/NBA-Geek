@@ -12,8 +12,6 @@ const StatsContainer = styled.section`
   justify-content: center;
   margin: 0;
   padding: 0;
-  overflow: auto;
-  overflow-y: scroll;
   margin-bottom: 100px;
 `;
 
@@ -24,7 +22,7 @@ const BarChartContainer = styled.section`
   justify-content: center;
   margin: 0;
   padding: 0;
-  background-color: #b6d3d6;
+  background-color: #cee0ed;
   border-radius: 5px;
   border: 1px solid black;
   box-shadow: 1px 1px 1px;
@@ -37,7 +35,6 @@ export default function StatsDisplay({
   selectedPlayerTwo,
   selectedSeason,
   selectedSeasonTwo,
-  CURRENT_SEASON,
 }) {
   const [barSelection, setBarSelection] = useState("pts");
 
@@ -68,7 +65,7 @@ export default function StatsDisplay({
   return (
     <StatsContainer>
       {!selectedPlayer || !player ? (
-        <PlayerName>No 1st player selected</PlayerName>
+        <span />
       ) : playerStats ? (
         <>
           <PlayerName>
@@ -113,7 +110,7 @@ export default function StatsDisplay({
       )}
 
       {!selectedPlayerTwo || !playerTwo ? (
-        <PlayerName>No 2nd player selected</PlayerName>
+        <span />
       ) : playerTwoStats ? (
         <>
           <PlayerName>
