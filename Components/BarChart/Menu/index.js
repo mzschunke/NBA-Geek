@@ -2,9 +2,10 @@ import styled from "styled-components";
 import Select from "react-select";
 
 const StyledSelect = styled(Select)`
-  width: auto;
-  margin-bottom: 8px;
-  font-size: 12px;
+  min-width: 150px;
+  margin-bottom: 12px;
+  margin-right: 8px;
+  font-size: 13px;
   box-shadow: 1px 1px 1px;
   border-radius: 5px;
 `;

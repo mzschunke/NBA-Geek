@@ -1,24 +1,15 @@
+import { StyledSelect, TH, TD, NoData } from "@/styles";
 import {
-  StyledSelect,
-  StatsList,
-  StyledDate,
-  SingleGame,
   StatsBox,
-  TH,
-  TD,
-  NoData,
+  StatsList,
+  SingleGame,
+  StyledDate,
   StyledParagraph,
-} from "@/styles";
-import styled from "styled-components";
+  SelectionContainer,
+  StatsContainer,
+} from "./Styling";
 import { useState, useEffect } from "react";
 import { Button } from "@mui/material";
-
-const SelectionContainer = styled.section`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-`;
 
 export default function PlayerStats({ id, CURRENT_SEASON }) {
   const [season, setSeason] = useState(CURRENT_SEASON);
@@ -69,7 +60,7 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
   }, []);
 
   return (
-    <>
+    <StatsContainer>
       <SelectionContainer>
         <StyledSelect
           value={selectYears.find((option) => option.value === season)}
@@ -153,6 +144,6 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
           </StatsList>
         ))
       )}
-    </>
+    </StatsContainer>
   );
 }

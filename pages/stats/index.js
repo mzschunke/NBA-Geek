@@ -10,8 +10,10 @@ const DisplayContainer = styled.div`
   flex-wrap: wrap;
   font-size: 0.6rem;
   padding: 1rem;
-  margin-bottom: 0;
-  padding-bottom: 0;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20%;
+  margin-right: 20%;
 `;
 
 export default function Stats({ CURRENT_SEASON }) {

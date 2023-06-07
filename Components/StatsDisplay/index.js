@@ -1,34 +1,9 @@
-import styled from "styled-components";
 import useSWR from "swr";
-import { StyledTable, NoData, TH, TD, PlayerName } from "@/styles";
+import { StyledTable, NoData, TH, TD } from "@/styles";
+import { StatsContainer, BarChartContainer, PlayerName } from "./Styling";
 import BarChart from "../BarChart";
 import { useState } from "react";
 import BarChartSelect from "../BarChart/Menu";
-
-const StatsContainer = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-  overflow: auto;
-  overflow-y: scroll;
-  margin-bottom: 100px;
-`;
-
-const BarChartContainer = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-  background-color: #b6d3d6;
-  border-radius: 5px;
-  border: 1px solid black;
-  box-shadow: 1px 1px 1px;
-`;
 
 export default function StatsDisplay({
   playerStats,
@@ -37,7 +12,6 @@ export default function StatsDisplay({
   selectedPlayerTwo,
   selectedSeason,
   selectedSeasonTwo,
-  CURRENT_SEASON,
 }) {
   const [barSelection, setBarSelection] = useState("pts");
 
@@ -68,7 +42,7 @@ export default function StatsDisplay({
   return (
     <StatsContainer>
       {!selectedPlayer || !player ? (
-        <PlayerName>No 1st player selected</PlayerName>
+        <span />
       ) : playerStats ? (
         <>
           <PlayerName>
@@ -113,7 +87,7 @@ export default function StatsDisplay({
       )}
 
       {!selectedPlayerTwo || !playerTwo ? (
-        <PlayerName>No 2nd player selected</PlayerName>
+        <span />
       ) : playerTwoStats ? (
         <>
           <PlayerName>
