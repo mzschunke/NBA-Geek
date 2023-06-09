@@ -6,7 +6,7 @@ import {
   StyledButton,
   AlphabetContainer,
   StyledPlayerList,
-  StyledListItem,
+  StyledPlayerName,
   Input,
   StyledResult,
   StyledAlphabet,
@@ -77,10 +77,10 @@ export default function PlayerOverview() {
         <StyledPlayerList role="list">
           {sortedPlayers.map((player) => (
             <Link href={`/players/${player.id}`} key={player.id}>
-              <StyledListItem key={player.id}>
+              <StyledPlayerName key={player.id}>
                 {player.last_name}
                 {", "} {player.first_name}
-              </StyledListItem>
+              </StyledPlayerName>
             </Link>
           ))}
         </StyledPlayerList>
@@ -101,11 +101,15 @@ export default function PlayerOverview() {
           Reset
         </Button>
         <AlphabetContainer role="list">
-          {alphabet.map((letter) => (
-            <StyledButton key={letter} onClick={() => setLetter(letter)}>
-              {letter.toUpperCase()}
-            </StyledButton>
-          ))}
+          <StyledAlphabet role="list">
+            {alphabet.map((letter) => (
+              <StyledLetter key={letter}>
+                <StyledButton key={letter} onClick={() => setLetter(letter)}>
+                  {letter.toUpperCase()}
+                </StyledButton>
+              </StyledLetter>
+            ))}
+          </StyledAlphabet>
         </AlphabetContainer>
         {filteredPlayers.length ? (
           <>
@@ -117,9 +121,9 @@ export default function PlayerOverview() {
             {filteredPlayers.map((player) => (
               <StyledPlayerList key={player.id}>
                 <Link href={`/players/${player.id}`} key={player.id}>
-                  <StyledListItem key={player.id}>
+                  <StyledPlayerName key={player.id}>
                     {player.last_name}, {player.first_name}
-                  </StyledListItem>
+                  </StyledPlayerName>
                 </Link>
               </StyledPlayerList>
             ))}

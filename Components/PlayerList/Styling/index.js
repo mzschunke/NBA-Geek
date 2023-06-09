@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const AlphabetContainer = styled.div`
-  margin-top: 0.3rem;
   min-height: 1.5rem;
 `;
 
@@ -10,12 +9,13 @@ export const StyledAlphabet = styled.ul`
   justify-content: space-around;
   flex-wrap: wrap;
   list-style: none;
+  padding: 0;
+  margin: 0;
 `;
 
 export const StyledLetter = styled.li`
   color: #cee0ed;
   font-weight: 700;
-  background-color: rgb(39, 100, 176);
 `;
 
 export const StyledPlayerList = styled.ul`
@@ -23,7 +23,7 @@ export const StyledPlayerList = styled.ul`
   columns: 150px;
 `;
 
-export const StyledListItem = styled.li`
+export const StyledPlayerName = styled.li`
   align-items: center;
   font-size: 0.8rem;
   margin-bottom: 0.6rem;
