@@ -6,16 +6,23 @@ export const AlphabetContainer = styled.div`
 
 export const StyledAlphabet = styled.ul`
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0.5rem 0.3rem 0.5rem 0.3rem;
 `;
 
 export const StyledLetter = styled.li`
   color: #cee0ed;
   font-weight: 700;
+`;
+
+export const StyledButton = styled.button`
+  color: #cee0ed;
+  font-weight: 700;
+  background-color: rgb(39, 100, 176);
+  width: 28px;
 `;
 
 export const StyledPlayerList = styled.ul`
@@ -25,10 +32,10 @@ export const StyledPlayerList = styled.ul`
 
 export const StyledPlayerName = styled.li`
   align-items: center;
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin-bottom: 0.6rem;
   color: #0d48a0;
-  font-weight: 600;
+  font-weight: 500;
   padding: 0.4rem;
   gap: 50%;
 `;
@@ -39,17 +46,17 @@ export const Input = styled.input`
   border-style: double;
 `;
 
+export const NoResults = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+`;
+
 export const StyledResult = styled.p`
   font-size: 1.5rem;
   color: #0d48a0;
-  margin-bottom: 0;
-  margin-left: 0;
-  margin-right: 0;
+  margin: 1rem 0 0 0;
   padding-left: 5%;
-`;
-
-export const StyledButton = styled.button`
-  color: #cee0ed;
-  font-weight: 700;
-  background-color: rgb(39, 100, 176);
 `;

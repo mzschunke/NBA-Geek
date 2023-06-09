@@ -11,6 +11,7 @@ import {
   StyledResult,
   StyledAlphabet,
   StyledLetter,
+  NoResults,
 } from "./Styling";
 import { Headline } from "@/styles";
 import { Button } from "@mui/material";
@@ -129,16 +130,16 @@ export default function PlayerOverview() {
             ))}
           </>
         ) : (
-          <>
+          <NoResults>
             <StyledResult>No players match your search criteria</StyledResult>
             <Image
               src="/images/court.png"
               width={375}
-              height={375}
+              height={280}
               style={{ objectFit: "contain" }}
               alt="empty court..."
             />
-          </>
+          </NoResults>
         )}
       </>
     );
