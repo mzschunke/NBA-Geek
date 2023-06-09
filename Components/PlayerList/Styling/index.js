@@ -10,19 +10,18 @@ export const StyledAlphabet = styled.ul`
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
-  margin: 0.5rem 0.3rem 0.5rem 0.3rem;
+  margin: 0.5rem 0.5rem 0.5rem 0.6rem;
+  gap: 0.1rem;
 `;
 
 export const StyledLetter = styled.li`
-  color: #cee0ed;
   font-weight: 700;
 `;
 
 export const StyledButton = styled.button`
-  color: #cee0ed;
-  font-weight: 700;
-  background-color: rgb(39, 100, 176);
-  width: 28px;
+  font-weight: 500;
+  background-color: #cee0ed;
+  width: 26px;
 `;
 
 export const StyledPlayerList = styled.ul`
