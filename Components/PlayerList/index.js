@@ -4,11 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   StyledButton,
-  StyledLetterList,
+  AlphabetContainer,
   StyledPlayerList,
-  StyledListItem,
+  StyledPlayerName,
   Input,
   StyledResult,
+  StyledAlphabet,
+  StyledLetter,
+  NoResults,
 } from "./Styling";
 import { Headline } from "@/styles";
 import { Button } from "@mui/material";
@@ -61,20 +64,24 @@ export default function PlayerOverview() {
         <Button variant="contained" onClick={() => setLetter(letter)}>
           Reset
         </Button>
-        <StyledLetterList role="list">
-          {alphabet.map((letter) => (
-            <StyledButton key={letter} onClick={() => setLetter(letter)}>
-              {letter.toUpperCase()}
-            </StyledButton>
-          ))}
-        </StyledLetterList>
+        <AlphabetContainer role="list">
+          <StyledAlphabet role="list">
+            {alphabet.map((letter) => (
+              <StyledLetter key={letter}>
+                <StyledButton key={letter} onClick={() => setLetter(letter)}>
+                  {letter.toUpperCase()}
+                </StyledButton>
+              </StyledLetter>
+            ))}
+          </StyledAlphabet>
+        </AlphabetContainer>
         <StyledPlayerList role="list">
           {sortedPlayers.map((player) => (
             <Link href={`/players/${player.id}`} key={player.id}>
-              <StyledListItem key={player.id}>
+              <StyledPlayerName key={player.id}>
                 {player.last_name}
                 {", "} {player.first_name}
-              </StyledListItem>
+              </StyledPlayerName>
             </Link>
           ))}
         </StyledPlayerList>
@@ -94,13 +101,17 @@ export default function PlayerOverview() {
         <Button variant="contained" onClick={() => setSearchQuery("")}>
           Reset
         </Button>
-        <StyledLetterList role="list">
-          {alphabet.map((letter) => (
-            <StyledButton key={letter} onClick={() => setLetter(letter)}>
-              {letter.toUpperCase()}
-            </StyledButton>
-          ))}
-        </StyledLetterList>
+        <AlphabetContainer role="list">
+          <StyledAlphabet role="list">
+            {alphabet.map((letter) => (
+              <StyledLetter key={letter}>
+                <StyledButton key={letter} onClick={() => setLetter(letter)}>
+                  {letter.toUpperCase()}
+                </StyledButton>
+              </StyledLetter>
+            ))}
+          </StyledAlphabet>
+        </AlphabetContainer>
         {filteredPlayers.length ? (
           <>
             {searchQuery && (
@@ -109,26 +120,26 @@ export default function PlayerOverview() {
               </StyledResult>
             )}
             {filteredPlayers.map((player) => (
-              <StyledPlayerList>
+              <StyledPlayerList key={player.id}>
                 <Link href={`/players/${player.id}`} key={player.id}>
-                  <StyledListItem key={player.id}>
+                  <StyledPlayerName key={player.id}>
                     {player.last_name}, {player.first_name}
-                  </StyledListItem>
+                  </StyledPlayerName>
                 </Link>
               </StyledPlayerList>
             ))}
           </>
         ) : (
-          <>
+          <NoResults>
             <StyledResult>No players match your search criteria</StyledResult>
             <Image
               src="/images/court.png"
               width={375}
-              height={375}
+              height={280}
               style={{ objectFit: "contain" }}
               alt="empty court..."
             />
-          </>
+          </NoResults>
         )}
       </>
     );
