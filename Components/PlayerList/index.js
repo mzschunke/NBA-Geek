@@ -4,11 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   StyledButton,
-  StyledLetterList,
+  AlphabetContainer,
   StyledPlayerList,
   StyledListItem,
   Input,
   StyledResult,
+  StyledAlphabet,
+  StyledLetter,
 } from "./Styling";
 import { Headline } from "@/styles";
 import { Button } from "@mui/material";
@@ -61,13 +63,17 @@ export default function PlayerOverview() {
         <Button variant="contained" onClick={() => setLetter(letter)}>
           Reset
         </Button>
-        <StyledLetterList role="list">
-          {alphabet.map((letter) => (
-            <StyledButton key={letter} onClick={() => setLetter(letter)}>
-              {letter.toUpperCase()}
-            </StyledButton>
-          ))}
-        </StyledLetterList>
+        <AlphabetContainer role="list">
+          <StyledAlphabet role="list">
+            {alphabet.map((letter) => (
+              <StyledLetter key={letter}>
+                <StyledButton key={letter} onClick={() => setLetter(letter)}>
+                  {letter.toUpperCase()}
+                </StyledButton>
+              </StyledLetter>
+            ))}
+          </StyledAlphabet>
+        </AlphabetContainer>
         <StyledPlayerList role="list">
           {sortedPlayers.map((player) => (
             <Link href={`/players/${player.id}`} key={player.id}>
@@ -94,13 +100,13 @@ export default function PlayerOverview() {
         <Button variant="contained" onClick={() => setSearchQuery("")}>
           Reset
         </Button>
-        <StyledLetterList role="list">
+        <AlphabetContainer role="list">
           {alphabet.map((letter) => (
             <StyledButton key={letter} onClick={() => setLetter(letter)}>
               {letter.toUpperCase()}
             </StyledButton>
           ))}
-        </StyledLetterList>
+        </AlphabetContainer>
         {filteredPlayers.length ? (
           <>
             {searchQuery && (

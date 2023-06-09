@@ -1,12 +1,21 @@
 import styled from "styled-components";
 
-export const StyledLetterList = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  background-color: rgb(0, 0, 0, 0.15);
-  gap: 0.8%;
+export const AlphabetContainer = styled.div`
   margin-top: 0.3rem;
+  min-height: 1.5rem;
+`;
+
+export const StyledAlphabet = styled.ul`
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  list-style: none;
+`;
+
+export const StyledLetter = styled.li`
+  color: #cee0ed;
+  font-weight: 700;
+  background-color: rgb(39, 100, 176);
 `;
 
 export const StyledPlayerList = styled.ul`
