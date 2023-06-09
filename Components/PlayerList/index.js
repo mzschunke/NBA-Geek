@@ -109,7 +109,7 @@ export default function PlayerOverview() {
               </StyledResult>
             )}
             {filteredPlayers.map((player) => (
-              <StyledPlayerList>
+              <StyledPlayerList key={player.id}>
                 <Link href={`/players/${player.id}`} key={player.id}>
                   <StyledListItem key={player.id}>
                     {player.last_name}, {player.first_name}
