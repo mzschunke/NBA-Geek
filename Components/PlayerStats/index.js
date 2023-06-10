@@ -79,17 +79,18 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
       ) : (
         playerStats.map((stat) => (
           <StatsList key={stat._id}>
-            <StyledDate>
-              {stat.game.date.split("T")[0]}
-              {":  "}
-            </StyledDate>
-            <StyledParagraph>
-              {teamNames[stat.game.home_team_id]} {stat.game.home_team_score}
-              {" - "}
-              {stat.game.visitor_team_score}{" "}
-              {teamNames[stat.game.visitor_team_id]}
-            </StyledParagraph>
             <SingleGame key={stat._id}>
+              <StyledDate>
+                {stat.game.date.split("T")[0]}
+                {":  "}
+              </StyledDate>
+              <StyledParagraph>
+                {teamNames[stat.game.home_team_id]} {stat.game.home_team_score}
+                {" - "}
+                {stat.game.visitor_team_score}{" "}
+                {teamNames[stat.game.visitor_team_id]}
+              </StyledParagraph>
+
               <StatsBox>
                 <thead>
                   <tr>

@@ -30,7 +30,7 @@ export const StyledDate = styled.p`
   margin-bottom: 0.8rem;
   margin-top: 0.2rem;
   font-size: 0.8rem;
-  font-weight: 00;
+  font-weight: 700;
   text-align: left;
 `;
 
