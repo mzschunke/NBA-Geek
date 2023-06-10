@@ -12,10 +12,10 @@ export const StatsList = styled.ul`
   list-style: none;
   background-color: rgb(255, 255, 255, 0.2);
   border-radius: 10px;
-  padding: 0.6rem;
+  padding: 0.4rem;
+  padding-left: 1.5rem;
   margin: 24px;
   display: grid;
-  justify-content: center;
   border: 0.1px solid white;
   width: 375px;
 `;

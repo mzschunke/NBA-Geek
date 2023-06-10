@@ -41,10 +41,6 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
     setPlayerStats(data);
     setShowNoData(data.length === 0);
   }
-  useEffect(() => {
-    console.log("playerStats:", playerStats);
-  }),
-    [playerStats];
 
   async function fetchTeamNames() {
     const response = await fetch(teamNamesURL);
@@ -135,13 +131,13 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
                     <tr>
                       <TD>{stat.fgm}</TD>
                       <TD>{stat.fga}</TD>
-                      <TD>{stat.fg_pct}</TD>
+                      <TD>{stat.fg_pct && stat.fg_pct.toFixed(2)}</TD>
                       <TD>{stat.fg3m}</TD>
                       <TD>{stat.fg3a}</TD>
-                      <TD>{stat.fg3_pct}</TD>
+                      <TD>{stat.fg3_pct && stat.fg3_pct.toFixed(2)}</TD>
                       <TD>{stat.ftm}</TD>
                       <TD>{stat.fta}</TD>
-                      <TD>{stat.ft_pct}</TD>
+                      <TD>{stat.ft_pct && stat.ft_pct.toFixed(2)}</TD>
                     </tr>
                   </tbody>
                 </StatsBox>
