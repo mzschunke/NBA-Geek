@@ -19,7 +19,8 @@ export const StyledLetter = styled.li`
 `;
 
 export const StyledButton = styled.button`
-  font-weight: 500;
+  font-weight: 700;
+  color: rgb(39, 100, 176);
   background-color: #cee0ed;
   width: 26px;
 `;
