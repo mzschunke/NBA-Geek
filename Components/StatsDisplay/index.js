@@ -1,8 +1,13 @@
 import useSWR from "swr";
-import { StyledTable, NoData, TH, TD } from "@/styles";
-import { StatsContainer, BarChartContainer, PlayerName } from "./Styling";
-import BarChart from "../BarChart";
 import { useState } from "react";
+import { NoData, TH, TD } from "@/styles";
+import {
+  StatsContainer,
+  BarChartContainer,
+  PlayerName,
+  StyledTable,
+} from "./Styling";
+import BarChart from "../BarChart";
 import BarChartSelect from "../BarChart/Menu";
 
 export default function StatsDisplay({

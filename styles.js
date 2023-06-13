@@ -82,16 +82,6 @@ export const StyledSelect = styled(Select)`
 
 // Table Stylings:
 
-export const StyledTable = styled.table`
-  border: 1px solid black;
-  font-size: 0.8rem;
-  margin: 1rem;
-  box-shadow: 1px 1px 2px;
-  width: 90%;
-  max-width: 375px;
-  min-width: 310px;
-`;
-
 export const TR = styled.tr`
   border: 3px solid black;
 `;

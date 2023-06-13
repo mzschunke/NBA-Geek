@@ -35,3 +35,13 @@ export const PlayerName = styled.div`
   margin-left: 1rem;
   margin-bottom: 0;
 `;
+
+export const StyledTable = styled.table`
+  border: 1px solid black;
+  font-size: 0.8rem;
+  margin: 1rem;
+  box-shadow: 1px 1px 2px;
+  width: 90%;
+  max-width: 375px;
+  min-width: 310px;
+`;
