@@ -17,6 +17,34 @@ export default createGlobalStyle`
  }
 `;
 
+// Homepage
+
+export const HeaderContainer = styled.header`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  border-bottom: 0.2px solid #cee0ed;
+  background: rgb(39, 100, 176);
+  height: 85px;
+`;
+
+export const MainHeadline = styled.h1`
+  font-size: 2.8rem;
+  text-align: center;
+  letter-spacing: 2.5px;
+  color: #cee0ed;
+  text-shadow: 3px 3px 3px #000000;
+  margin-bottom: 10px;
+`;
+
+export const ImageContainer = styled.div`
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+`;
+
 // Global Styled Components:
 
 export const Headline = styled.h2`
