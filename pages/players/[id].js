@@ -10,16 +10,11 @@ import {
   StyledDescriptionList,
   StyledTerm,
   StyledDefinition,
+  PlayerBox,
 } from "@/styles";
 import Loader from "@/Components/Loader";
-import styled from "styled-components";
 
 const URL = "https://www.balldontlie.io/api/v1/players";
-
-const PlayerBox = styled.div`
-  justify-content: center;
-  min-width: 420px;
-`;
 
 export default function PlayerPage({ CURRENT_SEASON }) {
   const router = useRouter();

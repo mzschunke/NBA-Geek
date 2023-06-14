@@ -1,14 +1,8 @@
 import useSWR from "swr";
 import { useState } from "react";
-import {
-  GamesList,
-  SubHeadline,
-  SingleGame,
-  GamesContainer,
-  SelectionContainer,
-  StyledDate,
-} from "./Styling";
+import { SubHeadline, GamesContainer, SelectionContainer } from "./Styling";
 import { NoData, StyledSelect } from "@/styles";
+import { GamesListContainer } from "./GamesListContainer";
 import { Button } from "@mui/material";
 import Loader from "../Loader";
 
@@ -114,37 +108,15 @@ export default function GamesDisplay({ id, CURRENT_SEASON }) {
             <h4>Losses: {gamesLost.length}</h4>
           </SelectionContainer>
           {showPostseason ? (
-            postseasonGames.length > 0 ? (
-              postseasonGames.map((game) => (
-                <GamesList key={game.id}>
-                  <SingleGame key={game.id}>
-                    <StyledDate>
-                      {game.date.split("T")[0]}
-                      {": "}
-                    </StyledDate>
-                    {game.home_team.full_name} {game.home_team_score} -{" "}
-                    {game.visitor_team_score} {game.visitor_team.full_name}
-                  </SingleGame>
-                </GamesList>
-              ))
-            ) : (
-              <NoData>No Playoff Games for selected season</NoData>
-            )
-          ) : regularseasonGames.length > 0 ? (
-            regularseasonGames.map((game) => (
-              <GamesList key={game.id}>
-                <SingleGame key={game.id}>
-                  <StyledDate>
-                    {game.date.split("T")[0]}
-                    {": "}
-                  </StyledDate>
-                  {game.home_team.full_name} {game.home_team_score} -{" "}
-                  {game.visitor_team_score} {game.visitor_team.full_name}
-                </SingleGame>
-              </GamesList>
-            ))
+            <GamesListContainer
+              games={postseasonGames}
+              noDataMessage="No Playoff Games for selected season"
+            />
           ) : (
-            <NoData>No data available for selected season</NoData>
+            <GamesListContainer
+              games={regularseasonGames}
+              noDataMessage="No data available for selected season"
+            />
           )}
         </GamesContainer>
       ) : (

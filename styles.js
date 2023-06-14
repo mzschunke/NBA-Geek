@@ -17,6 +17,34 @@ export default createGlobalStyle`
  }
 `;
 
+// Homepage
+
+export const HeaderContainer = styled.header`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  border-bottom: 0.2px solid #cee0ed;
+  background: rgb(39, 100, 176);
+  height: 85px;
+`;
+
+export const MainHeadline = styled.h1`
+  font-size: 2.8rem;
+  text-align: center;
+  letter-spacing: 2.5px;
+  color: #cee0ed;
+  text-shadow: 3px 3px 3px #000000;
+  margin-bottom: 10px;
+`;
+
+export const ImageContainer = styled.div`
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+`;
+
 // Global Styled Components:
 
 export const Headline = styled.h2`
@@ -54,16 +82,6 @@ export const StyledSelect = styled(Select)`
 
 // Table Stylings:
 
-export const StyledTable = styled.table`
-  border: 1px solid black;
-  font-size: 0.8rem;
-  margin: 1rem;
-  box-shadow: 1px 1px 2px;
-  width: 90%;
-  max-width: 375px;
-  min-width: 310px;
-`;
-
 export const TR = styled.tr`
   border: 3px solid black;
 `;
@@ -84,7 +102,36 @@ export const TD = styled.td`
   text-align: center;
 `;
 
-// Player [id] stylings:
+// TeamPage [id] Stylings:
+
+export const TeamContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1%;
+  align-items: center;
+  padding-top: 2.5rem;
+  margin: 0 10px 0 10px;
+`;
+
+export const TeamName = styled.h2`
+  font-size: 2.2rem;
+  color: #0d48a0;
+  text-align: center;
+  text-shadow: 1px 1px 0;
+`;
+
+export const StyledTeamDetails = styled.div`
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 550;
+`;
+
+// PlayerPage [id] Stylings:
+
+export const PlayerBox = styled.div`
+  justify-content: center;
+  min-width: 420px;
+`;
 
 export const PlayerContainer = styled.div`
   display: flex;

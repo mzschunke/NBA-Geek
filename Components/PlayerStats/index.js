@@ -1,4 +1,4 @@
-import { StyledSelect, TH, TD, NoData } from "@/styles";
+import { StyledSelect, TH, TR, TD, NoData } from "@/styles";
 import {
   StatsBox,
   StatsList,
@@ -93,7 +93,7 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
               {stat.min !== "00" && (
                 <StatsBox>
                   <thead>
-                    <tr>
+                    <TR>
                       <TH>MIN</TH>
                       <TH>PTS</TH>
                       <TH>AST</TH>
@@ -103,7 +103,7 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
                       <TH>BLK</TH>
                       <TH>TO</TH>
                       <TH>PF</TH>
-                    </tr>
+                    </TR>
                   </thead>
                   <tbody>
                     <tr>
