@@ -33,16 +33,31 @@ export const GamesList = styled.ul`
   border: 0.1px solid white;
 `;
 
+export const SingleGame = styled.li`
+  padding: 0.5rem;
+  margin-bottom: 0.6rem;
+  margin-top: 0.6rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 export const StyledDate = styled.p`
   margin-bottom: 0.8rem;
   margin-top: 0.2rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 00;
   text-align: left;
 `;
 
-export const SingleGame = styled.li`
-  margin-bottom: 0.6rem;
-  margin-top: 0.6rem;
-  font-size: 1rem;
+export const ScoreContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const Score = styled.span`
+  margin: 0 0.2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
 `;
