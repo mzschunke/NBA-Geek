@@ -11,7 +11,7 @@ import {
   StyledTerm,
   StyledDefinition,
   PlayerBox,
-} from "./Styling";
+} from "@/styles";
 import Loader from "@/Components/Loader";
 
 const URL = "https://www.balldontlie.io/api/v1/players";

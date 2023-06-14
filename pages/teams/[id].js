@@ -4,7 +4,7 @@ import Image from "next/image";
 import NavBar from "@/Components/NavBar";
 import GamesDisplay from "@/Components/GamesDisplay";
 import Loader from "@/Components/Loader";
-import { TeamContainer, TeamName, StyledTeamDetails } from "./Styling";
+import { TeamContainer, TeamName, StyledTeamDetails } from "@/styles";
 
 const URL = "https://www.balldontlie.io/api/v1/teams";
 
