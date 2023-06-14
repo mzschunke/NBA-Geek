@@ -2,6 +2,7 @@ import {
   GamesList,
   SingleGame,
   StyledDate,
+  TeamContainer,
   ScoreContainer,
   Score,
 } from "./Styling";
@@ -19,27 +20,28 @@ export function GamesListContainer({ games, noDataMessage }) {
               {": "}
             </StyledDate>
             <SingleGame key={game.id}>
-              <Image
-                src={`/images/team-logos/${game.home_team.id}.png`}
-                width={20}
-                height={20}
-                style={{ objectFit: "contain" }}
-                alt={game.home_team.full_name}
-              />
-              {game.home_team.full_name}
-              <ScoreContainer>
-                {" "}
-                <Score>{game.home_team_score}</Score> -{" "}
-                <Score>{game.visitor_team_score}</Score>
-              </ScoreContainer>
-              <Image
-                src={`/images/team-logos/${game.visitor_team.id}.png`}
-                width={20}
-                height={20}
-                style={{ objectFit: "contain" }}
-                alt={game.visitor_team.full_name}
-              />
-              {game.visitor_team.full_name}
+              <TeamContainer>
+                <Image
+                  src={`/images/team-logos/${game.home_team.id}.png`}
+                  width={25}
+                  height={25}
+                  style={{ objectFit: "contain" }}
+                  alt={game.home_team.full_name}
+                />
+                {game.home_team.full_name}
+              </TeamContainer>
+              <Score>{game.home_team_score}</Score>
+              <TeamContainer>
+                <Image
+                  src={`/images/team-logos/${game.visitor_team.id}.png`}
+                  width={25}
+                  height={25}
+                  style={{ objectFit: "contain" }}
+                  alt={game.visitor_team.full_name}
+                />
+                {game.visitor_team.full_name}
+              </TeamContainer>
+              <Score>{game.visitor_team_score}</Score>
             </SingleGame>
           </GamesList>
         ))
