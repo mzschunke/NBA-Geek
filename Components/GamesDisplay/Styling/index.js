@@ -33,16 +33,42 @@ export const GamesList = styled.ul`
   border: 0.1px solid white;
 `;
 
+export const SingleGame = styled.li`
+  padding: 0.5rem;
+  margin-bottom: 0.6rem;
+  margin-top: 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 export const StyledDate = styled.p`
   margin-bottom: 0.8rem;
   margin-top: 0.2rem;
-  font-size: 0.8rem;
-  font-weight: 00;
+  font-size: 0.9rem;
+  font-weight: bold;
   text-align: left;
 `;
 
-export const SingleGame = styled.li`
-  margin-bottom: 0.6rem;
-  margin-top: 0.6rem;
-  font-size: 1rem;
+export const TeamContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.2rem;
+  font-size: 1.2rem;
+  color: ${(props) => (props.id === props.homeTeamId ? "#0d48a0" : "black")};
+  font-weight: ${(props) =>
+    props.id === props.homeTeamId ? "bold" : "normal"};
+`;
+
+export const TeamContainer2 = styled(TeamContainer)`
+  color: ${(props) => (props.id === props.visitorTeamId ? "#0d48a0" : "black")};
+  font-weight: ${(props) =>
+    props.id === props.visitorTeamId ? "bold" : "normal"};
+`;
+
+export const Score = styled.span`
+  font-size: 1.1rem;
+  font-weight: bold;
 `;

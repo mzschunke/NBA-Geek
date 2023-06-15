@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
-export const StatsBox = styled.table`
-  border: 1px solid black;
-  background-color: #b6d3d6;
-  font-size: 0.8rem;
-  box-shadow: 1px 1px 2px;
-  border-radius: 5px;
+export const SelectionContainer = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+`;
+
+export const StatsContainer = styled.section`
+  display: grid;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const StatsList = styled.ul`
@@ -24,6 +29,11 @@ export const SingleGame = styled.li`
   margin-bottom: 0.6rem;
   margin-top: 0.6rem;
   font-size: 1rem;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
 `;
 
 export const StyledDate = styled.p`
@@ -34,23 +44,39 @@ export const StyledDate = styled.p`
   text-align: left;
 `;
 
-export const StyledParagraph = styled.p`
-  margin-bottom: 0.8rem;
+export const TeamContainer = styled.div`
+  margin-bottom: 0.1rem;
   margin-top: 0.2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #0d48a0;
-`;
-
-export const SelectionContainer = styled.section`
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
+  gap: 0.5rem;
+  padding: 0.1rem;
 `;
 
-export const StatsContainer = styled.section`
-  display: grid;
-  align-items: center;
-  justify-content: center;
+export const Score = styled.span`
+  font-weight: bold;
+  font-style: oblique;
+  padding: 0 0 0.2rem 0.2rem;
+  margin-right: 2.7rem;
+`;
+
+export const StatsBox = styled.table`
+  border: 1px solid black;
+  background-color: #b6d3d6;
+  font-size: 0.8rem;
+  box-shadow: 1px 1px 2px;
+  border-radius: 5px;
+`;
+
+export const DNP = styled.div`
+  width: 3.5rem;
+  border: 1px solid black;
+  background-color: orange;
+  font-size: 1.2rem;
+  box-shadow: 1px 1px 2px;
+  border-radius: 4px;
+  padding: 0.3rem;
+  margin-bottom: 0.4rem;
+  font-style: oblique;
 `;
