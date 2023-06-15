@@ -3,7 +3,6 @@ import {
   SingleGame,
   StyledDate,
   TeamContainer,
-  ScoreContainer,
   Score,
 } from "./Styling";
 import { NoData } from "@/styles";

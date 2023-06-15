@@ -37,7 +37,6 @@ export const SingleGame = styled.li`
   padding: 0.5rem;
   margin-bottom: 0.6rem;
   margin-top: 0.6rem;
-  font-size: 1rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -48,7 +47,7 @@ export const StyledDate = styled.p`
   margin-bottom: 0.8rem;
   margin-top: 0.2rem;
   font-size: 0.9rem;
-  font-weight: 00;
+  font-weight: bold;
   text-align: left;
 `;
 
@@ -56,12 +55,8 @@ export const TeamContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-`;
-
-export const ScoreContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin: 0 0.5rem 0 0.5rem;
+  padding: 0.2rem;
+  font-size: 1.2rem;
 `;
 
 export const Score = styled.span`
