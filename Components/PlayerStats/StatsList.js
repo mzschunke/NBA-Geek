@@ -6,6 +6,7 @@ import {
   SingleGame,
   TeamContainer,
   Score,
+  DNP,
 } from "./Styling";
 import Image from "next/image";
 
@@ -93,7 +94,7 @@ export function StatsListItem({ playerStats, teamNames }) {
                 </tbody>
               </StatsBox>
             )}
-            {stat.min === "00" && <p>DNP</p>}
+            {stat.min === "00" && <DNP>DNP</DNP>}
           </SingleGame>
         </StatsList>
       ))}

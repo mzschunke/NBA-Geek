@@ -45,19 +45,20 @@ export const StyledDate = styled.p`
 `;
 
 export const TeamContainer = styled.div`
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.1rem;
   margin-top: 0.2rem;
   font-size: 1.2rem;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.5rem;
+  padding: 0.1rem;
 `;
 
 export const Score = styled.span`
   font-weight: bold;
   font-style: oblique;
-  padding: 0 0 0.2rem 0.4rem;
+  padding: 0 0 0.2rem 0.2rem;
+  margin-right: 1.5rem;
 `;
 
 export const StatsBox = styled.table`
@@ -66,4 +67,15 @@ export const StatsBox = styled.table`
   font-size: 0.8rem;
   box-shadow: 1px 1px 2px;
   border-radius: 5px;
+`;
+
+export const DNP = styled.div`
+  border: 1px solid black;
+  background-color: orange;
+  font-size: 1.5rem;
+  box-shadow: 1px 1px 2px;
+  border-radius: 4px;
+  padding-right: 0.4rem;
+  align-self: center;
+  font-style: oblique;
 `;
