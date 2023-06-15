@@ -8,7 +8,6 @@ import {
 } from "./Styling";
 import { NoData } from "@/styles";
 import Image from "next/image";
-import { useEffect } from "react";
 
 export function GamesListContainer({ games, noDataMessage, id }) {
   return (

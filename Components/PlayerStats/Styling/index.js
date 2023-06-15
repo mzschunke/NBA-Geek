@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const StatsContainer = styled.section`
+  display: grid;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const StatsBox = styled.table`
   border: 1px solid black;
   background-color: #b6d3d6;
@@ -24,6 +30,7 @@ export const SingleGame = styled.li`
   margin-bottom: 0.6rem;
   margin-top: 0.6rem;
   font-size: 1rem;
+  list-style: none;
 `;
 
 export const StyledDate = styled.p`
@@ -47,10 +54,4 @@ export const SelectionContainer = styled.section`
   align-items: center;
   justify-content: center;
   gap: 2rem;
-`;
-
-export const StatsContainer = styled.section`
-  display: grid;
-  align-items: center;
-  justify-content: center;
 `;
