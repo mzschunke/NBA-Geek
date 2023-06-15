@@ -57,6 +57,15 @@ export const TeamContainer = styled.div`
   gap: 0.5rem;
   padding: 0.2rem;
   font-size: 1.2rem;
+  color: ${(props) => (props.id === props.homeTeamId ? "#0d48a0" : "black")};
+  font-weight: ${(props) =>
+    props.id === props.homeTeamId ? "bold" : "normal"};
+`;
+
+export const TeamContainer2 = styled(TeamContainer)`
+  color: ${(props) => (props.id === props.visitorTeamId ? "#0d48a0" : "black")};
+  font-weight: ${(props) =>
+    props.id === props.visitorTeamId ? "bold" : "normal"};
 `;
 
 export const Score = styled.span`

@@ -3,12 +3,14 @@ import {
   SingleGame,
   StyledDate,
   TeamContainer,
+  TeamContainer2,
   Score,
 } from "./Styling";
 import { NoData } from "@/styles";
 import Image from "next/image";
+import { useEffect } from "react";
 
-export function GamesListContainer({ games, noDataMessage }) {
+export function GamesListContainer({ games, noDataMessage, id }) {
   return (
     <>
       {games.length > 0 ? (
@@ -19,7 +21,11 @@ export function GamesListContainer({ games, noDataMessage }) {
               {": "}
             </StyledDate>
             <SingleGame key={game.id}>
-              <TeamContainer>
+              <TeamContainer
+                homeTeamId={game.home_team.id}
+                visitorTeamId={game.visitor_team.id}
+                id={id}
+              >
                 <Image
                   src={`/images/team-logos/${game.home_team.id}.png`}
                   width={25}
@@ -30,7 +36,11 @@ export function GamesListContainer({ games, noDataMessage }) {
                 {game.home_team.full_name}
               </TeamContainer>
               <Score>{game.home_team_score}</Score>
-              <TeamContainer>
+              <TeamContainer2
+                homeTeamId={game.home_team.id}
+                visitorTeamId={game.visitor_team.id}
+                id={id}
+              >
                 <Image
                   src={`/images/team-logos/${game.visitor_team.id}.png`}
                   width={25}
@@ -39,7 +49,7 @@ export function GamesListContainer({ games, noDataMessage }) {
                   alt={game.visitor_team.full_name}
                 />
                 {game.visitor_team.full_name}
-              </TeamContainer>
+              </TeamContainer2>
               <Score>{game.visitor_team_score}</Score>
             </SingleGame>
           </GamesList>

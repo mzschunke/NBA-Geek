@@ -111,11 +111,13 @@ export default function GamesDisplay({ id, CURRENT_SEASON }) {
             <GamesListContainer
               games={postseasonGames}
               noDataMessage="No Playoff Games for selected season"
+              id={parseID}
             />
           ) : (
             <GamesListContainer
               games={regularseasonGames}
               noDataMessage="No data available for selected season"
+              id={parseID}
             />
           )}
         </GamesContainer>
