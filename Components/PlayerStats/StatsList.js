@@ -94,8 +94,8 @@ export function StatsListItem({ playerStats, teamNames }) {
                 </tbody>
               </StatsBox>
             )}
-            {stat.min === "00" && <DNP>DNP</DNP>}
           </SingleGame>
+          {stat.min === "00" && <DNP>DNP</DNP>}
         </StatsList>
       ))}
     </>

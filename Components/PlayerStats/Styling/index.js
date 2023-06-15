@@ -58,7 +58,7 @@ export const Score = styled.span`
   font-weight: bold;
   font-style: oblique;
   padding: 0 0 0.2rem 0.2rem;
-  margin-right: 1.5rem;
+  margin-right: 2.7rem;
 `;
 
 export const StatsBox = styled.table`
@@ -70,12 +70,13 @@ export const StatsBox = styled.table`
 `;
 
 export const DNP = styled.div`
+  width: 3.5rem;
   border: 1px solid black;
   background-color: orange;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   box-shadow: 1px 1px 2px;
   border-radius: 4px;
-  padding-right: 0.4rem;
-  align-self: center;
+  padding: 0.3rem;
+  margin-bottom: 0.4rem;
   font-style: oblique;
 `;
