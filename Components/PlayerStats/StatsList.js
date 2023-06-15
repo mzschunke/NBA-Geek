@@ -4,9 +4,9 @@ import {
   StatsList,
   StyledDate,
   SingleGame,
-  StyledParagraph,
+  TeamContainer,
+  Score,
 } from "./Styling";
-
 import Image from "next/image";
 
 export function StatsListItem({ playerStats, teamNames }) {
@@ -19,7 +19,7 @@ export function StatsListItem({ playerStats, teamNames }) {
             {":  "}
           </StyledDate>
           <SingleGame key={stat.id}>
-            <StyledParagraph>
+            <TeamContainer>
               <Image
                 src={`/images/team-logos/${stat.game.home_team_id}.png`}
                 width={20}
@@ -27,9 +27,10 @@ export function StatsListItem({ playerStats, teamNames }) {
                 style={{ objectFit: "contain" }}
                 alt={stat.game.home_team_id}
               />
-              <span>{teamNames[stat.game.home_team_id]}</span>{" "}
-              <span>{stat.game.home_team_score}</span>
-              {" - "}
+              {teamNames[stat.game.home_team_id]}
+            </TeamContainer>
+            <Score>{stat.game.home_team_score}</Score>
+            <TeamContainer>
               <Image
                 src={`/images/team-logos/${stat.game.visitor_team_id}.png`}
                 width={20}
@@ -37,9 +38,9 @@ export function StatsListItem({ playerStats, teamNames }) {
                 style={{ objectFit: "contain" }}
                 alt={stat.game.visitor_team_id}
               />
-              <span>{teamNames[stat.game.visitor_team_id]}</span>{" "}
-              <span>{stat.game.visitor_team_score}</span>
-            </StyledParagraph>
+              {teamNames[stat.game.visitor_team_id]}
+            </TeamContainer>
+            <Score>{stat.game.visitor_team_score}</Score>
             {stat.min !== "00" && (
               <StatsBox>
                 <thead>

@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
+export const SelectionContainer = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+`;
+
 export const StatsContainer = styled.section`
   display: grid;
   align-items: center;
   justify-content: center;
-`;
-
-export const StatsBox = styled.table`
-  border: 1px solid black;
-  background-color: #b6d3d6;
-  font-size: 0.8rem;
-  box-shadow: 1px 1px 2px;
-  border-radius: 5px;
 `;
 
 export const StatsList = styled.ul`
@@ -31,6 +30,10 @@ export const SingleGame = styled.li`
   margin-top: 0.6rem;
   font-size: 1rem;
   list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
 `;
 
 export const StyledDate = styled.p`
@@ -41,17 +44,26 @@ export const StyledDate = styled.p`
   text-align: left;
 `;
 
-export const StyledParagraph = styled.p`
-  margin-bottom: 0.8rem;
+export const TeamContainer = styled.div`
+  margin-bottom: 0.5rem;
   margin-top: 0.2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #0d48a0;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.3rem;
 `;
 
-export const SelectionContainer = styled.section`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
+export const Score = styled.span`
+  font-weight: bold;
+  font-style: oblique;
+  padding: 0 0 0.2rem 0.4rem;
+`;
+
+export const StatsBox = styled.table`
+  border: 1px solid black;
+  background-color: #b6d3d6;
+  font-size: 0.8rem;
+  box-shadow: 1px 1px 2px;
+  border-radius: 5px;
 `;
