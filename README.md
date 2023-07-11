@@ -4,7 +4,7 @@ Introducing NBA Geek - an innovative web application that brings the fascinating
 
 Developed as my capstone project during my [web development bootcamp](https://www.neuefische.de/bootcamp/web-development), this app is designed to captivate basketball enthusiasts and data lovers alike.
 
-![Alt text](public/images/screenshots.svg)
+![Screenshots NBA GEEK](public/images/smartphone-frames.png)
 
 With NBA Geek, users can dive into a treasure trove of NBA data, spanning all the way back to 1946. Immerse yourself in a comprehensive collection of team information, game records, and player stats, allowing you to unravel the rich history of the league and its legendary figures.
 
