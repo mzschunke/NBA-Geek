@@ -6,16 +6,15 @@ Developed as my capstone project during my [web development bootcamp](https://ww
 
 With NBA Geek, users can dive into a treasure trove of NBA data, spanning all the way back to 1946. Immerse yourself in a comprehensive collection of team information, game records, and player stats, allowing you to unravel the rich history of the league and its legendary figures.
 
-![Bildschirmfoto 2023-06-05 um 09 06 34](https://github.com/mzschunke/capstone-project/assets/126678296/83bfc76a-3eaa-497e-b091-5dc6dd8a3820)
-![Bildschirmfoto 2023-06-05 um 14 36 02](https://github.com/mzschunke/capstone-project/assets/126678296/4158a0dc-32ab-461c-8d8d-ed46ae26fdea)
-![Bildschirmfoto 2023-06-05 um 14 38 19](https://github.com/mzschunke/capstone-project/assets/126678296/fa210c2e-3b29-4cce-86ea-b20f52d3d045)
-![Bildschirmfoto 2023-06-05 um 14 40 11](https://github.com/mzschunke/capstone-project/assets/126678296/fa3a2499-f79b-4175-ab62-caf9f23d5a6b)
+![Alt text](public/images/screenshots.svg)
 
 ## Functionality
 
+This app utilizes the [balldontlie public API](https://www.balldontlie.io/home.html#introduction) to retrieve real-time NBA statistics.
+
 - Find and filter all teams and games
 - Search for specific players and performances
-- Compare player stats
+- Compare individual player stats
 
 More features will be coming soon...
 
