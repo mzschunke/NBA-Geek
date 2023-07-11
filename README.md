@@ -4,13 +4,13 @@ Introducing NBA Geek - an innovative web application that brings the fascinating
 
 Developed as my capstone project during my [web development bootcamp](https://www.neuefische.de/bootcamp/web-development), this app is designed to captivate basketball enthusiasts and data lovers alike.
 
-With NBA Geek, users can dive into a treasure trove of NBA data, spanning all the way back to 1946. Immerse yourself in a comprehensive collection of team information, game records, and player stats, allowing you to unravel the rich history of the league and its legendary figures.
-
 ![Alt text](public/images/screenshots.svg)
 
-## Functionality
+With NBA Geek, users can dive into a treasure trove of NBA data, spanning all the way back to 1946. Immerse yourself in a comprehensive collection of team information, game records, and player stats, allowing you to unravel the rich history of the league and its legendary figures.
 
-This app utilizes the [balldontlie public API](https://www.balldontlie.io/home.html#introduction) to retrieve real-time NBA statistics.
+This app utilizes the [balldontlie API](https://www.balldontlie.io/home.html#introduction) to retrieve real-time NBA statistics. A huge thank you goes out to balldontlie for generously providing this invaluable API, which serves as the backbone of this app's functionality! &#x1F60A;
+
+## Functionality
 
 - Find and filter all teams and games
 - Search for specific players and performances
