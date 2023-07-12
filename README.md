@@ -20,7 +20,7 @@ As of now these are the core features:
 
 ## TechStack
 
-<div style="display : flex;">
+<div style="display : flex; gap : 1rem">
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="50px"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" width="50px"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg"  width="50px"/>
