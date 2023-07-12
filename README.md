@@ -12,11 +12,11 @@ This app utilizes the [balldontlie API](https://www.balldontlie.io/home.html#int
 
 ## Functionality
 
+As of now these are the core features:
+
 - Find and filter all teams and games
 - Search for specific players and performances
 - Compare individual player stats
-
-More features will be coming soon...
 
 ## Deployment
 
