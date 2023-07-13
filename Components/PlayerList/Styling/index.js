@@ -61,12 +61,12 @@ export const NoResults = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0;
 `;
 
 export const StyledResult = styled.p`
   font-size: 1.5rem;
-  color: #0d48a0;
+  color: #573a06;
+  font-style: oblique;
   margin: 1rem 0 0 0;
-  padding-left: 5%;
+  padding: 0 5% 0 5%;
 `;
