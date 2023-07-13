@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   StyledButton,
+  SearchContainer,
   AlphabetContainer,
   StyledPlayerList,
   StyledPlayerName,
@@ -54,17 +55,19 @@ export default function PlayerOverview() {
     return (
       <>
         <Headline>ALL PLAYERS</Headline>
-        <Input
-          value={searchQuery}
-          onChange={handleInputChange}
-          type="search"
-          id="player-search"
-          placeholder="Search..."
-        />
-        <Button variant="contained" onClick={() => setLetter(letter)}>
-          Reset
-        </Button>
-        <AlphabetContainer role="list">
+        <SearchContainer>
+          <Input
+            value={searchQuery}
+            onChange={handleInputChange}
+            type="search"
+            id="player-search"
+            placeholder="Search..."
+          />
+          <Button variant="contained" onClick={() => setLetter(letter)}>
+            Reset
+          </Button>
+        </SearchContainer>
+        <AlphabetContainer>
           <StyledAlphabet role="list">
             {alphabet.map((letter) => (
               <StyledLetter key={letter}>

@@ -1,7 +1,14 @@
 import styled from "styled-components";
 
+export const SearchContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+`;
+
 export const AlphabetContainer = styled.div`
-  min-height: 1.5rem;
+  display: flex;
+  justify-content: center;
 `;
 
 export const StyledAlphabet = styled.ul`
