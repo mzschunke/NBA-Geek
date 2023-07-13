@@ -93,17 +93,19 @@ export default function PlayerOverview() {
   else
     return (
       <>
-        <Headline>SEARCH</Headline>
-        <Input
-          value={searchQuery}
-          onChange={handleInputChange}
-          type="search"
-          id="player-search"
-          placeholder="Search..."
-        />
-        <Button variant="contained" onClick={() => setSearchQuery("")}>
-          Reset
-        </Button>
+        <Headline>ALL PLAYERS</Headline>
+        <SearchContainer>
+          <Input
+            value={searchQuery}
+            onChange={handleInputChange}
+            type="search"
+            id="player-search"
+            placeholder="Search..."
+          />
+          <Button variant="contained" onClick={() => setSearchQuery("")}>
+            Reset
+          </Button>
+        </SearchContainer>
         <AlphabetContainer role="list">
           <StyledAlphabet role="list">
             {alphabet.map((letter) => (
