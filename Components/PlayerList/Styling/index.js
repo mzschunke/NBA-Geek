@@ -3,7 +3,9 @@ import styled from "styled-components";
 export const SearchContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1rem;
+  margin-bottom: 0.7rem;
 `;
 
 export const AlphabetContainer = styled.div`
@@ -51,6 +53,7 @@ export const Input = styled.input`
   margin: 1rem;
   border-radius: 5px;
   border-style: double;
+  height: 2rem;
 `;
 
 export const NoResults = styled.section`
