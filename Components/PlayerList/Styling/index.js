@@ -5,12 +5,13 @@ export const SearchContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.4rem;
 `;
 
 export const AlphabetContainer = styled.div`
   display: flex;
   justify-content: center;
+  background-color: rgb(0, 0, 0, 0.1);
 `;
 
 export const StyledAlphabet = styled.ul`
