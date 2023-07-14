@@ -80,8 +80,6 @@ export const NoResults = styled.section`
 
 export const StyledNoResult = styled.p`
   font-size: 1.5rem;
-  color: #573a06;
-  font-style: oblique;
   margin: 1rem 0 0 0;
   padding: 0 5% 0 5%;
 `;

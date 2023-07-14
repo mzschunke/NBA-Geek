@@ -152,9 +152,7 @@ export default function PlayerOverview() {
           </>
         ) : (
           <NoResults>
-            <StyledNoResult>
-              No players match your search criteria
-            </StyledNoResult>
+            <StyledNoResult>No players found</StyledNoResult>
             <Image
               src="/images/court.png"
               width={375}
