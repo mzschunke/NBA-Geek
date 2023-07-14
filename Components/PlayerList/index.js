@@ -7,7 +7,6 @@ import {
   SearchContainer,
   AlphabetContainer,
   StyledPlayerList,
-  StyledPlayerResults,
   StyledPlayerName,
   Input,
   StyledResult,
@@ -128,22 +127,29 @@ export default function PlayerOverview() {
           </StyledAlphabet>
         </AlphabetContainer>
         {filteredPlayers.length ? (
-          <ResultsContainer>
+          <>
             {searchQuery && (
               <StyledResult>
                 {filteredPlayers.length} players found:
               </StyledResult>
             )}
-            {filteredPlayers.map((player) => (
-              <StyledPlayerResults key={player.id}>
+            <StyledPlayerList>
+              {filteredPlayers.map((player) => (
                 <Link href={`/players/${player.id}`} key={player.id}>
                   <StyledPlayerName key={player.id}>
+                    <Image
+                      src="/images/basketball.png"
+                      width={15}
+                      height={15}
+                      style={{ objectFit: "contain" }}
+                      alt="basketball"
+                    />
                     {player.last_name}, {player.first_name}
                   </StyledPlayerName>
                 </Link>
-              </StyledPlayerResults>
-            ))}
-          </ResultsContainer>
+              ))}
+            </StyledPlayerList>
+          </>
         ) : (
           <NoResults>
             <StyledNoResult>

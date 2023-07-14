@@ -38,12 +38,7 @@ export const StyledButton = styled.button`
 export const StyledPlayerList = styled.ul`
   list-style: none;
   columns: 150px;
-  padding: 0 16px 0 16px;
-`;
-
-export const StyledPlayerResults = styled.ul`
-  list-style: none;
-  display: grid;
+  padding: 0 16px;
 `;
 
 export const StyledPlayerName = styled.li`
@@ -66,16 +61,14 @@ export const Input = styled.input`
 
 export const ResultsContainer = styled.section`
   display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
+  flex-wrap: wrap;
 `;
 
 export const StyledResult = styled.p`
   font-size: 1.5rem;
-  color: #fff176;
   margin: 1rem 0 0 0;
   padding: 0 5% 2% 5%;
+  text-align: center;
 `;
 
 export const NoResults = styled.section`
