@@ -130,7 +130,8 @@ export default function PlayerOverview() {
           <>
             {searchQuery && (
               <StyledResult>
-                {filteredPlayers.length} players found:
+                {filteredPlayers.length}{" "}
+                {filteredPlayers.length === 1 ? "player" : "players"} found:
               </StyledResult>
             )}
             <StyledPlayerList>
