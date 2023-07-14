@@ -7,12 +7,15 @@ import {
   SearchContainer,
   AlphabetContainer,
   StyledPlayerList,
+  StyledPlayerResults,
   StyledPlayerName,
   Input,
   StyledResult,
+  StyledNoResult,
   StyledAlphabet,
   StyledLetter,
   NoResults,
+  ResultsContainer,
 } from "./Styling";
 import { Headline } from "@/styles";
 import { Button } from "@mui/material";
@@ -82,6 +85,13 @@ export default function PlayerOverview() {
           {sortedPlayers.map((player) => (
             <Link href={`/players/${player.id}`} key={player.id}>
               <StyledPlayerName key={player.id}>
+                <Image
+                  src="/images/basketball.png"
+                  width={15}
+                  height={15}
+                  style={{ objectFit: "contain" }}
+                  alt="basketball"
+                />{" "}
                 {player.last_name}
                 {", "} {player.first_name}
               </StyledPlayerName>
@@ -118,25 +128,27 @@ export default function PlayerOverview() {
           </StyledAlphabet>
         </AlphabetContainer>
         {filteredPlayers.length ? (
-          <>
+          <ResultsContainer>
             {searchQuery && (
               <StyledResult>
-                {filteredPlayers.length} players found
+                {filteredPlayers.length} players found:
               </StyledResult>
             )}
             {filteredPlayers.map((player) => (
-              <StyledPlayerList key={player.id}>
+              <StyledPlayerResults key={player.id}>
                 <Link href={`/players/${player.id}`} key={player.id}>
                   <StyledPlayerName key={player.id}>
                     {player.last_name}, {player.first_name}
                   </StyledPlayerName>
                 </Link>
-              </StyledPlayerList>
+              </StyledPlayerResults>
             ))}
-          </>
+          </ResultsContainer>
         ) : (
           <NoResults>
-            <StyledResult>No players match your search criteria</StyledResult>
+            <StyledNoResult>
+              No players match your search criteria
+            </StyledNoResult>
             <Image
               src="/images/court.png"
               width={375}

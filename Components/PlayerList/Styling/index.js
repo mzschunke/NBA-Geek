@@ -37,6 +37,12 @@ export const StyledButton = styled.button`
 export const StyledPlayerList = styled.ul`
   list-style: none;
   columns: 150px;
+  padding: 0 16px 0 16px;
+`;
+
+export const StyledPlayerResults = styled.ul`
+  list-style: none;
+  display: grid;
 `;
 
 export const StyledPlayerName = styled.li`
@@ -46,7 +52,8 @@ export const StyledPlayerName = styled.li`
   color: #0d48a0;
   font-weight: 500;
   padding: 0.4rem;
-  gap: 50%;
+  display: flex;
+  gap: 0.5rem;
 `;
 
 export const Input = styled.input`
@@ -56,6 +63,20 @@ export const Input = styled.input`
   height: 2rem;
 `;
 
+export const ResultsContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+`;
+
+export const StyledResult = styled.p`
+  font-size: 1.5rem;
+  color: #fff176;
+  margin: 1rem 0 0 0;
+  padding: 0 5% 2% 5%;
+`;
+
 export const NoResults = styled.section`
   display: flex;
   flex-direction: column;
@@ -63,7 +84,7 @@ export const NoResults = styled.section`
   align-items: center;
 `;
 
-export const StyledResult = styled.p`
+export const StyledNoResult = styled.p`
   font-size: 1.5rem;
   color: #573a06;
   font-style: oblique;
