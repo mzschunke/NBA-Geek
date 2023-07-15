@@ -33,6 +33,8 @@ export const StyledButton = styled.button`
   color: rgb(39, 100, 176);
   background-color: #cee0ed;
   width: 26px;
+  background-color: ${(props) => (props.active ? "orange" : "#cee0ed")};
+  border: ${(props) => (props.active ? "orange" : "#cee0ed")};
 `;
 
 export const StyledPlayerList = styled.ul`

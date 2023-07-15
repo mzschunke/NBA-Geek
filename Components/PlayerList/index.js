@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -25,6 +25,7 @@ export default function PlayerOverview() {
     fallbackData: [],
   });
   const [letter, setLetter] = useState("a");
+  const [activeLetter, setActiveLetter] = useState(letter);
   let sortedPlayers = [];
   if (data) {
     sortedPlayers = data
@@ -72,7 +73,14 @@ export default function PlayerOverview() {
           <StyledAlphabet role="list">
             {alphabet.map((letter) => (
               <StyledLetter key={letter}>
-                <StyledButton key={letter} onClick={() => setLetter(letter)}>
+                <StyledButton
+                  key={letter}
+                  onClick={() => {
+                    setLetter(letter);
+                    setActiveLetter(letter);
+                  }}
+                  active={activeLetter === letter}
+                >
                   {letter.toUpperCase()}
                 </StyledButton>
               </StyledLetter>
@@ -118,7 +126,14 @@ export default function PlayerOverview() {
           <StyledAlphabet role="list">
             {alphabet.map((letter) => (
               <StyledLetter key={letter}>
-                <StyledButton key={letter} onClick={() => setLetter(letter)}>
+                <StyledButton
+                  key={letter}
+                  onClick={() => {
+                    setLetter(letter);
+                    setActiveLetter(letter);
+                  }}
+                  active={activeLetter === letter}
+                >
                   {letter.toUpperCase()}
                 </StyledButton>
               </StyledLetter>
