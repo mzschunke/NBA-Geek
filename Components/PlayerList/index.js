@@ -1,14 +1,16 @@
 import useSWR from "swr";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
   StyledButton,
+  SearchContainer,
   AlphabetContainer,
   StyledPlayerList,
   StyledPlayerName,
   Input,
   StyledResult,
+  StyledNoResult,
   StyledAlphabet,
   StyledLetter,
   NoResults,
@@ -23,6 +25,7 @@ export default function PlayerOverview() {
     fallbackData: [],
   });
   const [letter, setLetter] = useState("a");
+  const [activeLetter, setActiveLetter] = useState(letter);
   let sortedPlayers = [];
   if (data) {
     sortedPlayers = data
@@ -54,21 +57,30 @@ export default function PlayerOverview() {
     return (
       <>
         <Headline>ALL PLAYERS</Headline>
-        <Input
-          value={searchQuery}
-          onChange={handleInputChange}
-          type="search"
-          id="player-search"
-          placeholder="Search..."
-        />
-        <Button variant="contained" onClick={() => setLetter(letter)}>
-          Reset
-        </Button>
-        <AlphabetContainer role="list">
+        <SearchContainer>
+          <Input
+            value={searchQuery}
+            onChange={handleInputChange}
+            type="search"
+            id="player-search"
+            placeholder="Search..."
+          />
+          <Button variant="contained" onClick={() => setLetter(letter)}>
+            Reset
+          </Button>
+        </SearchContainer>
+        <AlphabetContainer>
           <StyledAlphabet role="list">
             {alphabet.map((letter) => (
               <StyledLetter key={letter}>
-                <StyledButton key={letter} onClick={() => setLetter(letter)}>
+                <StyledButton
+                  key={letter}
+                  onClick={() => {
+                    setLetter(letter);
+                    setActiveLetter(letter);
+                  }}
+                  active={activeLetter === letter}
+                >
                   {letter.toUpperCase()}
                 </StyledButton>
               </StyledLetter>
@@ -79,6 +91,13 @@ export default function PlayerOverview() {
           {sortedPlayers.map((player) => (
             <Link href={`/players/${player.id}`} key={player.id}>
               <StyledPlayerName key={player.id}>
+                <Image
+                  src="/images/basketball.png"
+                  width={15}
+                  height={15}
+                  style={{ objectFit: "contain" }}
+                  alt="basketball"
+                />{" "}
                 {player.last_name}
                 {", "} {player.first_name}
               </StyledPlayerName>
@@ -90,22 +109,31 @@ export default function PlayerOverview() {
   else
     return (
       <>
-        <Headline>SEARCH</Headline>
-        <Input
-          value={searchQuery}
-          onChange={handleInputChange}
-          type="search"
-          id="player-search"
-          placeholder="Search..."
-        />
-        <Button variant="contained" onClick={() => setSearchQuery("")}>
-          Reset
-        </Button>
+        <Headline>ALL PLAYERS</Headline>
+        <SearchContainer>
+          <Input
+            value={searchQuery}
+            onChange={handleInputChange}
+            type="search"
+            id="player-search"
+            placeholder="Search..."
+          />
+          <Button variant="contained" onClick={() => setSearchQuery("")}>
+            Reset
+          </Button>
+        </SearchContainer>
         <AlphabetContainer role="list">
           <StyledAlphabet role="list">
             {alphabet.map((letter) => (
               <StyledLetter key={letter}>
-                <StyledButton key={letter} onClick={() => setLetter(letter)}>
+                <StyledButton
+                  key={letter}
+                  onClick={() => {
+                    setLetter(letter);
+                    setActiveLetter(letter);
+                  }}
+                  active={activeLetter === letter}
+                >
                   {letter.toUpperCase()}
                 </StyledButton>
               </StyledLetter>
@@ -116,22 +144,30 @@ export default function PlayerOverview() {
           <>
             {searchQuery && (
               <StyledResult>
-                {filteredPlayers.length} players found
+                {filteredPlayers.length}{" "}
+                {filteredPlayers.length === 1 ? "player" : "players"} found:
               </StyledResult>
             )}
-            {filteredPlayers.map((player) => (
-              <StyledPlayerList key={player.id}>
+            <StyledPlayerList>
+              {filteredPlayers.map((player) => (
                 <Link href={`/players/${player.id}`} key={player.id}>
                   <StyledPlayerName key={player.id}>
+                    <Image
+                      src="/images/basketball.png"
+                      width={15}
+                      height={15}
+                      style={{ objectFit: "contain" }}
+                      alt="basketball"
+                    />
                     {player.last_name}, {player.first_name}
                   </StyledPlayerName>
                 </Link>
-              </StyledPlayerList>
-            ))}
+              ))}
+            </StyledPlayerList>
           </>
         ) : (
           <NoResults>
-            <StyledResult>No players match your search criteria</StyledResult>
+            <StyledNoResult>No players found</StyledNoResult>
             <Image
               src="/images/court.png"
               width={375}
