@@ -14,7 +14,6 @@ import {
   StyledAlphabet,
   StyledLetter,
   NoResults,
-  ResultsContainer,
 } from "./Styling";
 import { Headline } from "@/styles";
 import { Button } from "@mui/material";

@@ -59,11 +59,6 @@ export const Input = styled.input`
   height: 2rem;
 `;
 
-export const ResultsContainer = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-`;
-
 export const StyledResult = styled.p`
   font-size: 1.5rem;
   margin: 1rem 0 0 0;
