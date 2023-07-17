@@ -63,7 +63,7 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
           id="season-select"
         />
 
-        <Button variant="contained" onClick={fetchStats}>
+        <Button variant="contained" onClick={fetchStats} size="medium">
           Show Games
         </Button>
       </SelectionContainer>

@@ -74,7 +74,7 @@ export const NoData = styled.div`
 
 export const StyledSelect = styled(Select)`
   width: 100px;
-  height: 40px;
+  height: 2rem;
   align-self: center;
   margin-bottom: 10px;
   margin-top: 5px;
