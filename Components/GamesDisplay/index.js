@@ -100,7 +100,11 @@ export default function GamesDisplay({ id, CURRENT_SEASON }) {
               placeholder="pick a season"
               id="season-select"
             />
-            <Button variant="contained" onClick={toggleView}>
+            <Button
+              variant="contained"
+              onClick={toggleView}
+              style={{ marginTop: "10px" }}
+            >
               {showPostseason ? "Show Regular Season" : "Show Postseason"}
             </Button>
             <h3>{showPostseason ? "Postseason" : "Regular Season"}</h3>
