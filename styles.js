@@ -7,7 +7,6 @@ export default createGlobalStyle`
   *::before,
   *::after {
     box-sizing: border-box;
-    /* border: 1px solid red; */
   }
 
   body {
@@ -136,9 +135,9 @@ export const PlayerBox = styled.div`
 
 export const PlayerContainer = styled.div`
   display: flex;
-  padding: 1.5rem;
+  padding: 1rem 1rem 0.2rem 1rem;
   margin-left: 0.7rem;
-  margin-right: 1 rem;
+  margin-right: 1rem;
   gap: 1.2rem;
   justify-content: center;
 `;
