@@ -42,7 +42,9 @@ export function StatsListItem({ playerStats, teamNames }) {
               {teamNames[stat.game.visitor_team_id]}
             </TeamContainer>
             <Score>{stat.game.visitor_team_score}</Score>
-            {stat.min !== "00" && (
+            {stat.min === "00" || stat.min === null ? (
+              <DNP>DNP</DNP>
+            ) : (
               <StatsBox>
                 <thead>
                   <TR>
@@ -95,7 +97,6 @@ export function StatsListItem({ playerStats, teamNames }) {
               </StatsBox>
             )}
           </SingleGame>
-          {stat.min === "00" && <DNP>DNP</DNP>}
         </StatsList>
       ))}
     </>
