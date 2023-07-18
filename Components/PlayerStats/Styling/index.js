@@ -17,7 +17,7 @@ export const StatsList = styled.ul`
   list-style: none;
   background-color: rgb(255, 255, 255, 0.2);
   border-radius: 10px;
-  padding: 0.4rem;
+  padding: 0.1’rem;
   padding-left: 1.5rem;
   margin: 24px;
   display: grid;
@@ -27,18 +27,16 @@ export const StatsList = styled.ul`
 
 export const SingleGame = styled.li`
   margin-bottom: 0.6rem;
-  margin-top: 0.6rem;
   font-size: 1rem;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.3rem;
+  gap: 0.1rem;
   align-items: center;
 `;
 
 export const StyledDate = styled.p`
-  margin-bottom: 0.8rem;
-  margin-top: 0.2rem;
+  margin-top: 0.4rem;
   font-size: 0.8rem;
   font-weight: 700;
   text-align: left;
@@ -70,13 +68,14 @@ export const StatsBox = styled.table`
 `;
 
 export const DNP = styled.div`
-  width: 3.5rem;
+  width: 3.2rem;
   border: 1px solid black;
   background-color: orange;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   box-shadow: 1px 1px 2px;
   border-radius: 4px;
   padding: 0.3rem;
-  margin-bottom: 0.4rem;
+  margin-right: 0.5rem;
   font-style: oblique;
+  justify-content: flex-end;
 `;
