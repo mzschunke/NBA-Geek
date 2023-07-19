@@ -56,7 +56,7 @@ export const Score = styled.span`
   font-weight: bold;
   font-style: oblique;
   padding: 0 0 0.2rem 0.2rem;
-  margin-right: 2.7rem;
+  margin-right: 5rem;
 `;
 
 export const StatsBox = styled.table`
