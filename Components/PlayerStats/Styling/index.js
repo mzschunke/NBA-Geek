@@ -33,6 +33,7 @@ export const SingleGame = styled.li`
   flex-wrap: wrap;
   gap: 0.1rem;
   align-items: center;
+  position: relative;
 `;
 
 export const StyledDate = styled.p`
@@ -77,5 +78,8 @@ export const DNP = styled.div`
   padding: 0.3rem;
   margin-right: 0.5rem;
   font-style: oblique;
-  justify-content: flex-end;
+  justify-self: flex-end;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 `;
