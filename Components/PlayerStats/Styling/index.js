@@ -8,19 +8,19 @@ export const SelectionContainer = styled.section`
 `;
 
 export const StatsContainer = styled.section`
-  display: grid;
+  display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 `;
 
 export const StatsList = styled.ul`
   list-style: none;
   background-color: rgb(255, 255, 255, 0.2);
   border-radius: 10px;
-  padding: 0.1’rem;
+  padding: 0.1rem;
   padding-left: 1.5rem;
   margin: 24px;
-  display: grid;
   border: 0.1px solid white;
   width: 375px;
 `;
@@ -43,8 +43,7 @@ export const StyledDate = styled.p`
 `;
 
 export const TeamContainer = styled.div`
-  margin-bottom: 0.1rem;
-  margin-top: 0.2rem;
+  margin: 0.2rem 0;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
@@ -61,6 +60,7 @@ export const Score = styled.span`
 
 export const StatsBox = styled.table`
   border: 1px solid black;
+  margin: 0.3rem 0;
   background-color: #b6d3d6;
   font-size: 0.8rem;
   box-shadow: 1px 1px 2px;
