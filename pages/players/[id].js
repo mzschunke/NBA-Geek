@@ -24,20 +24,20 @@ export default function PlayerPage({ CURRENT_SEASON }) {
   if (isLoading) return <Loader />;
 
   return (
-    <PlayerBox>
-      <PlayerContainer>
-        <Image
-          src={`/images/avatar.png`}
-          width={100}
-          height={100}
-          style={{ objectFit: "contain" }}
-          alt="No Image provided"
-        />
-        <PlayerNameBio>
-          {player.last_name}, {player.first_name}
-        </PlayerNameBio>
-      </PlayerContainer>
-      <PlayerDetails>
+    <>
+      <PlayerBox>
+        <PlayerContainer>
+          <Image
+            src={`/images/avatar.png`}
+            width={100}
+            height={100}
+            style={{ objectFit: "contain" }}
+            alt="No Image provided"
+          />
+          <PlayerNameBio>
+            {player.last_name}, {player.first_name}
+          </PlayerNameBio>
+        </PlayerContainer>
         <StyledDescriptionList>
           <StyledTerm>Position: </StyledTerm>
           <StyledDefinition>
@@ -60,9 +60,9 @@ export default function PlayerPage({ CURRENT_SEASON }) {
             {player?.team?.full_name ? player.team.full_name : "unknown"}{" "}
           </StyledDefinition>
         </StyledDescriptionList>
-      </PlayerDetails>
-      <PlayerStats id={id} CURRENT_SEASON={CURRENT_SEASON} />
+        <PlayerStats id={id} CURRENT_SEASON={CURRENT_SEASON} />
+      </PlayerBox>
       <NavBar />
-    </PlayerBox>
+    </>
   );
 }

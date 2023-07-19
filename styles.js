@@ -89,7 +89,7 @@ export const TR = styled.tr`
 export const TH = styled.th`
   border-left: 1px solid black;
   border-bottom: 1px solid black;
-  background-color: #cee0ed;
+  background-color: orange;
 `;
 
 export const TD = styled.td`
@@ -134,7 +134,7 @@ export const PlayerBox = styled.div`
 `;
 
 export const PlayerContainer = styled.div`
-  display: flex;
+  /* display: flex; */
   padding: 1rem 1rem 0.2rem 1rem;
   margin-left: 0.7rem;
   margin-right: 1rem;
@@ -153,23 +153,20 @@ export const PlayerDetails = styled.div`
   font-size: 0.8rem;
   display: flex;
   justify-content: space-around;
-  padding: 0.5;
 `;
 
 export const StyledDescriptionList = styled.dl`
-  font-size: 0.8rem;
+  font-size: 1rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 8px;
   background-color: rgb(39, 100, 176, 0.5);
-  padding: 8px;
-  border-radius: 10px;
-  border: 0.1px solid white;
-  margin: 10px;
+  padding: 12px;
 `;
 
 export const StyledTerm = styled.dt`
   font-weight: 700;
+  justify-self: stretch;
 `;
 
 export const StyledDefinition = styled.dd`
