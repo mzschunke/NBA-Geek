@@ -80,6 +80,6 @@ export const DNP = styled.div`
   font-style: oblique;
   justify-self: flex-end;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  top: 10px;
+  right: 10px;
 `;

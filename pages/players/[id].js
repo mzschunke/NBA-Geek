@@ -6,7 +6,6 @@ import PlayerStats from "@/Components/PlayerStats";
 import {
   PlayerContainer,
   PlayerNameBio,
-  PlayerDetails,
   StyledDescriptionList,
   StyledTerm,
   StyledDefinition,

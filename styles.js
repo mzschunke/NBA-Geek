@@ -130,11 +130,10 @@ export const StyledTeamDetails = styled.div`
 
 export const PlayerBox = styled.div`
   justify-content: center;
-  min-width: 420px;
 `;
 
 export const PlayerContainer = styled.div`
-  /* display: flex; */
+  display: flex;
   padding: 1rem 1rem 0.2rem 1rem;
   margin-left: 0.7rem;
   margin-right: 1rem;
@@ -149,12 +148,6 @@ export const PlayerNameBio = styled.h1`
   margin-right: 0.3rem;
 `;
 
-export const PlayerDetails = styled.div`
-  font-size: 0.8rem;
-  display: flex;
-  justify-content: space-around;
-`;
-
 export const StyledDescriptionList = styled.dl`
   font-size: 1rem;
   display: grid;
@@ -162,6 +155,8 @@ export const StyledDescriptionList = styled.dl`
   grid-gap: 8px;
   background-color: rgb(39, 100, 176, 0.5);
   padding: 12px;
+  margin-top: 0;
+  border: 1px dotted white;
 `;
 
 export const StyledTerm = styled.dt`
@@ -171,4 +166,5 @@ export const StyledTerm = styled.dt`
 
 export const StyledDefinition = styled.dd`
   font-style: oblique;
+  margin-left: 0;
 `;
