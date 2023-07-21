@@ -5,6 +5,7 @@ export const SelectionContainer = styled.section`
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  margin-bottom: 0.5rem;
 `;
 
 export const StatsContainer = styled.section`
@@ -20,13 +21,14 @@ export const StatsList = styled.ul`
   border-radius: 10px;
   padding: 0.1rem;
   padding-left: 1.5rem;
-  margin: 24px;
+  margin: 8px;
   border: 0.1px solid white;
   width: 375px;
 `;
 
 export const SingleGame = styled.li`
   margin-bottom: 0.6rem;
+  padding-bottom: 0.5rem;
   font-size: 1rem;
   list-style: none;
   display: flex;
@@ -45,7 +47,7 @@ export const StyledDate = styled.p`
 
 export const TeamContainer = styled.div`
   margin: 0.2rem 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -55,7 +57,7 @@ export const TeamContainer = styled.div`
 export const Score = styled.span`
   font-weight: bold;
   font-style: oblique;
-  padding: 0 0 0.2rem 0.2rem;
+  padding-left: 0.2rem;
   margin-right: 5rem;
 `;
 

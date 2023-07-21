@@ -9,7 +9,7 @@ import {
   StyledDescriptionList,
   StyledTerm,
   StyledDefinition,
-  PlayerBox,
+  DescriptionBox,
 } from "@/styles";
 import Loader from "@/Components/Loader";
 
@@ -24,12 +24,12 @@ export default function PlayerPage({ CURRENT_SEASON }) {
 
   return (
     <>
-      <PlayerBox>
+      <>
         <PlayerContainer>
           <Image
             src={`/images/avatar.png`}
-            width={100}
-            height={100}
+            width={75}
+            height={75}
             style={{ objectFit: "contain" }}
             alt="No Image provided"
           />
@@ -37,30 +37,34 @@ export default function PlayerPage({ CURRENT_SEASON }) {
             {player.last_name}, {player.first_name}
           </PlayerNameBio>
         </PlayerContainer>
-        <StyledDescriptionList>
-          <StyledTerm>Position: </StyledTerm>
-          <StyledDefinition>
-            {player?.position ? player.position : "unknown"}
-          </StyledDefinition>
-          <StyledTerm> Height: </StyledTerm>
-          <StyledDefinition>
-            {" "}
-            {player?.height_feet
-              ? `${player.height_feet}'${player.height_inches}"`
-              : "unknown"}
-          </StyledDefinition>
-          <StyledTerm> Weight: </StyledTerm>
-          <StyledDefinition>
-            {" "}
-            {player?.weight_pounds ? `${player.weight_pounds} lbs.` : "unknown"}
-          </StyledDefinition>
-          <StyledTerm> Team: </StyledTerm>
-          <StyledDefinition>
-            {player?.team?.full_name ? player.team.full_name : "unknown"}{" "}
-          </StyledDefinition>
-        </StyledDescriptionList>
+        <DescriptionBox>
+          <StyledDescriptionList>
+            <StyledTerm>Position: </StyledTerm>
+            <StyledDefinition>
+              {player?.position ? player.position : "unknown"}
+            </StyledDefinition>
+            <StyledTerm> Height: </StyledTerm>
+            <StyledDefinition>
+              {" "}
+              {player?.height_feet
+                ? `${player.height_feet}'${player.height_inches}"`
+                : "unknown"}
+            </StyledDefinition>
+            <StyledTerm> Weight: </StyledTerm>
+            <StyledDefinition>
+              {" "}
+              {player?.weight_pounds
+                ? `${player.weight_pounds} lbs.`
+                : "unknown"}
+            </StyledDefinition>
+            <StyledTerm> Team: </StyledTerm>
+            <StyledDefinition>
+              {player?.team?.full_name ? player.team.full_name : "unknown"}{" "}
+            </StyledDefinition>
+          </StyledDescriptionList>
+        </DescriptionBox>
         <PlayerStats id={id} CURRENT_SEASON={CURRENT_SEASON} />
-      </PlayerBox>
+      </>
       <NavBar />
     </>
   );

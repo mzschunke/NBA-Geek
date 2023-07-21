@@ -128,10 +128,6 @@ export const StyledTeamDetails = styled.div`
 
 // PlayerPage [id] Stylings:
 
-export const PlayerBox = styled.div`
-  justify-content: center;
-`;
-
 export const PlayerContainer = styled.div`
   display: flex;
   padding: 1rem 1rem 0.2rem 1rem;
@@ -148,6 +144,12 @@ export const PlayerNameBio = styled.h1`
   margin-right: 0.3rem;
 `;
 
+export const DescriptionBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const StyledDescriptionList = styled.dl`
   font-size: 1rem;
   display: grid;
@@ -155,8 +157,9 @@ export const StyledDescriptionList = styled.dl`
   grid-gap: 8px;
   background-color: rgb(39, 100, 176, 0.5);
   padding: 12px;
-  margin-top: 0;
+  margin-top: 0.5rem;
   border: 1px dotted white;
+  width: 375px;
 `;
 
 export const StyledTerm = styled.dt`
