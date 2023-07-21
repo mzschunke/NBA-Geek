@@ -135,6 +135,7 @@ export const PlayerContainer = styled.div`
   margin-right: 1rem;
   gap: 1.2rem;
   justify-content: center;
+  align-items: center;
 `;
 
 export const PlayerNameBio = styled.h1`
