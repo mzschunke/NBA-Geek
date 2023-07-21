@@ -154,12 +154,12 @@ export const StyledDescriptionList = styled.dl`
   font-size: 1rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 8px;
+  grid-gap: 0.5rem;
   background-color: rgb(39, 100, 176, 0.5);
-  padding: 12px;
+  padding: 1rem;
   margin-top: 0.5rem;
-  border: 1px dotted white;
-  width: 375px;
+  border: 1px solid white;
+  min-width: 375px;
 `;
 
 export const StyledTerm = styled.dt`
