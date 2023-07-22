@@ -15,10 +15,7 @@ export function StatsListItem({ playerStats, teamNames }) {
     <>
       {playerStats.map((stat) => (
         <StatsList key={stat._id}>
-          <StyledDate>
-            {stat.game.date.split("T")[0]}
-            {":  "}
-          </StyledDate>
+          <StyledDate>{stat.game.date.split("T")[0]}:</StyledDate>
           <SingleGame key={stat.id}>
             <TeamContainer>
               <Image
@@ -42,7 +39,9 @@ export function StatsListItem({ playerStats, teamNames }) {
               {teamNames[stat.game.visitor_team_id]}
             </TeamContainer>
             <Score>{stat.game.visitor_team_score}</Score>
-            {stat.min !== "00" && (
+            {stat.min === "00" || stat.min === null ? (
+              <DNP>DNP</DNP>
+            ) : (
               <StatsBox>
                 <thead>
                   <TR>
@@ -95,7 +94,6 @@ export function StatsListItem({ playerStats, teamNames }) {
               </StatsBox>
             )}
           </SingleGame>
-          {stat.min === "00" && <DNP>DNP</DNP>}
         </StatsList>
       ))}
     </>

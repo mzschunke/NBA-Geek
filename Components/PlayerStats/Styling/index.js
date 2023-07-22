@@ -5,49 +5,49 @@ export const SelectionContainer = styled.section`
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  margin-bottom: 0.5rem;
 `;
 
 export const StatsContainer = styled.section`
-  display: grid;
+  display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 `;
 
 export const StatsList = styled.ul`
   list-style: none;
   background-color: rgb(255, 255, 255, 0.2);
   border-radius: 10px;
-  padding: 0.4rem;
+  padding: 0.1rem;
   padding-left: 1.5rem;
-  margin: 24px;
-  display: grid;
+  margin: 8px;
   border: 0.1px solid white;
   width: 375px;
 `;
 
 export const SingleGame = styled.li`
   margin-bottom: 0.6rem;
-  margin-top: 0.6rem;
+  padding-bottom: 0.5rem;
   font-size: 1rem;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.3rem;
+  gap: 0.1rem;
   align-items: center;
+  position: relative;
 `;
 
 export const StyledDate = styled.p`
-  margin-bottom: 0.8rem;
-  margin-top: 0.2rem;
+  margin-top: 0.4rem;
   font-size: 0.8rem;
   font-weight: 700;
   text-align: left;
 `;
 
 export const TeamContainer = styled.div`
-  margin-bottom: 0.1rem;
-  margin-top: 0.2rem;
-  font-size: 1.2rem;
+  margin: 0.2rem 0;
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -57,12 +57,13 @@ export const TeamContainer = styled.div`
 export const Score = styled.span`
   font-weight: bold;
   font-style: oblique;
-  padding: 0 0 0.2rem 0.2rem;
-  margin-right: 2.7rem;
+  padding-left: 0.2rem;
+  margin-right: 5rem;
 `;
 
 export const StatsBox = styled.table`
   border: 1px solid black;
+  margin: 0.3rem 0;
   background-color: #b6d3d6;
   font-size: 0.8rem;
   box-shadow: 1px 1px 2px;
@@ -70,13 +71,17 @@ export const StatsBox = styled.table`
 `;
 
 export const DNP = styled.div`
-  width: 3.5rem;
+  width: 3.2rem;
   border: 1px solid black;
   background-color: orange;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   box-shadow: 1px 1px 2px;
   border-radius: 4px;
   padding: 0.3rem;
-  margin-bottom: 0.4rem;
+  margin-right: 0.5rem;
   font-style: oblique;
+  justify-self: flex-end;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 `;

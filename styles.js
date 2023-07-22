@@ -7,7 +7,6 @@ export default createGlobalStyle`
   *::before,
   *::after {
     box-sizing: border-box;
-    /* border: 1px solid red; */
   }
 
   body {
@@ -75,7 +74,7 @@ export const NoData = styled.div`
 
 export const StyledSelect = styled(Select)`
   width: 100px;
-  height: 40px;
+  height: 2rem;
   align-self: center;
   margin-bottom: 10px;
   margin-top: 5px;
@@ -90,7 +89,7 @@ export const TR = styled.tr`
 export const TH = styled.th`
   border-left: 1px solid black;
   border-bottom: 1px solid black;
-  background-color: #cee0ed;
+  background-color: orange;
 `;
 
 export const TD = styled.td`
@@ -129,18 +128,14 @@ export const StyledTeamDetails = styled.div`
 
 // PlayerPage [id] Stylings:
 
-export const PlayerBox = styled.div`
-  justify-content: center;
-  min-width: 420px;
-`;
-
 export const PlayerContainer = styled.div`
   display: flex;
-  padding: 1.5rem;
+  padding: 1rem 1rem 0.2rem 1rem;
   margin-left: 0.7rem;
-  margin-right: 1 rem;
+  margin-right: 1rem;
   gap: 1.2rem;
   justify-content: center;
+  align-items: center;
 `;
 
 export const PlayerNameBio = styled.h1`
@@ -150,29 +145,30 @@ export const PlayerNameBio = styled.h1`
   margin-right: 0.3rem;
 `;
 
-export const PlayerDetails = styled.div`
-  font-size: 0.8rem;
+export const DescriptionBox = styled.div`
   display: flex;
-  justify-content: space-around;
-  padding: 0.5;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const StyledDescriptionList = styled.dl`
-  font-size: 0.8rem;
+  font-size: 1rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 8px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0.5rem;
   background-color: rgb(39, 100, 176, 0.5);
-  padding: 8px;
-  border-radius: 10px;
-  border: 0.1px solid white;
-  margin: 10px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border: 1px solid white;
+  min-width: 375px;
 `;
 
 export const StyledTerm = styled.dt`
   font-weight: 700;
+  justify-self: stretch;
 `;
 
 export const StyledDefinition = styled.dd`
   font-style: oblique;
+  margin-left: 0;
 `;

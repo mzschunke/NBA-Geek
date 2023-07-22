@@ -53,7 +53,7 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
   }, []);
 
   return (
-    <StatsContainer>
+    <>
       <SelectionContainer>
         <StyledSelect
           value={selectYears.find((option) => option.value === season)}
@@ -62,16 +62,17 @@ export default function PlayerStats({ id, CURRENT_SEASON }) {
           placeholder="pick a season"
           id="season-select"
         />
-
-        <Button variant="contained" onClick={fetchStats}>
+        <Button variant="contained" onClick={fetchStats} size="medium">
           Show Games
         </Button>
       </SelectionContainer>
-      {showNoData ? (
-        <NoData>No Data available for selected season</NoData>
-      ) : (
-        <StatsListItem playerStats={playerStats} teamNames={teamNames} />
-      )}
-    </StatsContainer>
+      <StatsContainer>
+        {showNoData ? (
+          <NoData>No Data available for selected season</NoData>
+        ) : (
+          <StatsListItem playerStats={playerStats} teamNames={teamNames} />
+        )}
+      </StatsContainer>
+    </>
   );
 }
