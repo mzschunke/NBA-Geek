@@ -15,10 +15,7 @@ export function StatsListItem({ playerStats, teamNames }) {
     <>
       {playerStats.map((stat) => (
         <StatsList key={stat._id}>
-          <StyledDate>
-            {stat.game.date.split("T")[0]}
-            {":  "}
-          </StyledDate>
+          <StyledDate>{stat.game.date.split("T")[0]}:</StyledDate>
           <SingleGame key={stat.id}>
             <TeamContainer>
               <Image
