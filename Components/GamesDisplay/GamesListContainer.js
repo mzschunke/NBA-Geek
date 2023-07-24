@@ -15,10 +15,7 @@ export function GamesListContainer({ games, noDataMessage, id }) {
       {games.length > 0 ? (
         games.map((game) => (
           <GamesList key={game.id}>
-            <StyledDate>
-              {game.date.split("T")[0]}
-              {": "}
-            </StyledDate>
+            <StyledDate>{game.date.split("T")[0]}:</StyledDate>
             <SingleGame key={game.id}>
               <TeamContainer
                 homeTeamId={game.home_team.id}
