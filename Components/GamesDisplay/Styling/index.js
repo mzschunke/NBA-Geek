@@ -5,6 +5,7 @@ export const SelectionContainer = styled.section`
   border-radius: 10px;
   padding: 0 5px 5px 10px;
   border: 0.1px solid white;
+  min-width: 300px;
 `;
 
 export const SubHeadline = styled.h3`
@@ -22,6 +23,9 @@ export const GamesContainer = styled.section`
   border-radius: 10px;
   padding: 1.5rem;
   margin: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const GamesList = styled.ul`
@@ -31,6 +35,7 @@ export const GamesList = styled.ul`
   padding: 0.5rem;
   display: grid;
   border: 0.1px solid white;
+  max-width: 375px;
 `;
 
 export const SingleGame = styled.li`
