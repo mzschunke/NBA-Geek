@@ -34,7 +34,6 @@ export const GamesList = styled.ul`
 `;
 
 export const SingleGame = styled.li`
-  padding: 0.5rem;
   margin-bottom: 0.6rem;
   margin-top: 0.6rem;
   display: flex;
