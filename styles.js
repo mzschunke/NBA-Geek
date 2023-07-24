@@ -122,7 +122,7 @@ export const TeamName = styled.h2`
 
 export const StyledTeamDetails = styled.div`
   text-align: center;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   font-weight: 550;
 `;
 
