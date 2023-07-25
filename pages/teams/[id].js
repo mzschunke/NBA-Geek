@@ -28,11 +28,10 @@ export default function TeamPage({ CURRENT_SEASON }) {
         <TeamName>
           {team.city} {team.name}
         </TeamName>
-        <StyledTeamDetails>
-          <p>Conference: {team.conference}</p>
-          <p>Division: {team.division}</p>
-        </StyledTeamDetails>
       </TeamContainer>
+      <StyledTeamDetails>
+        Conference: {team.conference} | Division: {team.division}
+      </StyledTeamDetails>
       <GamesDisplay id={id} CURRENT_SEASON={CURRENT_SEASON} />
       <NavBar />
     </>

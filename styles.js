@@ -109,7 +109,7 @@ export const TeamContainer = styled.div`
   justify-content: center;
   gap: 1%;
   align-items: center;
-  padding-top: 2.5rem;
+  padding-top: 2rem;
   margin: 0 10px 0 10px;
 `;
 
@@ -122,8 +122,9 @@ export const TeamName = styled.h2`
 
 export const StyledTeamDetails = styled.div`
   text-align: center;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   font-weight: 550;
+  padding-top: 1rem;
 `;
 
 // PlayerPage [id] Stylings:

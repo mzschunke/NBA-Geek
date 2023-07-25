@@ -5,6 +5,7 @@ export const SelectionContainer = styled.section`
   border-radius: 10px;
   padding: 0 5px 5px 10px;
   border: 0.1px solid white;
+  min-width: 300px;
 `;
 
 export const SubHeadline = styled.h3`
@@ -22,6 +23,9 @@ export const GamesContainer = styled.section`
   border-radius: 10px;
   padding: 1.5rem;
   margin: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const GamesList = styled.ul`
@@ -29,12 +33,13 @@ export const GamesList = styled.ul`
   background-color: rgb(255, 255, 255, 0.2);
   border-radius: 10px;
   padding: 0.5rem;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   border: 0.1px solid white;
+  max-width: 375px;
 `;
 
 export const SingleGame = styled.li`
-  padding: 0.5rem;
   margin-bottom: 0.6rem;
   margin-top: 0.6rem;
   display: flex;
@@ -54,6 +59,7 @@ export const StyledDate = styled.p`
 export const TeamContainer = styled.div`
   display: flex;
   align-items: center;
+  min-width: 15rem;
   gap: 0.5rem;
   padding: 0.2rem;
   font-size: 1.2rem;
