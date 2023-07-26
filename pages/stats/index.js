@@ -45,8 +45,8 @@ export default function Stats({ CURRENT_SEASON }) {
       try {
         const url = `https://www.balldontlie.io/api/v1/season_averages?season=${selectedSeason}&player_ids[]=${selectedPlayer}`;
         const response = await fetch(url);
-        const fetchedData = await response.json();
-        const playerStats = fetchedData.data[0];
+        const { data } = await response.json();
+        const playerStats = data[0];
         setPlayerStats(playerStats);
       } catch (error) {
         console.error("Error fetching player data:", error);
@@ -61,8 +61,8 @@ export default function Stats({ CURRENT_SEASON }) {
       try {
         const url = `https://www.balldontlie.io/api/v1/season_averages?season=${selectedSeasonTwo}&player_ids[]=${selectedPlayerTwo}`;
         const response = await fetch(url);
-        const fetchedData = await response.json();
-        const playerTwoStats = fetchedData.data[0];
+        const { data } = await response.json();
+        const playerTwoStats = data[0];
         setPlayerTwoStats(playerTwoStats);
       } catch (error) {
         console.error("Error fetching player data:", error);
