@@ -3,12 +3,10 @@ import styled from "styled-components";
 export const StatsContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0;
-  padding: 0;
-  margin-bottom: 100px;
-  gap: 2%;
+  margin-top: 1rem;
 `;
 
 export const BarChartContainer = styled.section`
