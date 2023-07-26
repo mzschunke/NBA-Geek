@@ -43,9 +43,8 @@ export default function Stats({ CURRENT_SEASON }) {
   useEffect(() => {
     async function fetchPlayer() {
       try {
-        const response = await fetch(
-          `https://www.balldontlie.io/api/v1/season_averages?season=${selectedSeason}&player_ids[]=${selectedPlayer}`
-        );
+        const url = `https://www.balldontlie.io/api/v1/season_averages?season=${selectedSeason}&player_ids[]=${selectedPlayer}`;
+        const response = await fetch(url);
         const fetchedData = await response.json();
         const playerStats = fetchedData.data[0];
         setPlayerStats(playerStats);
@@ -60,9 +59,8 @@ export default function Stats({ CURRENT_SEASON }) {
   useEffect(() => {
     async function fetchPlayerTwo() {
       try {
-        const response = await fetch(
-          `https://www.balldontlie.io/api/v1/season_averages?season=${selectedSeasonTwo}&player_ids[]=${selectedPlayerTwo}`
-        );
+        const url = `https://www.balldontlie.io/api/v1/season_averages?season=${selectedSeasonTwo}&player_ids[]=${selectedPlayerTwo}`;
+        const response = await fetch(url);
         const fetchedData = await response.json();
         const playerTwoStats = fetchedData.data[0];
         setPlayerTwoStats(playerTwoStats);
