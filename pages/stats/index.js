@@ -5,12 +5,58 @@ import { Headline } from "@/styles";
 import StatsDisplay from "@/Components/StatsDisplay";
 
 export default function Stats({ CURRENT_SEASON }) {
-  const [selectedPlayer, setSelectedPlayer] = useState("");
-  const [selectedSeason, setSelectedSeason] = useState(2022);
+  const [selectedPlayer, setSelectedPlayer] = useState(() => {
+    if (typeof localStorage !== "undefined") {
+      return localStorage.getItem("selectedPlayer") || "";
+    }
+    return "";
+  });
+
+  const [selectedSeason, setSelectedSeason] = useState(() => {
+    if (typeof localStorage !== "undefined") {
+      return localStorage.getItem("selectedSeason") || "2022";
+    }
+    return "2022";
+  });
   const [playerStats, setPlayerStats] = useState(null);
-  const [selectedPlayerTwo, setSelectedPlayerTwo] = useState("");
-  const [selectedSeasonTwo, setSelectedSeasonTwo] = useState(2022);
+  const [selectedPlayerTwo, setSelectedPlayerTwo] = useState(() => {
+    if (typeof localStorage !== "undefined") {
+      return localStorage.getItem("selectedPlayerTwo") || "";
+    }
+    return "";
+  });
+
+  const [selectedSeasonTwo, setSelectedSeasonTwo] = useState(() => {
+    if (typeof localStorage !== "undefined") {
+      return localStorage.getItem("selectedSeasonTwo") || "2022";
+    }
+    return "2022";
+  });
+
   const [playerTwoStats, setPlayerTwoStats] = useState(null);
+
+  useEffect(() => {
+    const storedSelectedPlayer = localStorage.getItem("selectedPlayer");
+    const storedSelectedSeason = localStorage.getItem("selectedSeason");
+    const storedSelectedPlayerTwo = localStorage.getItem("selectedPlayerTwo");
+    const storedSelectedSeasonTwo = localStorage.getItem("selectedSeasonTwo");
+
+    if (storedSelectedPlayer) {
+      setSelectedPlayer(storedSelectedPlayer);
+    }
+
+    if (storedSelectedSeason) {
+      setSelectedSeason(storedSelectedSeason);
+    }
+
+    if (storedSelectedPlayerTwo) {
+      setSelectedPlayerTwo(storedSelectedPlayerTwo);
+    }
+
+    if (storedSelectedSeasonTwo) {
+      setSelectedSeasonTwo(storedSelectedSeasonTwo);
+    }
+  }, []);
 
   const handlePlayerChange = (selectedOption) => {
     setSelectedPlayer(selectedOption.value);
@@ -59,6 +105,13 @@ export default function Stats({ CURRENT_SEASON }) {
 
     fetchPlayerTwo();
   }, [selectedPlayerTwo, selectedSeasonTwo]);
+
+  useEffect(() => {
+    localStorage.setItem("selectedPlayer", selectedPlayer);
+    localStorage.setItem("selectedSeason", selectedSeason);
+    localStorage.setItem("selectedPlayerTwo", selectedPlayerTwo);
+    localStorage.setItem("selectedSeasonTwo", selectedSeasonTwo);
+  }, [selectedPlayer, selectedSeason, selectedPlayerTwo, selectedSeasonTwo]);
 
   return (
     <>

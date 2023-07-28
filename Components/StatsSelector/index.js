@@ -58,7 +58,7 @@ export default function StatsSelector({
           value={selectYears.find((option) => option.value === selectedSeason)}
           onChange={onSelectSeason}
           options={selectYears}
-          placeholder="Select a Season"
+          placeholder="Season"
           id="season-select"
         />
       </SelectionBox>
@@ -78,7 +78,7 @@ export default function StatsSelector({
           )}
           onChange={onSelectSeasonTwo}
           options={selectYears}
-          placeholder="Select a Season"
+          placeholder="Season"
           id="seasontwo-select"
         />
       </SelectionBox>
