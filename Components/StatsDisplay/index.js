@@ -90,7 +90,6 @@ export default function StatsDisplay({
           <NoData>No data available for your selection</NoData>
         </>
       )}
-
       {!selectedPlayerTwo || !playerTwo ? (
         <span />
       ) : playerTwoStats ? (

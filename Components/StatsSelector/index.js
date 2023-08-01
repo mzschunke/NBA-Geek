@@ -53,6 +53,7 @@ export default function StatsSelector({
           onChange={onSelectPlayer}
           id="player-select"
           placeholder="Choose 1st player"
+          instanceId={1}
         />
         <Select
           value={selectYears.find((option) => option.value === selectedSeason)}
@@ -60,6 +61,7 @@ export default function StatsSelector({
           options={selectYears}
           placeholder="Season"
           id="season-select"
+          instanceId={2}
         />
       </SelectionBox>
       <SelectionBox>
@@ -71,6 +73,7 @@ export default function StatsSelector({
           onChange={onSelectPlayerTwo}
           id="playertwo-select"
           placeholder="Choose 2nd player"
+          instanceId={3}
         />
         <Select
           value={selectYears.find(
@@ -80,6 +83,7 @@ export default function StatsSelector({
           options={selectYears}
           placeholder="Season"
           id="seasontwo-select"
+          instanceId={4}
         />
       </SelectionBox>
     </>
