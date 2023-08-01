@@ -2,27 +2,61 @@ import NavBar from "@/Components/NavBar";
 import StatsSelector from "@/Components/StatsSelector";
 import { useState, useEffect } from "react";
 import { Headline } from "@/styles";
-import styled from "styled-components";
 import StatsDisplay from "@/Components/StatsDisplay";
 
-const DisplayContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 0.6rem;
-  padding: 1rem;
-  justify-content: center;
-  align-items: center;
-  margin-left: 20%;
-  margin-right: 20%;
-`;
-
 export default function Stats({ CURRENT_SEASON }) {
-  const [selectedPlayer, setSelectedPlayer] = useState("");
-  const [selectedSeason, setSelectedSeason] = useState(2022);
+  const [selectedPlayer, setSelectedPlayer] = useState(() => {
+    if (typeof localStorage !== "undefined") {
+      return localStorage.getItem("selectedPlayer") || "";
+    }
+    return "";
+  });
+
+  const [selectedSeason, setSelectedSeason] = useState(() => {
+    if (typeof localStorage !== "undefined") {
+      return localStorage.getItem("selectedSeason") || "2022";
+    }
+    return "2022";
+  });
   const [playerStats, setPlayerStats] = useState(null);
-  const [selectedPlayerTwo, setSelectedPlayerTwo] = useState("");
-  const [selectedSeasonTwo, setSelectedSeasonTwo] = useState(2022);
+  const [selectedPlayerTwo, setSelectedPlayerTwo] = useState(() => {
+    if (typeof localStorage !== "undefined") {
+      return localStorage.getItem("selectedPlayerTwo") || "";
+    }
+    return "";
+  });
+
+  const [selectedSeasonTwo, setSelectedSeasonTwo] = useState(() => {
+    if (typeof localStorage !== "undefined") {
+      return localStorage.getItem("selectedSeasonTwo") || "2022";
+    }
+    return "2022";
+  });
+
   const [playerTwoStats, setPlayerTwoStats] = useState(null);
+
+  useEffect(() => {
+    const storedSelectedPlayer = localStorage.getItem("selectedPlayer");
+    const storedSelectedSeason = localStorage.getItem("selectedSeason");
+    const storedSelectedPlayerTwo = localStorage.getItem("selectedPlayerTwo");
+    const storedSelectedSeasonTwo = localStorage.getItem("selectedSeasonTwo");
+
+    if (storedSelectedPlayer) {
+      setSelectedPlayer(storedSelectedPlayer);
+    }
+
+    if (storedSelectedSeason) {
+      setSelectedSeason(storedSelectedSeason);
+    }
+
+    if (storedSelectedPlayerTwo) {
+      setSelectedPlayerTwo(storedSelectedPlayerTwo);
+    }
+
+    if (storedSelectedSeasonTwo) {
+      setSelectedSeasonTwo(storedSelectedSeasonTwo);
+    }
+  }, []);
 
   const handlePlayerChange = (selectedOption) => {
     setSelectedPlayer(selectedOption.value);
@@ -43,11 +77,10 @@ export default function Stats({ CURRENT_SEASON }) {
   useEffect(() => {
     async function fetchPlayer() {
       try {
-        const response = await fetch(
-          `https://www.balldontlie.io/api/v1/season_averages?season=${selectedSeason}&player_ids[]=${selectedPlayer}`
-        );
-        const fetchedData = await response.json();
-        const playerStats = fetchedData.data[0];
+        const url = `https://www.balldontlie.io/api/v1/season_averages?season=${selectedSeason}&player_ids[]=${selectedPlayer}`;
+        const response = await fetch(url);
+        const { data } = await response.json();
+        const playerStats = data[0];
         setPlayerStats(playerStats);
       } catch (error) {
         console.error("Error fetching player data:", error);
@@ -60,11 +93,10 @@ export default function Stats({ CURRENT_SEASON }) {
   useEffect(() => {
     async function fetchPlayerTwo() {
       try {
-        const response = await fetch(
-          `https://www.balldontlie.io/api/v1/season_averages?season=${selectedSeasonTwo}&player_ids[]=${selectedPlayerTwo}`
-        );
-        const fetchedData = await response.json();
-        const playerTwoStats = fetchedData.data[0];
+        const url = `https://www.balldontlie.io/api/v1/season_averages?season=${selectedSeasonTwo}&player_ids[]=${selectedPlayerTwo}`;
+        const response = await fetch(url);
+        const { data } = await response.json();
+        const playerTwoStats = data[0];
         setPlayerTwoStats(playerTwoStats);
       } catch (error) {
         console.error("Error fetching player data:", error);
@@ -73,6 +105,13 @@ export default function Stats({ CURRENT_SEASON }) {
 
     fetchPlayerTwo();
   }, [selectedPlayerTwo, selectedSeasonTwo]);
+
+  useEffect(() => {
+    localStorage.setItem("selectedPlayer", selectedPlayer);
+    localStorage.setItem("selectedSeason", selectedSeason);
+    localStorage.setItem("selectedPlayerTwo", selectedPlayerTwo);
+    localStorage.setItem("selectedSeasonTwo", selectedSeasonTwo);
+  }, [selectedPlayer, selectedSeason, selectedPlayerTwo, selectedSeasonTwo]);
 
   return (
     <>
@@ -88,16 +127,14 @@ export default function Stats({ CURRENT_SEASON }) {
         onSelectSeasonTwo={handleSeasonTwoChange}
         CURRENT_SEASON={CURRENT_SEASON}
       />
-      <DisplayContainer>
-        <StatsDisplay
-          playerStats={playerStats}
-          playerTwoStats={playerTwoStats}
-          selectedPlayer={selectedPlayer}
-          selectedPlayerTwo={selectedPlayerTwo}
-          selectedSeason={selectedSeason}
-          selectedSeasonTwo={selectedSeasonTwo}
-        ></StatsDisplay>
-      </DisplayContainer>
+      <StatsDisplay
+        playerStats={playerStats}
+        playerTwoStats={playerTwoStats}
+        selectedPlayer={selectedPlayer}
+        selectedPlayerTwo={selectedPlayerTwo}
+        selectedSeason={selectedSeason}
+        selectedSeasonTwo={selectedSeasonTwo}
+      ></StatsDisplay>
       <NavBar />
     </>
   );

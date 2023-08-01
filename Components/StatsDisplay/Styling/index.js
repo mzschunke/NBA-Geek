@@ -3,12 +3,10 @@ import styled from "styled-components";
 export const StatsContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0;
-  padding: 0;
-  margin-bottom: 100px;
-  gap: 2%;
+  margin-top: 1rem;
 `;
 
 export const BarChartContainer = styled.section`
@@ -29,11 +27,9 @@ export const PlayerName = styled.div`
   border: 0.5px solid white;
   border-radius: 4px;
   padding: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 900;
   box-shadow: 1px 1px 2px;
-  margin-left: 1rem;
-  margin-bottom: 0;
 `;
 
 export const StyledTable = styled.table`
@@ -41,7 +37,6 @@ export const StyledTable = styled.table`
   font-size: 0.8rem;
   margin: 1rem;
   box-shadow: 1px 1px 2px;
-  width: 90%;
-  max-width: 375px;
-  min-width: 310px;
+  width: 50%;
+  min-width: 330px;
 `;
