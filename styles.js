@@ -40,13 +40,14 @@ export const ImageContainer = styled.div`
 
 export const HeaderContainer = styled.header`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: flex-end;
   border-bottom: 1px solid #cee0ed;
   background: rgb(39, 100, 176);
   position: sticky;
   top: 0;
   z-index: 1;
+  gap: 1rem;
 `;
 
 export const Headline = styled.h2`
