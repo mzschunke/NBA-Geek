@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const NavContainer = styled.nav`
   position: fixed;
-  border-top: 0.2px solid #cee0ed;
+  border-top: 1px solid #cee0ed;
   bottom: 0%;
   height: 85px;
   width: 100%;

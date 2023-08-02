@@ -19,15 +19,6 @@ export default createGlobalStyle`
 
 // Homepage
 
-export const HeaderContainer = styled.header`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-end;
-  border-bottom: 0.2px solid #cee0ed;
-  background: rgb(39, 100, 176);
-  height: 85px;
-`;
-
 export const MainHeadline = styled.h1`
   font-size: 2.8rem;
   text-align: center;
@@ -47,17 +38,27 @@ export const ImageContainer = styled.div`
 
 // Global Styled Components:
 
+export const HeaderContainer = styled.header`
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border-bottom: 1px solid #cee0ed;
+  background: rgb(39, 100, 176);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  gap: 1rem;
+`;
+
 export const Headline = styled.h2`
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
-  margin-top: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.6rem;
   text-align: center;
   letter-spacing: 2px;
   color: #cee0ed;
   text-shadow: 3px 3px 3px #000000;
-  margin-top: 1rem;
-  margin-bottom: 0;
+  margin: 0;
 `;
 
 export const NoData = styled.div`

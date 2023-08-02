@@ -1,7 +1,7 @@
 import NavBar from "@/Components/NavBar";
 import StatsSelector from "@/Components/StatsSelector";
 import { useState, useEffect } from "react";
-import { Headline } from "@/styles";
+import { Headline, HeaderContainer } from "@/styles";
 import StatsDisplay from "@/Components/StatsDisplay";
 
 export default function Stats({ CURRENT_SEASON }) {
@@ -14,9 +14,9 @@ export default function Stats({ CURRENT_SEASON }) {
 
   const [selectedSeason, setSelectedSeason] = useState(() => {
     if (typeof localStorage !== "undefined") {
-      return localStorage.getItem("selectedSeason") || "2022";
+      return localStorage.getItem("selectedSeason") || { CURRENT_SEASON };
     }
-    return "2022";
+    return { CURRENT_SEASON };
   });
   const [playerStats, setPlayerStats] = useState(null);
   const [selectedPlayerTwo, setSelectedPlayerTwo] = useState(() => {
@@ -28,9 +28,9 @@ export default function Stats({ CURRENT_SEASON }) {
 
   const [selectedSeasonTwo, setSelectedSeasonTwo] = useState(() => {
     if (typeof localStorage !== "undefined") {
-      return localStorage.getItem("selectedSeasonTwo") || "2022";
+      return localStorage.getItem("selectedSeasonTwo") || { CURRENT_SEASON };
     }
-    return "2022";
+    return { CURRENT_SEASON };
   });
 
   const [playerTwoStats, setPlayerTwoStats] = useState(null);
@@ -115,7 +115,9 @@ export default function Stats({ CURRENT_SEASON }) {
 
   return (
     <>
-      <Headline>COMPARE</Headline>
+      <HeaderContainer>
+        <Headline>COMPARE</Headline>
+      </HeaderContainer>
       <StatsSelector
         selectedPlayer={selectedPlayer}
         onSelectPlayer={handlePlayerChange}

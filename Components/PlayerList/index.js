@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -15,7 +15,6 @@ import {
   StyledLetter,
   NoResults,
 } from "./Styling";
-import { Headline } from "@/styles";
 import { Button } from "@mui/material";
 import Loader from "../Loader";
 
@@ -56,7 +55,6 @@ export default function PlayerOverview() {
   if (searchQuery === "")
     return (
       <>
-        <Headline>ALL PLAYERS</Headline>
         <SearchContainer>
           <Input
             value={searchQuery}
@@ -109,7 +107,6 @@ export default function PlayerOverview() {
   else
     return (
       <>
-        <Headline>ALL PLAYERS</Headline>
         <SearchContainer>
           <Input
             value={searchQuery}

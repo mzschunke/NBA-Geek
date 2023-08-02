@@ -4,9 +4,6 @@ export const SelectionBox = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
-  background-color: rgb(39, 100, 176);
-  padding: 0.5rem;
-  border-bottom: 0.1px solid white;
-  border-top: 0.1px solid white;
+  gap: 0.5rem;
+  padding: 1rem;
 `;

@@ -1,7 +1,6 @@
 import useSWR from "swr";
 import Link from "next/link";
 import Image from "next/image";
-import { Headline } from "@/styles";
 import Loader from "@/Components/Loader";
 import { StyledList, StyledListItem, TeamName } from "./Styling";
 
@@ -15,7 +14,6 @@ export default function TeamOverview() {
 
   return (
     <>
-      <Headline>ALL TEAMS</Headline>
       <StyledList role="list">
         {teams.map((team) => (
           <Link href={`/teams/${team.id}`} key={team.id}>

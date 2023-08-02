@@ -63,8 +63,6 @@ export default function StatsSelector({
           id="season-select"
           instanceId={2}
         />
-      </SelectionBox>
-      <SelectionBox>
         <Select
           options={selectOptions}
           value={selectOptions.find(
