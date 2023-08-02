@@ -15,7 +15,6 @@ import {
   StyledLetter,
   NoResults,
 } from "./Styling";
-import { Headline, HeaderContainer } from "@/styles";
 import { Button } from "@mui/material";
 import Loader from "../Loader";
 
@@ -56,9 +55,6 @@ export default function PlayerOverview() {
   if (searchQuery === "")
     return (
       <>
-        <HeaderContainer>
-          <Headline>PLAYERS</Headline>
-        </HeaderContainer>
         <SearchContainer>
           <Input
             value={searchQuery}
@@ -111,7 +107,6 @@ export default function PlayerOverview() {
   else
     return (
       <>
-        <Headline>ALL PLAYERS</Headline>
         <SearchContainer>
           <Input
             value={searchQuery}
