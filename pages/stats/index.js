@@ -1,7 +1,7 @@
 import NavBar from "@/Components/NavBar";
 import StatsSelector from "@/Components/StatsSelector";
 import { useState, useEffect } from "react";
-import { Headline } from "@/styles";
+import { Headline, HeaderContainer } from "@/styles";
 import StatsDisplay from "@/Components/StatsDisplay";
 
 export default function Stats({ CURRENT_SEASON }) {
@@ -115,7 +115,9 @@ export default function Stats({ CURRENT_SEASON }) {
 
   return (
     <>
-      <Headline>COMPARE</Headline>
+      <HeaderContainer>
+        <Headline>COMPARE</Headline>
+      </HeaderContainer>
       <StatsSelector
         selectedPlayer={selectedPlayer}
         onSelectPlayer={handlePlayerChange}
