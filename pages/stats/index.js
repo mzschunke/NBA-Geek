@@ -2,9 +2,9 @@ import NavBar from "@/Components/NavBar";
 import StatsSelector from "@/Components/StatsSelector";
 import { Headline, HeaderContainer } from "@/styles";
 import StatsDisplay from "@/Components/StatsDisplay";
-import { usePlayerStats } from "@/utilities/hooks/fetchplayer";
-import { usePlayerTwoStats } from "@/utilities/hooks/fetchplayertwo";
-import { useLocalStorage } from "@/utilities/hooks/uselocalstorage";
+import { usePlayerStats } from "@/utilities/hooks/ComparePage/fetchplayer";
+import { usePlayerTwoStats } from "@/utilities/hooks/ComparePage/fetchplayertwo";
+import { useLocalStorage } from "@/utilities/hooks/ComparePage/uselocalstorage";
 
 export default function Stats({ CURRENT_SEASON }) {
   const [selectedPlayer, setSelectedPlayer] = useLocalStorage(
