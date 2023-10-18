@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const usePlayerTwoStats = (selectedPlayerTwo, selectedSeasonTwo) => {
+export const usePlayerTwoStats = (selectedPlayerTwo, selectedSeasonTwo) => {
   const [playerTwoStats, setPlayerTwoStats] = useState(null);
 
   useEffect(() => {
@@ -26,5 +26,3 @@ const usePlayerTwoStats = (selectedPlayerTwo, selectedSeasonTwo) => {
 
   return playerTwoStats;
 };
-
-export default usePlayerTwoStats;
