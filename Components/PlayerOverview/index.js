@@ -17,8 +17,8 @@ import {
 } from "./Styling";
 import { Button } from "@mui/material";
 import Loader from "../Loader";
-
 const alphabet = [..."abcdefghijklmnopqrstuvwxyz"];
+
 export default function PlayerOverview() {
   const { data, error, isLoading } = useSWR("/api/players", {
     fallbackData: [],

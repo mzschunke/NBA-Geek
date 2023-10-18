@@ -11,12 +11,8 @@ export default function StatsSelector({
   onSelectSeason,
   selectedSeasonTwo,
   onSelectSeasonTwo,
-  CURRENT_SEASON,
+  seasons,
 }) {
-  let seasons = [];
-  for (let year = CURRENT_SEASON; year >= 1946; year--) {
-    seasons.push(year);
-  }
   const { data } = useSWR("/api/players", { fallbackData: [] });
 
   let sortedPlayers = [];

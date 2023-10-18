@@ -1,4 +1,4 @@
-import PlayerOverview from "../../Components/PlayerList";
+import PlayerOverview from "../../Components/PlayerOverview";
 import NavBar from "@/Components/NavBar";
 import { Headline, HeaderContainer } from "@/styles";
 

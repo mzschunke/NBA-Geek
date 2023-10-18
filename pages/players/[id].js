@@ -15,7 +15,7 @@ import Loader from "@/Components/Loader";
 
 const URL = "https://www.balldontlie.io/api/v1/players";
 
-export default function PlayerPage({ CURRENT_SEASON }) {
+export default function PlayerPage({ CURRENT_SEASON, seasons }) {
   const router = useRouter();
   const { id } = router.query;
   const { data: player, error, isLoading } = useSWR(`${URL}/${id}`);
@@ -62,7 +62,7 @@ export default function PlayerPage({ CURRENT_SEASON }) {
           <StyledDefinition>{team}</StyledDefinition>
         </StyledDescriptionList>
       </DescriptionBox>
-      <PlayerStats id={id} CURRENT_SEASON={CURRENT_SEASON} />
+      <PlayerStats id={id} CURRENT_SEASON={CURRENT_SEASON} seasons={seasons} />
       <NavBar />
     </>
   );

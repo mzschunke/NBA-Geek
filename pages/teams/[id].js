@@ -8,7 +8,7 @@ import { TeamContainer, TeamName, StyledTeamDetails } from "@/styles";
 
 const URL = "https://www.balldontlie.io/api/v1/teams";
 
-export default function TeamPage({ CURRENT_SEASON }) {
+export default function TeamPage({ CURRENT_SEASON, seasons }) {
   const router = useRouter();
   const { id } = router.query;
   const { data: team, error, isLoading } = useSWR(URL + "/" + id);
@@ -32,7 +32,7 @@ export default function TeamPage({ CURRENT_SEASON }) {
       <StyledTeamDetails>
         Conference: {team.conference} | Division: {team.division}
       </StyledTeamDetails>
-      <GamesDisplay id={id} CURRENT_SEASON={CURRENT_SEASON} />
+      <GamesDisplay id={id} CURRENT_SEASON={CURRENT_SEASON} seasons={seasons} />
       <NavBar />
     </>
   );

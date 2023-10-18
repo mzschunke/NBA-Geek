@@ -11,7 +11,6 @@ export const SearchContainer = styled.div`
 export const AlphabetContainer = styled.div`
   display: flex;
   justify-content: center;
-  background-color: rgb(0, 0, 0, 0.1);
 `;
 
 export const StyledAlphabet = styled.ul`
