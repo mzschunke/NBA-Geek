@@ -3,6 +3,8 @@ import StatsSelector from "@/Components/StatsSelector";
 import { useState, useEffect } from "react";
 import { Headline, HeaderContainer } from "@/styles";
 import StatsDisplay from "@/Components/StatsDisplay";
+import usePlayerStats from "@/utilities/hooks/fetchplayer";
+import usePlayerTwoStats from "@/utilities/hooks/fetchplayertwo";
 
 export default function Stats({ CURRENT_SEASON }) {
   const [selectedPlayer, setSelectedPlayer] = useState(() => {
@@ -11,14 +13,12 @@ export default function Stats({ CURRENT_SEASON }) {
     }
     return "";
   });
-
   const [selectedSeason, setSelectedSeason] = useState(() => {
     if (typeof localStorage !== "undefined") {
-      return localStorage.getItem("selectedSeason") || { CURRENT_SEASON };
+      return localStorage.getItem("selectedSeason") || "";
     }
-    return { CURRENT_SEASON };
+    return "";
   });
-  const [playerStats, setPlayerStats] = useState(null);
   const [selectedPlayerTwo, setSelectedPlayerTwo] = useState(() => {
     if (typeof localStorage !== "undefined") {
       return localStorage.getItem("selectedPlayerTwo") || "";
@@ -28,12 +28,10 @@ export default function Stats({ CURRENT_SEASON }) {
 
   const [selectedSeasonTwo, setSelectedSeasonTwo] = useState(() => {
     if (typeof localStorage !== "undefined") {
-      return localStorage.getItem("selectedSeasonTwo") || { CURRENT_SEASON };
+      return localStorage.getItem("selectedSeasonTwo") || "";
     }
-    return { CURRENT_SEASON };
+    return "";
   });
-
-  const [playerTwoStats, setPlayerTwoStats] = useState(null);
 
   useEffect(() => {
     const storedSelectedPlayer = localStorage.getItem("selectedPlayer");
@@ -75,43 +73,17 @@ export default function Stats({ CURRENT_SEASON }) {
   };
 
   useEffect(() => {
-    async function fetchPlayer() {
-      try {
-        const url = `https://www.balldontlie.io/api/v1/season_averages?season=${selectedSeason}&player_ids[]=${selectedPlayer}`;
-        const response = await fetch(url);
-        const { data } = await response.json();
-        const playerStats = data[0];
-        setPlayerStats(playerStats);
-      } catch (error) {
-        console.error("Error fetching player data:", error);
-      }
-    }
-
-    fetchPlayer();
-  }, [selectedPlayer, selectedSeason]);
-
-  useEffect(() => {
-    async function fetchPlayerTwo() {
-      try {
-        const url = `https://www.balldontlie.io/api/v1/season_averages?season=${selectedSeasonTwo}&player_ids[]=${selectedPlayerTwo}`;
-        const response = await fetch(url);
-        const { data } = await response.json();
-        const playerTwoStats = data[0];
-        setPlayerTwoStats(playerTwoStats);
-      } catch (error) {
-        console.error("Error fetching player data:", error);
-      }
-    }
-
-    fetchPlayerTwo();
-  }, [selectedPlayerTwo, selectedSeasonTwo]);
-
-  useEffect(() => {
     localStorage.setItem("selectedPlayer", selectedPlayer);
     localStorage.setItem("selectedSeason", selectedSeason);
     localStorage.setItem("selectedPlayerTwo", selectedPlayerTwo);
     localStorage.setItem("selectedSeasonTwo", selectedSeasonTwo);
   }, [selectedPlayer, selectedSeason, selectedPlayerTwo, selectedSeasonTwo]);
+
+  const playerStats = usePlayerStats(selectedPlayer, selectedSeason);
+  const playerTwoStats = usePlayerTwoStats(
+    selectedPlayerTwo,
+    selectedSeasonTwo
+  );
 
   return (
     <>

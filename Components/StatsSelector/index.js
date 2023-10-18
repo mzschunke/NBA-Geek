@@ -14,7 +14,7 @@ export default function StatsSelector({
   CURRENT_SEASON,
 }) {
   let seasons = [];
-  for (let year = CURRENT_SEASON; year >= 1946; year--) {
+  for (let year = parseInt(CURRENT_SEASON); year >= 1946; year--) {
     seasons.push(year);
   }
   const { data } = useSWR("/api/players", { fallbackData: [] });
