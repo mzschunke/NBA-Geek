@@ -6,7 +6,7 @@ import { usePlayerStats } from "@/utilities/hooks/ComparePage/fetchplayer";
 import { usePlayerTwoStats } from "@/utilities/hooks/ComparePage/fetchplayertwo";
 import { useLocalStorage } from "@/utilities/hooks/ComparePage/uselocalstorage";
 
-export default function Stats({ CURRENT_SEASON }) {
+export default function Stats({ seasons }) {
   const [selectedPlayer, setSelectedPlayer] = useLocalStorage(
     "selectedPlayer",
     ""
@@ -60,7 +60,7 @@ export default function Stats({ CURRENT_SEASON }) {
         onSelectSeason={handleSeasonChange}
         selectedSeasonTwo={selectedSeasonTwo}
         onSelectSeasonTwo={handleSeasonTwoChange}
-        CURRENT_SEASON={CURRENT_SEASON}
+        seasons={seasons}
       />
       <StatsDisplay
         playerStats={playerStats}

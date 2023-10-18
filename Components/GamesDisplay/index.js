@@ -6,7 +6,7 @@ import { GamesListContainer } from "./GamesListContainer";
 import { Button } from "@mui/material";
 import Loader from "../Loader";
 
-export default function GamesDisplay({ id, CURRENT_SEASON }) {
+export default function GamesDisplay({ id, CURRENT_SEASON, seasons }) {
   const parseID = Number.parseInt(id, 10);
   const [season, setSeason] = useState(CURRENT_SEASON);
   const [showPostseason, setShowPostseason] = useState(false);
@@ -69,10 +69,6 @@ export default function GamesDisplay({ id, CURRENT_SEASON }) {
             game.visitor_team_score < game.home_team_score)
       );
 
-  let seasons = [];
-  for (let year = CURRENT_SEASON; year >= 1946; year--) {
-    seasons.push(year);
-  }
   const selectYears = seasons.map((season) => ({
     value: season,
     label: season.toString(),

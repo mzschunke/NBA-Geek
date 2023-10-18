@@ -5,17 +5,12 @@ import { useState } from "react";
 import { Button } from "@mui/material";
 import { usePlayerStatsData } from "@/utilities/hooks/PlayerPage/fetchplayerdata.js";
 
-export default function PlayerStats({ id, CURRENT_SEASON }) {
+export default function PlayerStats({ id, CURRENT_SEASON, seasons }) {
   const [season, setSeason] = useState(CURRENT_SEASON);
   const { playerStats, teamNames, showNoData, fetchStats } = usePlayerStatsData(
     season,
     id
   );
-
-  let seasons = [];
-  for (let year = CURRENT_SEASON; year >= 1946; year--) {
-    seasons.push(year);
-  }
 
   const selectYears = seasons.map((season) => ({
     value: season,
